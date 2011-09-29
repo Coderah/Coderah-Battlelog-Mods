@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<buildType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <type>greasemonkey</type>
+  <updateFile>battlelog_mods.user.js</updateFile>
+  <sourcePath>greasemonkey_base</sourcePath>
+</buildType>
