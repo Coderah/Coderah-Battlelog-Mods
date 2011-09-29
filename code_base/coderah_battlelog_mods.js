@@ -20,7 +20,11 @@ joinflow.showPasswordPromptPopup = function(server, callback)
 S.debug = function(msg)
 {
 	if (typeof msg == "object" && !(typeof JSON == "undefined")) {
-		console.log("S.debug() object - " + JSON.stringify(msg));
+		try {
+			console.log("S.debug() object - " + JSON.stringify(msg));
+		} catch (e) {
+			console.log("S.debug() unserializable object - " + msg);
+		}
 	} else {
 		console.log("S.debug() - " + msg);
 	}
