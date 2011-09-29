@@ -1,2 +1,0 @@
-build greasemonkey.xml
-pause
