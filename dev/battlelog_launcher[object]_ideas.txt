@@ -1,0 +1,4 @@
+## launcher.restoreWindow ##
+Declaration: function(game)
+Ideas: could be used to auto restore the window during "Loading Game..." instead of waiting to press the "Go to Game" button when it has loaded.
+Idea Type: setting.

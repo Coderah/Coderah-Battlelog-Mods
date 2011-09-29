@@ -1,0 +1,3301 @@
+.jquerybubblepopup
+{
+  width:auto;
+  height:auto;
+  position:absolute;
+  border:0;
+  z-index:100;
+  text-align:center;
+  background-color:transparent;
+  margin:0;
+  padding:0;
+}
+
+.jquerybubblepopup-ie
+{
+  filter:progid:DXImageTransform.Microsoft.Shadow(color="#666666",Direction=135,Strength=3);
+}
+
+.jquerybubblepopup table
+{
+  width:auto;
+  height:auto;
+  display:table;
+  border-collapse:collapse;
+  border-spacing:0;
+  border:0;
+  empty-cells:show;
+  background-color:transparent;
+  margin:0;
+  padding:0;
+}
+
+.jquerybubblepopup tbody
+{
+  display:table-row-group;
+  vertical-align:middle;
+  border:0;
+  background-color:transparent;
+}
+
+.jquerybubblepopup td
+{
+  background-color:transparent;
+  margin:0;
+  padding:0;
+}
+
+.jquerybubblepopup-top-left,.jquerybubblepopup-top-right,.jquerybubblepopup-bottom-left,.jquerybubblepopup-bottom-right
+{
+  width:21px;
+  height:21px;
+  overflow:hidden;
+  background-repeat:no-repeat;
+}
+
+.jquerybubblepopup-top-middle,.jquerybubblepopup-bottom-middle
+{
+  overflow:hidden;
+  background-repeat:repeat-x;
+}
+
+.jquerybubblepopup-middle-left,.jquerybubblepopup-middle-right
+{
+  overflow:hidden;
+  background-repeat:repeat-y;
+}
+
+.jquerybubblepopup-tail
+{
+  border:0;
+  display:inline;
+  margin:0;
+  padding:0;
+}
+
+.jquerybubblepopup-azure .jquerybubblepopup-innerHtml,.jquerybubblepopup-black .jquerybubblepopup-innerHtml,.jquerybubblepopup-blue .jquerybubblepopup-innerHtml,.jquerybubblepopup-green .jquerybubblepopup-innerHtml,.jquerybubblepopup-grey .jquerybubblepopup-innerHtml,.jquerybubblepopup-orange .jquerybubblepopup-innerHtml,.jquerybubblepopup-violet .jquerybubblepopup-innerHtml,.jquerybubblepopup-yellow .jquerybubblepopup-innerHtml
+{
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  line-height:16px;
+  font-weight:400;
+  color:#000;
+  background-color:#FFF;
+}
+
+.jquerybubblepopup-all-azure .jquerybubblepopup-innerHtml,.jquerybubblepopup-all-black .jquerybubblepopup-innerHtml,.jquerybubblepopup-all-blue .jquerybubblepopup-innerHtml,.jquerybubblepopup-all-green .jquerybubblepopup-innerHtml,.jquerybubblepopup-all-grey .jquerybubblepopup-innerHtml,.jquerybubblepopup-all-orange .jquerybubblepopup-innerHtml,.jquerybubblepopup-all-violet .jquerybubblepopup-innerHtml,.jquerybubblepopup-all-yellow .jquerybubblepopup-innerHtml
+{
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  line-height:16px;
+  font-weight:400;
+  color:#FFF;
+}
+
+.jquerybubblepopup-all-azure .jquerybubblepopup-innerHtml
+{
+  background-color:#09F;
+}
+
+.jquerybubblepopup-all-black .jquerybubblepopup-innerHtml
+{
+  background-color:#000;
+}
+
+.jquerybubblepopup-all-blue .jquerybubblepopup-innerHtml
+{
+  background-color:#06C;
+}
+
+.jquerybubblepopup-all-green .jquerybubblepopup-innerHtml
+{
+  background-color:#6F0;
+}
+
+.jquerybubblepopup-all-grey .jquerybubblepopup-innerHtml
+{
+  background-color:#666;
+}
+
+.jquerybubblepopup-all-orange .jquerybubblepopup-innerHtml
+{
+  background-color:#F93;
+}
+
+.jquerybubblepopup-all-violet .jquerybubblepopup-innerHtml
+{
+  background-color:#F3F;
+}
+
+.jquerybubblepopup-all-yellow .jquerybubblepopup-innerHtml
+{
+  background-color:#FC0;
+}
+
+.tipsy
+{
+  font-size:10px;
+  position:absolute;
+  z-index:999;
+  padding:5px;
+}
+
+.tipsy-inner
+{
+  background-color:#000;
+  color:#FFF;
+  text-align:center;
+  line-height:16px;
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  padding:5px 8px;
+}
+
+.tipsy-arrow
+{
+  position:absolute;
+  background:url(/public/common/tipsy.gif) no-repeat top left;
+  width:9px;
+  height:5px;
+}
+
+.tipsy-n .tipsy-arrow
+{
+  top:0;
+  left:50%;
+  margin-left:-4px;
+}
+
+.tipsy-nw .tipsy-arrow
+{
+  top:0;
+  left:10px;
+}
+
+.tipsy-ne .tipsy-arrow
+{
+  top:0;
+  right:10px;
+}
+
+.tipsy-s .tipsy-arrow
+{
+  bottom:0;
+  left:50%;
+  margin-left:-4px;
+  background-position:bottom left;
+}
+
+.tipsy-sw .tipsy-arrow
+{
+  bottom:0;
+  left:10px;
+  background-position:bottom left;
+}
+
+.tipsy-se .tipsy-arrow
+{
+  bottom:0;
+  right:10px;
+  background-position:bottom left;
+}
+
+.tipsy-e .tipsy-arrow
+{
+  top:50%;
+  margin-top:-4px;
+  right:0;
+  width:5px;
+  height:9px;
+  background-position:top right;
+}
+
+.tipsy-w .tipsy-arrow
+{
+  top:50%;
+  margin-top:-4px;
+  left:0;
+  width:5px;
+  height:9px;
+}
+
+.common-page-title,.common-leaderboard-title
+{
+  color:#000;
+  font-size:35px;
+  font-weight:700;
+  font-family:Arial;
+  margin:16px 0;
+}
+
+.common-leaderboard-headercells
+{
+  height:29px;
+  cursor:default;
+  background-image:url(http://battlelog-cdn.battlefield.com/public/common/box-title-gradient-with-lin.png?v=180);
+  background-repeat:repeat-x;
+  position:relative;
+  left:0;
+  width:100%;
+}
+
+.common-leaderboard-headersep
+{
+  float:left;
+  width:1px;
+  margin-left:0;
+  height:30px;
+  background-color:#d7d7d7;
+}
+
+.common-leaderboard-th,.common-leaderboard-td
+{
+  float:left;
+  height:30px;
+  font-size:11px;
+  font-family:Arial,sans-serif;
+  color:#797979;
+  line-height:30px;
+  text-indent:6px;
+  border:0;
+}
+
+.common-leaderboard-td
+{
+  line-height:80px;
+  height:80px;
+  padding-left:1px;
+  color:#353535;
+  font-weight:700;
+}
+
+.common-leaderboard-first
+{
+  width:37px;
+}
+
+.common-leaderboard-name
+{
+  width:847px;
+}
+
+.common-leaderboard-score
+{
+  width:100px;
+  float:right;
+}
+
+.common-leaderboard-number
+{
+  font-size:18px;
+  font-weight:700;
+}
+
+.common-leaderboard-bodycells
+{
+  border-bottom:1px solid #ededed;
+  height:80px;
+  background:#fff;
+  line-height:40px;
+  position:relative;
+}
+
+.common-leaderboard-this-is-you:hover,.common-leaderboard-this-is-you
+{
+  background:#f7e9bf;
+}
+
+.common-leaderboard-bodycells.active:hover,.common-leaderboard-bodycells.active
+{
+  background:#f7e9bf;
+  z-index:10;
+}
+
+.common-bodycell-border
+{
+  width:1px;
+  height:80px;
+  position:relative;
+  float:right;
+  background-color:#f2f2f2;
+  margin-top:1px;
+}
+
+.common-leaderboard-avatar,.common-leaderboard-username
+{
+  float:left;
+  line-height:78px;
+}
+
+.common-leaderboard-avatar
+{
+  margin-top:10px;
+  text-indent:0;
+}
+
+.common-leaderboard-th.common-leaderboard-first
+{
+  text-indent:17px;
+}
+
+.common-form-input-wrapper
+{
+  border-top:1px solid #ababab;
+  zoom:1;
+  display:inline;
+}
+
+.common-title
+{
+  font-size:35px;
+  font-family:BebasNeueRegular,Arial,sans-serif;
+  padding:16px 0 6px;
+}
+
+body .common-playing-link
+{
+  color:#8a8a8a;
+  font-size:11px;
+  clear:none;
+}
+
+.common-form-input-wrapper textarea,.common-form-input-wrapper input
+{
+  border-top:none;
+  margin:0;
+}
+
+.common-form-input-wrapper.common-form-input-focus
+{
+  border-top-color:#575757;
+}
+
+.common-form-input-wrapper.common-form-input-focus textarea,.common-form-input-wrapper.common-form-input-focus input,.common-form-input-wrapper.common-form-input-focus select
+{
+  background-color:#f8f8f8;
+  border-color:#707070;
+}
+
+.common-inlineedit-link-icon
+{
+  padding-right:17px;
+  background:transparent url(http://battlelog-cdn.battlefield.com/public/common/pen-edit.png?v=180) no-repeat 100% 50%;
+}
+
+.common-dropzone
+{
+  width:300px;
+  height:62px;
+  position:relative;
+  background:url(http://battlelog-cdn.battlefield.com/public/gamemanager/dropzone-bg.png?v=180);
+}
+
+body .common-dropzone.active
+{
+  background:#e0edd3;
+}
+
+body .common-dropzone.dragging .common-dropzone-content
+{
+  border:2px solid #9bbf77;
+}
+
+.common-dropzone.dragging
+{
+  background:#d3e4c2;
+}
+
+.common-dropzone .common-dropzone-logo
+{
+  width:100%;
+  height:100%;
+  background:url(/public/base/shared/dropzone-dark-horizontal.png) no-repeat scroll center 16px transparent;
+}
+
+.common-dropzone .common-dropzone-description
+{
+  text-align:center;
+  color:#353535;
+  font-size:11px;
+  padding-top:36px;
+}
+
+.common-popup-close-container
+{
+  cursor:pointer;
+  position:absolute;
+  right:12px;
+  top:9px;
+  height:33px;
+  width:33px;
+}
+
+.common-popup-close
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/row_icon_chat.png?v=180) 0 26px;
+  height:13px;
+  width:13px;
+  position:relative;
+  left:12px;
+  top:11px;
+}
+
+.common-popup-close-container:hover .common-popup-close
+{
+  background-position:0 13px;
+}
+
+.common-popup
+{
+  width:498px;
+  z-index:1337;
+  position:fixed;
+  top:150px;
+  color:#353535;
+  margin:0 auto 0 267px;
+}
+
+.common-popup.common-popup-big
+{
+  width:918px;
+  left:50%;
+  top:50%;
+  margin:-258px 0 0 -459px;
+}
+
+.common-popup-title-container
+{
+  height:45px;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/popup-header.png?v=180) no-repeat;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  user-select:none;
+}
+
+.common-popup-big .common-popup-title-container
+{
+  background-image:url(http://battlelog-cdn.battlefield.com/public/common/popup-big-header.png?v=180);
+}
+
+.common-popup-title
+{
+  font-weight:700;
+  font-size:12px;
+  font-family:Tahoma,sans-serif;
+  color:#353535;
+  margin-left:26px;
+  padding-top:19px;
+  height:25px;
+}
+
+.common-popup-content-container
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/popup-middle.png?v=180) repeat-y;
+  zoom:1;
+}
+
+.common-popup-big .common-popup-content-container
+{
+  background-image:url(http://battlelog-cdn.battlefield.com/public/common/popup-big-middle.png?v=180);
+  position:relative;
+  overflow:hidden;
+  zoom:1;
+}
+
+.common-popup-footer
+{
+  background-color:#fafafa;
+  font-size:14px;
+  min-height:28px;
+  margin:0 10px;
+  padding:9px 16px;
+}
+
+.common-popup-big .common-popup-footer
+{
+  font-size:12px;
+  padding:10px 20px 0 31px;
+}
+
+.common-popup-line
+{
+  width:478px;
+  height:1px;
+  background:#ededed;
+  margin-left:10px;
+}
+
+.common-popup-footer-container
+{
+  height:59px;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/popup-bottom.png?v=180);
+}
+
+.common-popup-big .common-popup-footer-container
+{
+  height:61px;
+  padding-top:1px;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/popup-big-bottom.png?v=180);
+}
+
+.common-bigpopup-title-container
+{
+  width:100%;
+  height:45px;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/popup-big-header.png?v=180);
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  user-select:none;
+}
+
+.common-bigpopup-content-container
+{
+  width:100%;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/popup-big-middle.png?v=180) repeat-y;
+}
+
+.common-bigpopup-footer
+{
+  font-size:14px;
+  padding:9px 26px;
+}
+
+.common-bigpopup-footer-container
+{
+  width:100%;
+  height:59px;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/popup-big-bottom.png?v=180);
+}
+
+.common-focus-bar-line
+{
+  height:1px;
+  width:100%;
+  background:#cacaca;
+}
+
+.common-focus-bar-default-width
+{
+  width:147px;
+  clear:both;
+  margin:10px 0;
+}
+
+.common-focus-bar
+{
+  border:1px solid #dbdbdb;
+  background:#e7e7e7;
+  padding:6px;
+}
+
+.common-box-container
+{
+  border:1px solid #e8e8e8;
+  background:#fff;
+  position:relative;
+  z-index:2;
+}
+
+.common-box-title-inverted
+{
+  left:-1px;
+  position:relative;
+}
+
+.common-box-title-inverted .common-box-container
+{
+  background-color:#fff;
+  border-top:1px solid #cacaca;
+  border-bottom:1px solid #fff;
+}
+
+.common-box-inner-border
+{
+  border:1px solid #fefefe;
+}
+
+.common-box-title-inverted .common-box-container .common-box-inner-border
+{
+  border:1px solid #dbdbdb;
+  border-bottom-width:0;
+}
+
+.common-box-inner
+{
+  padding:0 16px;
+}
+
+.common-box-inner.less-padding
+{
+  padding:5px 14px 24px;
+}
+
+.common-box-title
+{
+  font-size:12px;
+  font-weight:700;
+  font-family:Tahoma,sans-serif;
+  color:#353535;
+}
+
+.common-box-title-clean.no-line .common-box-title
+{
+  border-bottom:0;
+}
+
+.common-box-title-clean.common-center-large-title .common-box-title
+{
+  width:100%;
+  text-indent:0;
+  padding-left:0;
+  padding-right:0;
+  margin-left:0;
+  margin-right:0;
+  text-align:center;
+  font-size:30px;
+  font-family:BebasNeueRegular,sans-serif;
+  border-bottom:0;
+  font-weight:400;
+}
+
+.common-box-title-clean .common-box-title
+{
+  border-bottom:1px solid #ededed;
+  margin:0 14px;
+  padding:11px 0;
+}
+
+.common-box-title-solid .common-box-title
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/box-title-gradient.png?v=180);
+  line-height:30px;
+  height:30px;
+  color:#8a8a8a;
+  text-indent:14px;
+  width:100%;
+  font-weight:400;
+  font-family:Arial,sans-serif;
+  padding:0 1px;
+}
+
+.common-box-narrow
+{
+  width:320px;
+}
+
+.common-box-title-solid-with-line .common-box-title
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/box-title-gradient-with-lin.png?v=180);
+  line-height:30px;
+  height:29px;
+  border-left:1px solid #e6e6e6;
+  border-right:1px solid #e6e6e6;
+  color:#8a8a8a;
+  padding:0 0 0 8px;
+}
+
+.common-boxnarrow-shadow
+{
+  height:45px;
+  bottom:-46px;
+  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/light-bg-shadow-320.jpg?v=180) top center no-repeat;
+}
+
+.common-box-bottom-border
+{
+  background:#dadada;
+  height:1px;
+  width:100%;
+  clear:both;
+  margin:0;
+}
+
+.common-secondary-column-line
+{
+  clear:both;
+  width:100%;
+  height:2px;
+  background:#dfdfdf;
+  border-bottom:1px solid #fcfcfc;
+}
+
+.common-secondary-simple-column-line
+{
+  clear:both;
+  width:100%;
+  height:1px;
+  background:#dfdfdf;
+}
+
+.common-secondary-column-title,.common-secondary-column-title a
+{
+  line-height:32px;
+  font-weight:700;
+  text-transform:uppercase;
+  font-size:11px;
+  position:relative;
+  font-family:Tahoma,Arial,sans-serif;
+}
+
+.common-secondary-column-title
+{
+  line-height:32px;
+  font-weight:700;
+  color:#8a8a8a;
+}
+
+.alternate .common-secondary-column-title
+{
+  color:#353535;
+  font-size:15px;
+  text-transform:none;
+  line-height:34px;
+  font-family:Arial,sans-serif;
+}
+
+.alternate .common-secondary-column-title img
+{
+  position:relative;
+  top:2px;
+}
+
+.common-secondary-column-content
+{
+  margin-bottom:16px;
+}
+
+.common-playing-mode
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/play_state.png?v=180);
+  width:10px;
+  height:9px;
+  display:block;
+  float:left;
+  margin:4px 4px 2px 2px;
+}
+
+.common-playing-mode-black-mp
+{
+  background-position:0 9px;
+}
+
+.common-playing-mode-black-coop
+{
+  background-position:0 -9px;
+}
+
+.common-playing-mode-white-sp
+{
+  background-position:10px 0;
+}
+
+.common-playing-mode-white-mp
+{
+  background-position:10px 9px;
+}
+
+.common-playing-mode-white-coop
+{
+  background-position:10px -9px;
+}
+
+.common-onechoice-entry
+{
+  background:#fafafa;
+  border:1px solid #dbdbdb;
+  float:left;
+  color:#353535;
+  text-align:center;
+  font-size:11px;
+  cursor:pointer;
+  font-weight:700;
+  padding:7px;
+}
+
+.common-onechoice-pressed
+{
+  background:#353535;
+  border:0;
+  border-top:1px solid #000;
+  border-bottom:1px solid #000;
+  padding-left:8px;
+  padding-right:8px;
+  color:#fff;
+}
+
+.common-onechoice-line
+{
+  width:100%;
+  height:1px;
+  background:#fff;
+}
+
+.common-multichoice-container
+{
+  overflow:auto;
+  height:30px;
+}
+
+.common-multichoice-entry
+{
+  height:28px;
+  width:58px;
+  color:#3b3b3b;
+  text-shadow:0 1px #fff;
+  float:left;
+  font-weight:700;
+  font-size:11px;
+  line-height:27px;
+  text-align:center;
+  cursor:pointer;
+  overflow:hidden;
+  text-transform:capitalize;
+  margin-left:5px;
+}
+
+.common-multichoice-left
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/multichoice-left.png?v=180) no-repeat scroll;
+}
+
+.common-multichoice-middle
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/multichoice-middle.png?v=180) no-repeat scroll;
+}
+
+.common-multichoice-right
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/multichoice-right.png?v=180) no-repeat scroll;
+}
+
+.common-multichoice-left,.common-multichoice-middle,.common-multichoice-right
+{
+  background-position:0 -28px;
+}
+
+.common-gameicon
+{
+  display:block;
+  width:26px;
+  height:20px;
+  background-image:url(http://battlelog-cdn.battlefield.com/public/common/game_icons.png?v=180);
+  top:0;
+}
+
+.common-game-1-4-256
+{
+  background-position:0 -60px;
+}
+
+.common-game-1-1-256
+{
+  background-position:0 -80px;
+}
+
+.common-game-1-2-256
+{
+  background-position:0 -100px;
+}
+
+.common-game-0-1,.common-game-0-2,.common-game-0-4,.common-game-0-1.bright,.common-game-0-2.bright,.common-game-0-4.bright,.common-game-0-1-256.bright,.common-game-0-2-256.bright,.common-game-0-4-256.bright,.common-gameicon-hori.common-game-0-1.bright,.common-gameicon-hori.common-game-0-2.bright,.common-gameicon-hori.common-game-0-4.bright,.common-gameicon-hori.common-game-0-1-256.bright,.common-gameicon-hori.common-game-0-2-256.bright,.common-gameicon-hori.common-game-0-4-256.bright,.common-gameicon-hori.common-game-0-1,.common-gameicon-hori.common-game-0-2,.common-gameicon-hori.common-game-0-4
+{
+  background:red;
+}
+
+.common-game-1-4-256.bright
+{
+  background-position:26px -60px;
+}
+
+.common-game-1-1-256.bright
+{
+  background-position:26px -80px;
+}
+
+.common-game-1-2-256.bright
+{
+  background-position:26px -100px;
+}
+
+.common-gameicon-hori
+{
+  display:block;
+  width:26px;
+  height:13px;
+  background-image:url(http://battlelog-cdn.battlefield.com/public/common/game_icons_hori.png?v=180);
+}
+
+.common-gameicon-hori.common-game-1-4.bright
+{
+  width:50px;
+  background-position:-50px 0;
+}
+
+.common-gameicon-hori.common-game-1-1.bright
+{
+  width:41px;
+  background-position:-41px -13px;
+}
+
+.common-gameicon-hori.common-game-1-2.bright
+{
+  width:48px;
+  background-position:-48px -26px;
+}
+
+.common-gameicon-hori.common-game-1-4-256.bright
+{
+  width:52px;
+  background-position:-52px -39px;
+}
+
+.common-gameicon-hori.common-game-1-1-256.bright
+{
+  width:43px;
+  background-position:-43px -52px;
+}
+
+.common-gameicon-hori.common-game-1-2-256.bright
+{
+  width:50px;
+  background-position:-50px -65px;
+}
+
+.common-gameicon-hori.common-game-1-4
+{
+  width:50px;
+  background-position:0 0;
+}
+
+.common-gameicon-hori.common-game-1-1
+{
+  width:41px;
+  background-position:0 -13px;
+}
+
+.common-gameicon-hori.common-game-1-2
+{
+  width:48px;
+  background-position:0 -26px;
+}
+
+.common-gameicon-hori.common-game-1-4-256
+{
+  width:52px;
+  background-position:0 -39px;
+}
+
+.common-gameicon-hori.common-game-1-1-256
+{
+  width:43px;
+  background-position:0 -52px;
+}
+
+.common-gameicon-hori.common-game-1-2-256
+{
+  width:50px;
+  background-position:0 -65px;
+}
+
+.common-gameicon-hori.common-game-2-4
+{
+  width:41px;
+  background-position:0 0;
+}
+
+.common-gameicon-hori.common-game-2-1
+{
+  width:32px;
+  background-position:0 -14px;
+}
+
+.common-gameicon-hori.common-game-2-2
+{
+  width:39px;
+  background-position:0 -26px;
+}
+
+.common-gameicon-hori.common-game-2-4.bright
+{
+  width:41px;
+  background-position:-41px 0;
+}
+
+.common-gameicon-hori.common-game-2-1.bright
+{
+  width:32px;
+  background-position:-32px -14px;
+}
+
+.common-gameicon-hori.common-game-2-2.bright
+{
+  width:39px;
+  background-position:-39px -26px;
+}
+
+.common-presence-playing,.common-presence-online,.common-presence-offline
+{
+  width:7px;
+  height:7px;
+  display:block;
+  background-image:url(http://battlelog-cdn.battlefield.com/public/common/status_icons_s.png?v=180);
+}
+
+.common-presence-online
+{
+  background-position:0 -14px;
+}
+
+.common-presence-offline
+{
+  background-position:0 -7px;
+}
+
+.common-selectablebig-container
+{
+  position:relative;
+  width:350px;
+  height:38px;
+}
+
+.common-selectablebig-left,.common-selectablebig-right,.common-selectablebig-middle
+{
+  cursor:pointer;
+  position:absolute;
+  text-align:center;
+  color:#3b3b3b;
+  text-shadow:0 1px #fff;
+  font-weight:700;
+  font-size:11px;
+  line-height:38px;
+  top:0;
+  width:175px;
+  height:38px;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/selectable-big.png?v=180) scroll 0 0;
+  text-transform:capitalize;
+}
+
+.common-selectablebig-left
+{
+  left:0;
+  background-position:0 38px;
+}
+
+.common-selectablebig-left:hover
+{
+  background-position:0 114px;
+}
+
+.common-selectablebig-middle
+{
+  left:175px;
+  width:1px;
+  background-position:-176px 0;
+}
+
+.common-selectablebig-right
+{
+  left:176px;
+  background-position:-178px 38px;
+}
+
+.common-selectablebig-right:hover
+{
+  background-position:-178px 114px;
+}
+
+.common-selectablebig-right-pressed
+{
+  background-position:-178px 0;
+}
+
+.common-selectablebig-right-pressed:hover
+{
+  background-position:-178px -76px;
+}
+
+.common-selectable-container
+{
+  position:relative;
+  width:80px;
+  height:27px;
+}
+
+.common-selectable-left,.common-selectable-right,.common-selectable-middle
+{
+  cursor:pointer;
+  position:absolute;
+  text-align:center;
+  color:#3b3b3b;
+  text-shadow:0 1px #fff;
+  font-weight:700;
+  font-size:11px;
+  line-height:27px;
+  top:0;
+  width:39px;
+  height:28px;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/selectable-small.png?v=180) no-repeat scroll 0 0;
+  text-transform:capitalize;
+}
+
+.common-found-no-stats
+{
+  font-size:12px;
+  color:#8a8a8a;
+  text-align:center;
+  border-bottom:1px solid #ededed;
+  min-height:289px;
+  padding:25px 0;
+}
+
+.common-selectable-left
+{
+  left:0;
+  background-position:0 -28px;
+}
+
+.common-selectable-middle
+{
+  left:39px;
+  width:1px;
+  background-position:-40px 0;
+}
+
+.common-selectable-right
+{
+  left:40px;
+  background-position:-42px -28px;
+}
+
+.common-selectable-right:hover
+{
+  background-position:-42px -84px;
+}
+
+.common-selectable-right-pressed
+{
+  background-position:-42px 0;
+}
+
+.common-selectable-right-pressed:hover
+{
+  background-position:-42px -56px;
+}
+
+.common-percentbar-container
+{
+  width:100%;
+  height:9px;
+  border:1px solid #cacaca;
+  background:#fff;
+  padding:0 2px 0 0;
+}
+
+.common-percentbar-container.bright
+{
+  background:#000;
+}
+
+.common-percentbar-container div
+{
+  height:7px;
+  background-color:#353535;
+  float:left;
+  max-width:100%;
+  margin:1px;
+}
+
+.common-percentbar-container.bright div
+{
+  background-color:#fff;
+}
+
+.common-cleanbutton
+{
+  display:inline-block;
+  position:relative;
+  float:left;
+}
+
+.common-cleanbutton-left,.common-cleanbutton-right
+{
+  position:absolute;
+  top:0;
+  width:2px;
+  height:28px;
+  display:block;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/cleanbutton.png?v=180);
+}
+
+.common-cleanbutton-right
+{
+  right:0;
+  background-position:0 -56px;
+}
+
+.common-cleanbutton-middle
+{
+  display:inline-block;
+  height:28px;
+  line-height:28px;
+  padding-left:8px;
+  padding-right:8px;
+  font-size:11px;
+  margin-left:2px;
+  margin-right:2px;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/cleanbutton.png?v=180) 0 -28px;
+}
+
+.common-cleanbutton:hover .common-cleanbutton-middle
+{
+  background-position:0 -112px;
+}
+
+.common-cleanbutton:hover .common-cleanbutton-right
+{
+  background-position:0 -140px;
+}
+
+.common-cleanbuttonsmall-left,.common-cleanbuttonsmall-right,.common-cleanbuttonsmall-disabled-left,.common-cleanbuttonsmall-disabled-right
+{
+  position:absolute;
+  top:0;
+  width:2px;
+  height:19px;
+  display:block;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/cleanbuttonsmall.png?v=180);
+}
+
+.common-cleanbuttonsmall-middle,.common-cleanbuttonsmall-disabled-middle
+{
+  display:inline-block;
+  height:19px;
+  line-height:19px;
+  font-size:11px;
+  margin-left:2px;
+  margin-right:2px;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/cleanbuttonsmall.png?v=180) 0 -19px;
+  font-weight:400;
+}
+
+.common-cleanbuttonsmall-middle span,.common-cleanbuttonsmall-disabled-middle span
+{
+  padding-left:5px;
+  padding-right:6px;
+}
+
+.common-cleanbuttonsmall-disabled-middle
+{
+  color:#acacac;
+}
+
+.common-cleanbuttonsmall:hover .common-cleanbuttonsmall-left
+{
+  background-position:0 -57px;
+}
+
+.common-cleanbuttonsmall:hover .common-cleanbuttonsmall-right
+{
+  background-position:0 -95px;
+}
+
+#base-bfbc2-body .common-cleanbuttonsmall a
+{
+  color:#308DBF;
+  font-weight:400;
+  text-decoration:none;
+}
+
+#base-bfbc2-body .common-cleanbuttonsmall a:hover
+{
+  color:#3b3b3b;
+  font-weight:400;
+  text-decoration:none;
+}
+
+.common-cleanbuttonsmall2-left,.common-cleanbuttonsmall2-right
+{
+  position:absolute;
+  top:0;
+  width:2px;
+  height:19px;
+  display:block;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/cleanbuttonsmall2.png?v=180);
+}
+
+.common-cleanbuttonsmall2-left
+{
+  left:0;
+  background-position:0 0;
+  top:0;
+}
+
+.common-cleanbuttonsmall2-middle
+{
+  display:inline-block;
+  height:19px;
+  line-height:19px;
+  padding-left:5px;
+  padding-right:6px;
+  font-size:11px;
+  margin-left:2px;
+  margin-right:2px;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/cleanbuttonsmall2.png?v=180) 0 -19px;
+  padding-top:-1px;
+}
+
+.common-cleanbuttonsmall2:hover .common-cleanbuttonsmall2-right
+{
+  background-position:0 -94px;
+}
+
+.common-reportbutton
+{
+  position:relative;
+  height:14px;
+  width:14px;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/report.png?v=180);
+  cursor:pointer;
+  z-index:10;
+  padding:0;
+}
+
+.common-reportbutton-container.active .common-reportbutton,.common-reportbutton-container:hover .common-reportbutton
+{
+  background-position:0 14px;
+}
+
+.common-reportbutton-dropdown
+{
+  position:absolute;
+  width:120px;
+  top:14px;
+  left:-108px;
+  z-index:100;
+  display:none;
+  background-color:#FFF;
+  border:1px solid #aaa;
+}
+
+.common-reportbutton-dropdown li
+{
+  border-bottom:1px solid #ebebeb;
+}
+
+.common-reportbutton-dropdown .ajax-loader
+{
+  padding:5px 53px;
+}
+
+.common-reportbutton-dropdown a
+{
+  font-size:11px;
+  height:25px;
+  line-height:25px;
+  outline:none;
+  padding:0 10px;
+}
+
+.common-square
+{
+  width:3px;
+  height:3px;
+  margin:0 3px 2px;
+}
+
+.common-black
+{
+  color:#353535;
+}
+
+.common-active-row.active .common-active-row-text
+{
+  z-index:1;
+  color:#fff;
+  font-weight:700;
+  position:relative;
+}
+
+.common-active-row:hover
+{
+  background:#DFDFDF;
+}
+
+.common-active-row.active
+{
+  color:#fff;
+}
+
+.common-active-row.disabled,.common-active-row.disabled a
+{
+  cursor:default!important;
+  color:#C7C7C7;
+  text-decoration:none;
+}
+
+.common-active-row .common-active-row-marker
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/platoon/menu_bg.png?v=180) no-repeat;
+  display:none;
+  position:absolute;
+  top:0;
+  left:0;
+  width:328px;
+  height:29px;
+}
+
+.common-active-row.active .common-active-row-marker
+{
+  display:block;
+  z-index:0;
+}
+
+.common-receipt
+{
+  margin-bottom:6px;
+  z-index:200;
+  display:block;
+  background:url(http://battlelog-cdn.battlefield.com/public/common/bg-message.png?v=180);
+  color:#d3d3d3;
+  font-size:11px;
+  width:320px;
+  padding:5px;
+}
+
+.common-receipt.type-checkbox
+{
+  background:rgba(0,142,163,0.7);
+  -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E539B54A,endColorstr=#E539B54A);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E539B54A,endColorstr=#E539B54A);
+  zoom:1;
+  color:#fff;
+  font-size:12px;
+}
+
+.common-receipt.type-skull
+{
+  background:rgba(160,16,16,0.8);
+  -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5E53939,endColorstr=#E5E53939);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5E53939,endColorstr=#E5E53939);
+  zoom:1;
+  color:#fff;
+  font-size:12px;
+}
+
+.common-receipt-checkbox
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/icon-check-w.png?v=180) no-repeat;
+  width:22px;
+  height:19px;
+  float:left;
+  margin-right:13px;
+}
+
+.common-receipt-skull
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/icon-skull-w.png?v=180) no-repeat;
+  width:22px;
+  height:19px;
+  float:left;
+  margin-right:16px;
+}
+
+.common-receipt-message
+{
+  line-height:18px;
+  padding:0 2px;
+}
+
+.common-animated-dots2
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/loadingdots.gif?v=180);
+  width:7px;
+  height:1px;
+  display:block;
+  float:left;
+}
+
+.common-personarank.rank-23,.common-personarank.rank-24
+{
+  top:-2px;
+}
+
+.common-personarank.rank-25,.common-personarank.rank-26,.common-personarank.rank-27
+{
+  top:1px;
+}
+
+.common-usertitle
+{
+  height:60px;
+  position:relative;
+  padding:0 0 16px;
+}
+
+.common-usertitle-avatar
+{
+  width:60px;
+  height:60px;
+  float:left;
+  margin-right:14px;
+}
+
+.common-usertitle-title
+{
+  color:#000;
+  font-size:35px;
+  line-height:38px;
+  font-family:BebasNeueRegular,Arial,sans-serif;
+  font-weight:400;
+  float:left;
+  padding-top:1px;
+}
+
+.common-usertitle-user-info
+{
+  color:#8a8a8a;
+  font-size:12px;
+  line-height:20px;
+  font-weight:700;
+  float:left;
+  position:relative;
+  padding-top:1px;
+}
+
+.common-usertitle-user-info a
+{
+  font-size:12px;
+  font-weight:700;
+}
+
+.common-usertitle-user-info-solider-game
+{
+  position:absolute;
+  right:-36px;
+  top:4px;
+}
+
+.common-statscompare
+{
+  border:1px solid #e4e4e4;
+  border-bottom:none;
+  position:relative;
+}
+
+.common-statscompare-compare
+{
+  float:left;
+  color:#000;
+  font-size:25px;
+  font-weight:400;
+  font-family:BebasNeueRegular,Arial,sans-serif;
+  width:50%;
+  text-align:center;
+}
+
+.common-statscompare-difference,.common-statscompare-to
+{
+  float:right;
+  color:#8a8a8a;
+  font-size:25px;
+  font-weight:400;
+  font-family:BebasNeueRegular,Arial,sans-serif;
+  width:50%;
+  text-align:center;
+}
+
+.common-statscompare-meter
+{
+  width:100%;
+  height:2px;
+  position:absolute;
+  left:-1px;
+  bottom:-2px;
+  background:#e4e4e4;
+  padding:0 1px;
+}
+
+.common-statscompare-meter-thick
+{
+  width:100%;
+  height:3px;
+  position:absolute;
+  left:-1px;
+  bottom:-3px;
+  background:#e4e4e4;
+  padding:0 1px;
+}
+
+.common-statscompare-meter-negative
+{
+  width:50%;
+  height:100%;
+  position:absolute;
+  left:0;
+  top:0;
+}
+
+.common-statscompare-meter-negative-line
+{
+  background-color:#f35252;
+  height:100%;
+  width:0;
+  float:right;
+}
+
+.common-statscompare-meter-positive
+{
+  width:50%;
+  height:100%;
+  position:absolute;
+  right:0;
+  top:0;
+}
+
+.common-statscompare-meter-positive-line
+{
+  background-color:#87c75d;
+  height:100%;
+  width:0;
+  float:left;
+}
+
+.common-statscompare-meter-separator
+{
+  width:1px;
+  height:4px;
+  background-color:#8a8a8a;
+  position:absolute;
+}
+
+.common-statscompare-meter-thick .common-statscompare-meter-separator
+{
+  height:5px;
+}
+
+.common-statscompare-meter-negative .common-statscompare-meter-separator
+{
+  right:-1px;
+  top:-1px;
+}
+
+.common-statscompare-meter-positive .common-statscompare-meter-separator
+{
+  left:-1px;
+  top:-1px;
+}
+
+.common-box-tab
+{
+  font-size:11px;
+  position:relative;
+  padding-top:30px;
+}
+
+.common-box-tab h3
+{
+  position:absolute;
+  left:0;
+  top:0;
+}
+
+.common-box-tab-nav
+{
+  position:absolute;
+  right:0;
+  top:0;
+  z-index:2;
+}
+
+.common-box-tab-nav li
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/box-tabs.png?v=180) 0 -33px;
+  height:33px;
+  line-height:33px;
+  float:left;
+  margin-left:3px;
+  padding-left:4px;
+}
+
+.common-box-tab-nav li div
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/box-tabs.png?v=180) right -33px;
+  padding:0 12px 0 8px;
+}
+
+.common-box-tab-nav li div:hover
+{
+  cursor:pointer;
+}
+
+.common-box-tab-nav li.selected div
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/box-tabs.png?v=180) right 0;
+}
+
+.common-box-tab-container
+{
+  background:#fafafa;
+  border:1px solid #e8e8e8;
+}
+
+.common-box-tab-content
+{
+  border:1px solid #FFF;
+  border-bottom:1px solid #dadada;
+}
+
+.common-selector
+{
+  color:#2f8dbf;
+  font-family:Tahoma,sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+  font-weight:700;
+  line-height:25px;
+  margin-bottom:8px;
+  overflow:hidden;
+  float:left;
+  border-right:1px solid #d5d5d5;
+  border-bottom:1px solid #fff;
+}
+
+.common-selector-side-title
+{
+  float:left;
+  font-weight:700;
+  text-shadow:0 1px 0 #fff;
+  color:#858585;
+  font-size:12px;
+  line-height:27px;
+  padding-right:6px;
+}
+
+.common-selector li
+{
+  background-color:#efefef;
+  border:1px solid #d5d5d5;
+  border-right:none;
+  float:left;
+  font-family:Tahoma,sans-serif;
+  font-size:11px;
+  text-transform:uppercase;
+}
+
+.common-selector li:hover
+{
+  cursor:pointer;
+  background-color:#f9f9f9;
+}
+
+.common-selector li div
+{
+  height:25px;
+  border-top:1px solid #fff;
+  padding:0 8px;
+}
+
+.common-selector li.selected,.common-selector li.selected:hover
+{
+  color:#353535;
+  border-top-color:#c2c2c2;
+  background-color:#dcdcdc;
+}
+
+.common-selector li.selected div,.common-selector li.selected:hover div
+{
+  border-top-color:#d5d5d5;
+}
+
+.common-selector-alt
+{
+  color:#bcbcbc;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  font-weight:700;
+  line-height:26px;
+  margin-bottom:8px;
+  overflow:hidden;
+}
+
+.common-selector-alt li div
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/selector-sprite.png?v=180) right -36px no-repeat;
+  height:26px;
+  padding:0 8px;
+}
+
+.common-selector-alt li div:hover
+{
+  color:#FFF;
+  cursor:pointer;
+}
+
+.common-selector-alt li.first
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/selector-sprite.png?v=180) left top no-repeat;
+  padding-left:3px;
+}
+
+.common-selector-alt li.last div
+{
+  background-position:right -72px;
+}
+
+.common-selector-alt li.selected
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/selector-sprite.png?v=180) left -108px no-repeat;
+  color:#262626;
+  padding-left:3px;
+}
+
+.common-selector-alt li.selected div
+{
+  background-position:right -144px;
+  padding-left:5px;
+}
+
+.common-selector-alt li.selected div:hover
+{
+  color:#262626;
+  cursor:default;
+}
+
+.common-selector-alt li.first.selected
+{
+  background-position:left -180px;
+  padding-left:3px;
+}
+
+.common-selector-alt li.last.selected div
+{
+  background-position:right -216px;
+}
+
+.common-selector div.xbox360 p
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/selector-sprite.png?v=180) left -721px no-repeat;
+  width:64px;
+  height:25px;
+  text-indent:-9000px;
+}
+
+.common-selector div.ps3 p
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/selector-sprite.png?v=180) -70px -721px no-repeat;
+  width:54px;
+  height:25px;
+  text-indent:-9000px;
+}
+
+.common-selector div.pc p
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/selector-sprite.png?v=180) -143px -721px no-repeat;
+  width:35px;
+  height:25px;
+  text-indent:-9000px;
+}
+
+.common-selector div.kit-assault p
+{
+  background:url(/public/profile/bf3/kit-icons.png) 0 -37px no-repeat;
+  width:18px;
+  height:23px;
+  text-indent:-9000px;
+}
+
+.common-selector div.kit-support p
+{
+  background:url(/public/profile/bf3/kit-icons.png) 0 -2px no-repeat;
+  width:18px;
+  height:23px;
+  text-indent:-9000px;
+  background-position:0 4px;
+}
+
+.common-selector div.kit-medic p
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/profile/kit_medic.png?v=180) 50% no-repeat;
+  width:18px;
+  height:23px;
+  text-indent:-9000px;
+}
+
+.common-selector div.kit-engineer p
+{
+  background:url(/public/profile/bf3/kit-icons.png) 0 -59px no-repeat;
+  width:18px;
+  height:23px;
+  text-indent:-9000px;
+  background-position:0 -57px;
+}
+
+.common-selector div.kit-recon p
+{
+  background:url(/public/profile/bf3/kit-icons.png) 0 -20px no-repeat;
+  width:18px;
+  height:23px;
+  text-indent:-9000px;
+  background-position:0 -17px;
+}
+
+ul.common-list
+{
+  font-size:11px;
+  color:#8a8a8a;
+  margin-left:-16px;
+}
+
+ul.common-list li
+{
+  background:#e0e0e0;
+  position:relative;
+  margin:0 0 1px 16px;
+  padding:4px 12px;
+}
+
+ul.common-list li span
+{
+  color:#3c3c3c;
+  font-weight:700;
+  position:absolute;
+  right:12px;
+}
+
+table.common-table
+{
+  background:#FEFEFE;
+  border:1px solid #e8e8e8;
+  border-top:0;
+  width:100%;
+  clear:both;
+  border-collapse:separate;
+}
+
+table.common-table>thead
+{
+  border-bottom:1px solid #DADADA;
+  font-family:Arial,sans-serif;
+  font-weight:700;
+  font-size:12px;
+  width:100%;
+}
+
+table.common-table>thead>tr>th
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/box-title-gradient-with-lin.png?v=180) left top repeat-x;
+  border-right:1px solid #D7D7D7;
+  color:#797979;
+  font-weight:400;
+  font-size:11px;
+  line-height:30px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  padding:0 5px;
+}
+
+table.common-table>thead>tr>th.headerSortDown,table.common-table>thead>tr>th.headerSortUp
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/common/box-title-gradient-with-lin-active.png?v=180) center top;
+}
+
+table.common-table>thead>tr>th.headerSortDown
+{
+  background-position:center -51px;
+}
+
+table.common-table>thead>tr>th.headerSortUp
+{
+  background-position:center -102px;
+}
+
+table.common-table>thead>tr>th.headerSortDown .common-table-sort-arrow,table.common-table>thead>tr>th.headerSortUp .common-table-sort-arrow
+{
+  position:absolute;
+  height:4px;
+  left:0;
+  bottom:2px;
+  width:100%;
+  background:url(/public/serverguide/serverguide-sort.gif) 50% 100% no-repeat;
+  display:block;
+}
+
+table.common-table>thead>tr>th.headerSortUp .common-table-sort-arrow
+{
+  top:2px;
+  bottom:auto;
+  background-position:50% 0;
+}
+
+table.common-table>tbody>tr.myself
+{
+  background:#f6e8be;
+}
+
+table.common-table>tbody>tr.mysquad
+{
+  background:#eef3e4;
+}
+
+table.common-table>tbody>tr.dnf
+{
+  background:#eaeaea;
+}
+
+table.common-table>tbody>tr.myself>td
+{
+  border-top-color:#eaddb5;
+  border-right-color:#eaddb5;
+}
+
+table.common-table>tbody>tr.myfriend>td
+{
+  border-top-color:#e0e7e9;
+  border-right-color:#e0e7e9;
+}
+
+table.common-table>tbody>tr.mysquad>td
+{
+  border-top-color:#e3e8d9;
+  border-right-color:#e3e8d9;
+}
+
+table.common-table>tbody>tr.dnf>td
+{
+  border-top-color:#dedede;
+  border-right-color:#dedede;
+}
+
+table.common-table>tbody>tr.selected>td
+{
+  border-top-color:#323232;
+  border-right-color:#323232;
+  color:#fff!important;
+}
+
+table.common-table>thead>tr>th>a
+{
+  color:#797979;
+  font-weight:400;
+  font-size:11px;
+  text-decoration:none;
+  display:block;
+}
+
+table.common-table.trace-mouse>tbody>tr:hover
+{
+  background:#f6f6f6;
+}
+
+table.common-table>tbody>tr>td
+{
+  border-top:1px solid #F2F2F2;
+  border-right:1px solid #F2F2F2;
+  color:#666;
+  font-size:12px;
+  font-family:Arial,sans-serif;
+  line-height:14px;
+  text-align:center;
+  vertical-align:middle;
+  height:30px;
+  padding:0 5px;
+}
+
+table.common-table .align-left
+{
+  text-align:left;
+}
+
+table.common-table>tbody>tr:first-child>td
+{
+  border-top:none;
+}
+
+table.common-table>tbody>tr:last-child>td
+{
+  border-bottom:1px solid #F2F2F2;
+}
+
+.common-bf3-kit-icon
+{
+  width:18px;
+  height:18px;
+  float:left;
+  background:url(http://battlelog-cdn.battlefield.com/public/profile/bf3/kit-icons.png?v=180) repeat-y;
+}
+
+.common-bf3-kit-icon-engineer
+{
+  background-position:0 -59px;
+}
+
+.common-bf3-kit-icon-none
+{
+  background-position:20px 0;
+}
+
+.common-replyform
+{
+  padding-top:16px;
+  position:relative;
+}
+
+.common-replyform-avatar
+{
+  width:60px;
+  height:6px;
+  position:absolute;
+  top:16px;
+  left:0;
+}
+
+.common-replyform-form
+{
+  padding-left:74px;
+  padding-right:22px;
+}
+
+.common-replyform-form-body
+{
+  width:100%;
+  height:90px;
+  font-size:12px;
+  font-family:arial,sans-serif;
+  color:#353535;
+  border:1px solid #ccc;
+  border-top-color:#ababab;
+  background-color:#fff;
+  resize:vertical;
+  padding:10px;
+}
+
+.common-replyform-form-body.placeholder
+{
+  color:#ACACAC;
+}
+
+.common-replyform-form-submit
+{
+  float:right;
+  margin-top:8px;
+  margin-right:-22px;
+}
+
+.common-pressuremeter-normal
+{
+  width:100px;
+  height:56px;
+  position:relative;
+}
+
+.common-pressuremeter-mini
+{
+  width:56px;
+  height:31px;
+  position:relative;
+}
+
+.common-kittime-1,.common-kittime-2,.common-kittime-3,.common-kittime-bg,.common-kittimes-overlay
+{
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+.common-kittime-1
+{
+  z-index:2;
+}
+
+.common-kittime-2
+{
+  z-index:3;
+}
+
+.common-kittime-3
+{
+  z-index:4;
+}
+
+.common-kittimes-overlay
+{
+  z-index:5;
+}
+
+.common-keyboard-shortcut-highlight
+{
+  background-color:#ffc;
+}
+
+.common-playername-personaname
+{
+  font-weight:700;
+  padding-top:3px;
+}
+
+.common-playername-personaname.solo
+{
+  line-height:30px;
+}
+
+.serverguide-show-player .common-playername-personaname
+{
+  padding-top:0;
+}
+
+.serverguide-show-player .common-playername-personaname.solo
+{
+  line-height:26px;
+  position:relative;
+  top:-1px;
+}
+
+.common-playername-personaname.unknown-player
+{
+  font-weight:400;
+  color:#a8a8a8;
+}
+
+.common-playername-username
+{
+  font-size:11px;
+  margin-top:2px;
+  font-weight:400;
+  color:#8a8a8a;
+}
+
+.common-focusbartoggle-header
+{
+  height:39px;
+  line-height:39px;
+  font-size:12px;
+  cursor:pointer;
+  overflow:hidden;
+  position:relative;
+}
+
+.common-focusbartoggle-body
+{
+  background:#ececec;
+  position:relative;
+  border-top:1px solid #e1e1e1;
+}
+
+.common-focusbar-footer
+{
+  background:#E7E7E7;
+  border-top:1px solid #dadada;
+  padding:5px;
+}
+
+.common-bubble
+{
+  position:absolute;
+  background:rgba(0,0,0,0.8)!important;
+  -ms-filter:progid:DXImageTransform . Microsoft . gradient(startColorstr=#CC000000,endColorstr=#CC000000)!important;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000,endColorstr=#CC000000)!important;
+  z-index:30000;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  padding:0!important;
+}
+
+.common-bubble-arrow
+{
+  width:9px;
+  height:5px;
+  background:transparent url(http://battlelog-cdn.battlefield.com/public/common/tipsy.gif?v=180) no-repeat!important;
+  position:absolute;
+  opacity:.8;
+  filter:alpha(opacity=80);
+  padding:0!important;
+}
+
+.common-bubble-top .common-bubble-arrow
+{
+  left:50%;
+  margin-left:-5px!important;
+  bottom:-5px!important;
+  background-position:0 -4px!important;
+}
+
+.common-bubble-left .common-bubble-arrow
+{
+  right:-5px!important;
+  margin-top:-5px!important;
+  top:50%;
+  background-position:-4px 0!important;
+  width:5px!important;
+  height:9px!important;
+}
+
+.common-bubble-body
+{
+  background:transparent!important;
+  font-size:11px!important;
+  line-height:16px!important;
+  color:#fff!important;
+  text-align:center!important;
+  font-weight:400!important;
+  font-family:Arial,sans-serif!important;
+  white-space:pre-wrap!important;
+  text-shadow:none!important;
+  max-width:300px;
+  padding:5px 8px!important;
+}
+
+.common-bf3preorder
+{
+  width:320px;
+  height:67px;
+  background:url(http://battlelog-cdn.battlefield.com/public/base/bf3/preorder/banner-bg.png?v=180) no-repeat;
+  position:relative;
+}
+
+.common-bf3preorder-buttons
+{
+  position:absolute;
+  bottom:13px;
+  left:90px;
+}
+
+.common-bf3preorder-button
+{
+  height:22px;
+  float:left;
+  background:url(http://battlelog-cdn.battlefield.com/public/base/bf3/preorder/banner-format-buttons.png?v=180) no-repeat;
+  display:block;
+  cursor:pointer;
+}
+
+.common-bf3preorder-button.pc
+{
+  width:42px;
+  background-position:0 0;
+}
+
+.common-bf3preorder-button.pc:hover
+{
+  background-position:0 -22px;
+}
+
+.common-bf3preorder-button.xbox360
+{
+  width:84px;
+  background-position:-42px 0;
+}
+
+.common-bf3preorder-button.xbox360:hover
+{
+  background-position:-42px -22px;
+}
+
+.common-bf3preorder-button.ps3
+{
+  width:69px;
+  background-position:-126px 0;
+}
+
+.common-bf3preorder-button.ps3:hover
+{
+  background-position:-126px -22px;
+}
+
+.common-user-search-failmsg
+{
+  width:133px;
+  background:#fff;
+  border:1px solid #ccc;
+  color:#353535;
+  position:absolute;
+  top:26px;
+  left:0;
+  font-size:11px;
+  display:none;
+  text-align:center;
+  -webkit-box-shadow:0 2px 2px 2px rgba(0,0,0,0.1);
+  -mox-box-shadow:0 2px 2px 2px rgba(0,0,0,0.1);
+  box-shadow:0 2px 2px 2px rgba(0,0,0,0.1);
+  padding:12px 10px;
+}
+
+.common-user-search-results-wrapper
+{
+  width:220px;
+  position:absolute;
+  z-index:9999;
+  top:26px;
+  overflow:hidden;
+  right:0;
+  display:none;
+}
+
+.common-user-search-results h1,.common-user-search-results ul
+{
+  clear:both;
+  position:relative;
+}
+
+.common-user-search-results ul li
+{
+  height:22px;
+  line-height:22px;
+  font-size:12px;
+  color:#7c7c7c;
+  position:relative;
+  border-bottom:1px solid #f2f2f2;
+  cursor:pointer;
+  padding:6px 10px;
+}
+
+.common-user-search-results ul li.active
+{
+  background-color:#308dbf;
+  color:#f4f4f4;
+}
+
+.common-leaderboard-box-wrapper
+{
+  margin-top:16px;
+}
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td
+{
+  border:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+  font-family:Arial,sans-serif;
+  margin:0;
+  padding:0;
+}
+
+.beaconFlashHolder
+{
+  z-index:100;
+}
+
+body
+{
+  line-height:1;
+  background:#e6e6e6;
+  font-family:Arial,sans-serif;
+  padding-top:0;
+  height:100%;
+  min-width:992px;
+}
+
+ol,ul
+{
+  list-style:none;
+}
+
+blockquote,q
+{
+  quotes:none;
+}
+
+blockquote:before,blockquote:after,q:before,q:after
+{
+  content:none;
+}
+
+ins
+{
+  text-decoration:none;
+}
+
+del
+{
+  text-decoration:line-through;
+}
+
+table
+{
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+#orbitClientContainer
+{
+  position:fixed;
+  left:0;
+  top:0;
+  display:none;
+}
+
+html
+{
+  height:101%;
+  background-color:#f4f4f4;
+}
+
+a,.base-link
+{
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+  color:#308dbf;
+  text-decoration:none;
+}
+
+a:hover,.base-link:hover
+{
+  cursor:pointer;
+  text-decoration:underline;
+}
+
+.right
+{
+  float:right;
+}
+
+.clear
+{
+  clear:both;
+}
+
+textarea.disabled
+{
+  background:#dfdfdf;
+  border:1px solid #c6c6c6;
+}
+
+textarea
+{
+  overflow:auto;
+}
+
+teatarea[name]
+{
+  overflow:inherit;
+}
+
+.base-usermsg
+{
+  text-align:center;
+  position:relative;
+  display:none;
+  width:94%;
+  margin:0 auto 16px;
+}
+
+.base-usermsg-general p,.base-usermsg p
+{
+  padding:16px 0;
+}
+
+input[type="submit"]::-moz-focus-inner,input[type="button"]::-moz-focus-inner
+{
+  border:0;
+}
+
+input[type="submit"]:focus,input[type="button"]:focus
+{
+  outline:none;
+}
+
+input[type="checkbox"]
+{
+  width:13px;
+  height:13px;
+  padding:0;
+}
+
+#base-section-select li a.coming-soon
+{
+  color:#222;
+  text-shadow:#5c5d5d 0 1px 0;
+}
+
+.base-login-dropdown-button
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/dropdownarrow.png?v=180) no-repeat;
+  width:7px;
+  height:4px;
+  position:absolute;
+  right:7px;
+  top:12px;
+  z-index:10;
+}
+
+.base-login-dropdown-button.active
+{
+  background-position:0 -4px;
+}
+
+.base-section-dropdown
+{
+  position:relative;
+  height:37px;
+  top:19px;
+}
+
+.base-section-dropdown .base-dropdown-area
+{
+  width:253px;
+  left:-9px;
+  top:36px;
+  position:absolute;
+  background:transparent url(http://battlelog-cdn.battlefield.com/public/base/all/dropdown-shadow-middle.png?v=180) repeat-y;
+}
+
+.base-section-dropdown .base-dropdown-area .base-dropdown-area-inner
+{
+  width:235px;
+  background:#fdfdfd;
+  font-size:11px;
+  border-top:4px solid #f1f1f1;
+  color:#8a8a8a;
+  margin-left:9px;
+}
+
+.base-section-dropdown .base-dropdown-area .base-dropdown-area-shadow-top
+{
+  position:absolute;
+  top:0;
+  width:253px;
+  height:14px;
+  background:transparent url(http://battlelog-cdn.battlefield.com/public/base/all/dropdown-shadow-top.png?v=180) no-repeat;
+  z-index:-1;
+}
+
+.base-section-dropdown .base-dropdown-area .base-dropdown-area-shadow-bottom
+{
+  position:absolute;
+  bottom:-12px;
+  width:253px;
+  height:12px;
+  background:transparent url(http://battlelog-cdn.battlefield.com/public/base/all/dropdown-shadow-bottom.png?v=180) no-repeat;
+}
+
+.base-dropdown-menu-map
+{
+  position:absolute;
+  height:32px;
+  width:55px;
+  right:10px;
+  top:6px;
+}
+
+#base-sub-navbar li.base-section-dropdown
+{
+  margin-right:0;
+  margin-left:0;
+  margin-top:0;
+}
+
+.base-dropdown-left
+{
+  width:9px;
+  height:36px;
+}
+
+.activedropdown .base-dropdown-left
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 0 no-repeat;
+}
+
+.activedropdown .base-dropdown-middle
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 -36px repeat-x;
+}
+
+.base-dropdown-middle
+{
+  height:36px;
+  line-height:30px;
+  padding-right:4px;
+}
+
+.activedropdown .base-dropdown-right
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) -9px 0 no-repeat;
+}
+
+.base-dropdown-right
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 -72px no-repeat;
+  width:16px;
+  height:36px;
+  cursor:pointer;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-area li.base-dropdown-menu-item
+{
+  width:100%;
+  cursor:pointer;
+  border-top:1px solid #ececec;
+  position:relative;
+  margin:0;
+  padding:0;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-area li.base-dropdown-menu-item.base-dropdown-item-first
+{
+  border-top-color:#e7e7e7;
+}
+
+.base-section-dropdown .base-dropdown-area li.base-dropdown-menu-item.disabled:hover
+{
+  background:transparent;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-area li.base-dropdown-menu-item a
+{
+  text-transform:none;
+  line-height:33px;
+  min-height:33px;
+  color:#353535;
+  font-size:12px;
+  font-family:Arial,sans-serif;
+  font-weight:700;
+  background:none;
+  padding:0 0 0 20px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-area li.base-dropdown-menu-item.disabled a
+{
+  color:#a8a8a8;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-area li.base-dropdown-menu-item.disabled:hover a
+{
+  color:#a8a8a8;
+  text-decoration:none;
+  cursor:default;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-area li.base-dropdown-menu-item:hover
+{
+  color:#cecece;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-area li.base-dropdown-menu-item-highlighted
+{
+  width:100%;
+  position:relative;
+  background-color:#f1f1f1;
+  border-top:1px solid #e5e5e5;
+  line-height:normal;
+  margin:0;
+  padding:0;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-area li.base-dropdown-menu-item-highlighted.base-dropdown-menu-item-highlighted-texture
+{
+  background:#f1f1f1 url(http://battlelog-cdn.battlefield.com/public/base/all/dropdown-item-highlighted-bg-texture.png?v=180) no-repeat right bottom;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-padder
+{
+  padding:10px 20px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted h4.base-dropdown-item-headline
+{
+  font-size:10px;
+  line-height:10px;
+  font-family:Tahoma,Arial,sans-serif;
+  color:#8a8a8a;
+  text-transform:uppercase;
+  margin:0;
+  padding:10px 20px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-padder h4.base-dropdown-item-headline
+{
+  padding:0 0 10px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted p
+{
+  line-height:17px;
+  color:#353535;
+  font-size:11px;
+  font-family:Arial,sans-serif;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted p.base-dropdown-item-info
+{
+  color:#8a8a8a;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-platoon
+{
+  display:block;
+  height:30px;
+  line-height:30px;
+  position:relative;
+  margin-top:2px;
+  color:#353535;
+  font-size:12px;
+  cursor:pointer;
+  padding:2px 10px 2px 70px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-platoon .base-dropdown-item-platoon-active
+{
+  position:absolute;
+  top:14px;
+  left:5px;
+  width:11px;
+  height:8px;
+  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/check.png?v=180) no-repeat;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-platoon:hover
+{
+  color:#edb700;
+  background-color:#353535;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-platoon .base-dropdown-item-platoon-image
+{
+  width:26px;
+  height:26px;
+  position:absolute;
+  left:20px;
+  top:4px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-platoon .base-dropdown-item-requestarea
+{
+  float:right;
+  width:62px;
+}
+
+#platoon-dropdown .comcenter-friend-request-button
+{
+  margin-top:2px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-menu-item-campaign-level-image-wrapper
+{
+  width:195px;
+  height:109px;
+  position:relative;
+  margin-bottom:8px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-menu-item-campaign-level-image-wrapper img.base-campaign-level-image
+{
+  width:195px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-menu-item-campaign-level-image-wrapper .base-campaign-level-image-overlay
+{
+  width:195px;
+  height:109px;
+  position:absolute;
+  left:0;
+  top:0;
+  background:transparent url(http://battlelog-cdn.battlefield.com/public/base/all/dropdown-item-maplevel-overlay.png?v=180) no-repeat;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-menu-item-campaign-level-image-wrapper .base-dropdown-menu-item-campaign-level-info
+{
+  width:100%;
+  height:41px;
+  position:absolute;
+  left:0;
+  bottom:0;
+  background:rgba(0,0,0,0.6);
+  filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#99000000',EndColorStr='#99000000');
+  -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-menu-item-campaign-level-info .base-campaign-info-mission
+{
+  font-size:12px;
+  color:#fff;
+  font-weight:700;
+  padding:4px 10px 0;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-menu-item-campaign-level-info .base-campaign-info-mission-info
+{
+  font-size:11px;
+  color:#8a8a8a;
+  padding:1px 10px 0;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-level-filter-title
+{
+  color:#353535;
+  font-size:11px;
+  line-height:14px;
+  margin:0;
+  padding:0;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-level-filters
+{
+  color:#8a8a8a;
+  font-size:11px;
+  line-height:14px;
+  margin:0;
+  padding:0;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-level-filter-change
+{
+  font-size:11px;
+  line-height:14px;
+  color:#2f8dbf;
+  font-family:Arial,sans-serif;
+  font-weight:400;
+  display:inline;
+  margin:0;
+  padding:0;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-button-arrow-large,#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-button-arrow-large-drop
+{
+  font-family:BebasNeueRegular,Arial,sans-serif;
+  font-size:20px;
+  color:#000;
+  font-weight:400;
+  margin-bottom:7px;
+  text-indent:6px;
+  padding:0;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-play-progression
+{
+  margin-top:7px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-play-progression.with-separator
+{
+  padding-top:10px;
+  border-top:1px solid #dedede;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-play-progression .base-dropdown-play-progression-info
+{
+  background:transparent no-repeat right center;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-play-progression .base-dropdown-play-progression-info h1
+{
+  color:#8a8a8a;
+  font-family:Tahoma,Arial,sans-serif;
+  font-weight:700;
+  font-size:11px;
+  padding-top:5px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-play-progression .base-dropdown-play-progression-info span
+{
+  color:#353535;
+  font-size:11px;
+  font-family:Arial,sans-serif;
+  line-height:23px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-play-progression .base-dropdown-play-progression-meter-wrapper
+{
+  border:1px solid #e4e4e4;
+  background-color:#fff;
+  margin-top:6px;
+  padding:1px;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-play-progression .base-dropdown-play-progression-meter-wrapper .base-dropdown-play-progression-meter
+{
+  width:92%;
+  height:8px;
+  background-color:#353535;
+}
+
+.base-dropdown-area-loader
+{
+  margin-left:90px;
+  margin-top:10px;
+  margin-bottom:5px;
+}
+
+.base-preview-area-loader
+{
+  margin-left:100px;
+  margin-top:10px;
+}
+
+#base-section-select li a.coming-soon:hover
+{
+  text-decoration:none;
+  cursor:default;
+}
+
+.base-usermsg-general p,.base-usermsg-general p a,.base-usermsg p,.base-usermsg p a
+{
+  font-weight:700;
+  color:#000;
+  font-size:14px;
+  font-family:Arial,sans-serif;
+}
+
+.base-usermsg-error
+{
+  background:#ffbcbc;
+  border:1px solid #ff6565;
+}
+
+.base-usermsg-information,.base-usermsg-warning,.base-usermsg-success
+{
+  background:#d7feb7;
+  border:1px solid #bbdd9f;
+}
+
+.base-usermsg-general
+{
+  position:fixed;
+  top:0;
+  left:0;
+  text-align:center;
+  width:100%;
+  z-index:1000;
+  cursor:pointer;
+  display:none;
+}
+
+#base-wrapper
+{
+  width:100%;
+  clear:both;
+  margin:0 auto;
+}
+
+#base-mainheader-container
+{
+  position:relative;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:101;
+  height:36px;
+  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/header-bg.png?v=180) repeat-x top center;
+}
+
+#base-mainheader-menudivider
+{
+  position:absolute;
+  top:69px;
+  left:0;
+  width:100%;
+  z-index:4;
+  height:1px;
+  background:url(http://battlelog-cdn.battlefield.com/public/base/all/menu-separator-dark.png?v=180) repeat-x top center;
+}
+
+.base-header-spacer
+{
+  height:36px;
+  width:100%;
+  clear:both;
+}
+
+#base-mainheader
+{
+  position:relative;
+  width:1024px;
+  height:36px;
+  margin:0 auto;
+  padding:0;
+}
+
+#base-submainheader
+{
+  position:absolute;
+  z-index:100;
+  width:100%;
+  margin:0 auto;
+}
+
+.common-leaderboard-bodycells:hover .common-bodycell-border,.common-leaderboard-bodycells.active .common-bodycell-border,.common-active-row.active:hover
+{
+  background:none;
+}
+
+body .common-playing-link a,.common-playername-username a
+{
+  font-weight:400;
+}
+
+.common-popup-handle,.common-popup-big .common-popup-handle,.common-selector li.selected div:hover,#base-sub-navbar .base-section-dropdown .base-dropdown-area li.base-dropdown-menu-item.disabled,#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted div.base-dropdown-item-platoon
+{
+  cursor:default;
+}
+
+.common-popup-content,.common-bigpopup-content
+{
+  font-size:14px;
+  padding:16px 20px;
+}
+
+.common-popup-big .common-popup-line,.common-secondary-column.common-box-noline .common-secondary-column-line,table.common-table>thead>tr>th .common-table-sort-arrow,.common-focusbartoggle .expanded-show,.common-focusbartoggle.expanded .contracted-show,#userMessageBox,body .base-hide
+{
+  display:none;
+}
+
+.common-box-inner.no-padding,.common-box-nopadding,.common-leaderboard-box,table.common-table>tbody>tr
+{
+  padding:0;
+}
+
+.common-playing-mode-black-sp,.common-multichoice-pressed,.common-game-1-4,.common-game-2-4,.common-presence-playing,.common-selectablebig-left-pressed,.common-selectable-left-pressed,.common-box-tab-nav li.selected,.common-bf3-kit-icon-support
+{
+  background-position:0 0;
+}
+
+.common-multichoice-left:hover,.common-multichoice-middle:hover,.common-multichoice-right:hover,.common-selectable-left:hover,.common-cleanbutton:hover .common-cleanbutton-left
+{
+  background-position:0 -84px;
+}
+
+.common-multichoice-pressed:hover,.common-selectable-left-pressed:hover,.common-cleanbuttonsmall2:hover .common-cleanbuttonsmall2-left
+{
+  background-position:0 -56px;
+}
+
+.common-game-1-1,.common-game-2-1,.common-bf3-kit-icon-recon
+{
+  background-position:0 -20px;
+}
+
+.common-game-1-2,.common-game-2-2,.common-bf3-kit-icon-assault
+{
+  background-position:0 -40px;
+}
+
+.common-game-1-4.bright,.common-game-2-4.bright
+{
+  background-position:26px 0;
+}
+
+.common-game-1-1.bright,.common-game-2-1.bright
+{
+  background-position:26px -20px;
+}
+
+.common-game-1-2.bright,.common-game-2-2.bright
+{
+  background-position:26px -40px;
+}
+
+.common-game-2-4,.common-game-2-1,.common-game-2-2,.common-game-2-4-bright,.common-game-2-1-bright,.common-game-2-2.bright
+{
+  background-image:url(http://battlelog-cdn.battlefield.com/public/common/game_icons_venice.png?v=180);
+}
+
+.common-gameicon-hori.common-game-2-4,.common-gameicon-hori.common-game-2-1,.common-gameicon-hori.common-game-2-2,.common-gameicon-hori.common-game-2-4-bright,.common-gameicon-hori.common-game-2-1-bright,.common-gameicon-hori.common-game-2-2.bright
+{
+  background-image:url(http://battlelog-cdn.battlefield.com/public/common/game_icons_venice_hori.png?v=180);
+}
+
+.common-selectablebig-left-pressed:hover,.common-cleanbuttonsmall:hover .common-cleanbuttonsmall-middle,.common-cleanbuttonsmall2:hover .common-cleanbuttonsmall2-middle
+{
+  background-position:0 -76px;
+}
+
+.common-cleanbutton-left,.common-cleanbuttonsmall-left,.common-cleanbuttonsmall-disabled-left
+{
+  left:0;
+  background-position:0 0;
+}
+
+#base-bfbc2-body .common-cleanbutton a,#base-bfbc2-body .common-cleanbutton a:hover
+{
+  color:#3b3b3b;
+  text-decoration:none;
+}
+
+.common-cleanbuttonsmall,.common-cleanbuttonsmall2
+{
+  display:inline-block;
+  position:relative;
+}
+
+.common-cleanbuttonsmall-right,.common-cleanbuttonsmall-disabled-right,.common-cleanbuttonsmall2-right
+{
+  right:0;
+  background-position:0 -38px;
+}
+
+.common-cleanbuttonsmall2 a:hover,.common-cleanbuttonsmall2 a,.common-cleanbuttonsmall a,.common-cleanbuttonsmall2 a,.common-cleanbuttonsmall a:hover,.common-cleanbuttonsmall2 a:hover
+{
+  font-weight:400;
+  text-decoration:none;
+}
+
+.common-reportbutton-container,.common-active-row,.common-personarank,.common-kittimes,.common-user-search-wrapper,.bubble-title,.base-dropdown-menu-container
+{
+  position:relative;
+}
+
+.common-reportbutton-container.active .common-reportbutton-dropdown,body .common-visible,.common-focusbartoggle .contracted-show,.common-focusbartoggle.expanded .expanded-show,body .base-show
+{
+  display:block;
+}
+
+.common-active-row.active div,.common-kittime-bg
+{
+  z-index:1;
+}
+
+.common-personarank.rank-0,.common-personarank.rank-1,.common-personarank.rank-2,.common-personarank.rank-3,.common-personarank.rank-10,.common-personarank.rank-11,.common-personarank.rank-12,.common-personarank.rank-13,.common-personarank.rank-14,.common-personarank.rank-15,.common-personarank.rank-17,.common-personarank.rank-18,.common-personarank.rank-34,.common-personarank.rank-35,.common-personarank.rank-36
+{
+  top:-1px;
+}
+
+.common-personarank.rank-4,.common-personarank.rank-5,.common-personarank.rank-6,.common-personarank.rank-7,.common-personarank.rank-8,.common-personarank.rank-9,.common-personarank.rank-22
+{
+  top:-3px;
+}
+
+.common-personarank.rank-16,.common-personarank.rank-19,.common-personarank.rank-20,.common-personarank.rank-21,.common-personarank.rank-28,.common-personarank.rank-29,.common-personarank.rank-30,.common-personarank.rank-31,.common-personarank.rank-32,.common-personarank.rank-33,.common-personarank.rank-37,.common-personarank.rank-38,.common-personarank.rank-39,.common-personarank.rank-40,.common-personarank.rank-41,.common-personarank.rank-42,.common-personarank.rank-43,.common-personarank.rank-44,.common-personarank.rank-45,.common-personarank.rank-46,.common-personarank.rank-47,.common-personarank.rank-48,.common-personarank.rank-49
+{
+  top:0;
+}
+
+.common-usertitle-user,.common-selector-alt li,.left,.base-dropdown-left,.base-dropdown-middle,.base-dropdown-right
+{
+  float:left;
+}
+
+.common-selector-alt li.first div,.common-selector-alt li.first.selected div
+{
+  padding-left:5px;
+}
+
+table.common-table>thead>tr>th.last,table.common-table>tbody>tr>td.last
+{
+  border-right:0;
+}
+
+table.common-table>tbody>tr.myfriend,.myfriend
+{
+  background:#ecf3f6;
+}
+
+table.common-table>tbody>tr.selected,.base-section-dropdown .base-dropdown-area li.base-dropdown-menu-item:hover
+{
+  background:#353535;
+}
+
+#base-sub-navbar li.base-section-dropdown.activedropdown .base-dropdown-middle a,#base-sub-navbar #base-section-nav-bf3 li.base-section-dropdown.active.activedropdown .base-dropdown-middle a
+{
+  color:#353535;
+  background:none;
+}
+
+#base-sub-navbar .base-section-dropdown .base-dropdown-area li.base-dropdown-menu-item:hover a,#base-sub-navbar .base-section-dropdown .base-dropdown-menu-item-highlighted .base-dropdown-item-platoon:hover a
+{
+  color:#edb700;
+}

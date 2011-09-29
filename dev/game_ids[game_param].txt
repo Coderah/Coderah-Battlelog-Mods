@@ -1,0 +1,17 @@
+Can be accessed via games[object] ex: games.BF3
+For use as the game parameter in certain functions ex: launcher.restoreWindow(games.BF3)
+
+{
+    "BFBC2": 1,
+    "BF3": 2,
+    "BF1942": 4,
+    "BF1943": 8,
+    "BFVIETNAM": 16,
+    "BF2": 32,
+    "BF2142": 64,
+    "BFBC": 128,
+    "BFHEROES": 256,
+    "BFMC": 512,
+    "ALL": 536870912,
+    "GENERAL": 1073741824
+}
