@@ -50,7 +50,6 @@ function createUpdateNotification() {
 }
 
 $.get("http://coderah.com/bf3/battlelog_mods_version.php", function(data) { 
-	console.log(data);
 	if (data.version > getExtensionVersion()) {
 		createUpdateNotification();
 	}
