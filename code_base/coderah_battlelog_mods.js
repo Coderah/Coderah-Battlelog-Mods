@@ -96,7 +96,7 @@ mods.autoJoin = {
 	errorMessagesForRetry: ["Could not join server since it's full", "Can't join, this server is changing map, please try again soon.", "Could not join server since it couldn't be found."],
 	
 	join: function() {
-		this.setStatus("trying...");
+		mods.autoJoin.setStatus("trying...");
 		joinflow.joinServerByUrl(mods.autoJoin.server, null, function(serverFound) {
 			if (serverFound) {
 				mods.debug("server found by url");
@@ -131,7 +131,7 @@ mods.autoJoin = {
 				//mods.debug("launch_state event = "+JSON.stringify(eventObject.launcherState));
 				if (mods.autoJoin.state == 1) {
 					if (eventObject.launcherState.name == "launch_error" && mods.autoJoin.errorMessagesForRetry.indexOf(eventObject.launcherState.errorMessage) > -1) {
-						mods.autoJoin.joinTimeout = setTimeout("mods.autoJoin.join()", 1500);
+						mods.autoJoin.joinTimeout = setTimeout(mods.autoJoin.join, 1500);
 						mods.debug("autojoin attempting connection again (" + eventObject.launcherState.errorMessage + ")");
 						mods.autoJoin.setStatus("waiting...");
 					}

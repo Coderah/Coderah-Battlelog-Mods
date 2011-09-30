@@ -13,6 +13,16 @@ function coderah_battlelog_mods_main () {
 	<?updateCode?>
 }
 
-var script = document.createElement('script');
-script.appendChild(document.createTextNode('('+ coderah_battlelog_mods_main +')();'));
-(document.body || document.head || document.documentElement).appendChild(script);
+function contentEval(source) {
+  if ('function' == typeof source) {
+    source = '(' + source + ')();'
+  }
+
+  var script = document.createElement('script');
+  script.setAttribute("type", "application/javascript");
+  script.textContent = source;
+  document.body.appendChild(script);
+}
+
+contentEval(coderah_battlelog_mods_main);
+
