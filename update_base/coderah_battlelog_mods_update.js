@@ -2,6 +2,8 @@ function getExtensionVersion() {
 	return <?version?>;
 }
 
+$("#mod-menu .version").html(getExtensionVersion());
+
 function createUpdateNotification() {
 	var updateReceipt = $('<div class="common-receipt type-checkbox" style="cursor: pointer;">' +
 		'<div class="common-receipt-message">' +
