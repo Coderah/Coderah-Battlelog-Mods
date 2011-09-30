@@ -1,14 +1,13 @@
 #mod-menu {
-	position:absolute;
-	top:10px;
-	right:5px;
-	z-index:999;
+	position:fixed;
+	left:297px;
+	bottom:0px;
+	z-index:9999999;
 	
 	background: #DFDFDF;
 	width: 270px;
 	height: auto;
 	border: 1px solid #AAA;
-	border-bottom: 0;
 }
 
 #mod-menu .content-wrapper {
@@ -45,6 +44,7 @@
 	bottom:0px;
 	width:100%;
 	background: none repeat scroll 0 0 #F3F3F3;
+	cursor: pointer;
 }
 
 #mod-menu-autojoin-status-box .text {
