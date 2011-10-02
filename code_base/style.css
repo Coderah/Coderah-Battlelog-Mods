@@ -36,7 +36,9 @@
 }
 
 #mod-auto-join-button {
-	font-size:12px !important;
+	font-family: "BebasNeueRegular",sans-serif !important;
+	font-weight: normal;
+	font-size:20px !important;
 }
 
 #mod-menu .comcenter-settings {
@@ -45,6 +47,17 @@
 	width:100%;
 	background: none repeat scroll 0 0 #F3F3F3;
 	cursor: pointer;
+}
+
+#mod-menu-autojoin-status-box {
+	position: fixed;
+	left: 293px;
+	bottom: 1px;
+	z-index: 99999;
+	width: 250px;
+	background: #DFDFDF;
+	border-bottom: #FFC600 solid 3px;
+	padding: 2px;
 }
 
 #mod-menu-autojoin-status-box .text {

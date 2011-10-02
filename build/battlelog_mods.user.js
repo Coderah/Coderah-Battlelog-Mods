@@ -13,10 +13,10 @@ function coderah_battlelog_mods_main () {
 var mods = {};
 
 var styleInject = document.createElement("style");
-styleInject.innerHTML = '#mod-menu { position:fixed; left:0px; top:0px; z-index:9999999;  background: #DFDFDF; width: 270px; height: auto; border: 1px solid #AAA;}#mod-menu .content-wrapper { padding-bottom:40px;}#mod-menu .content { padding:5px; font-family: Arial,sans-serif; color:#121212; font-size:14px;}#mod-menu .version { font-family: BebasNeueRegular,Arial,sans-serif; color: #343434; padding:3px; position:relative; top:10px; right:5px;}.mod-status { color: #3A3A3A; display:inline;}#mod-auto-join-button { font-size:12px !important;}#mod-menu .comcenter-settings { position:absolute; bottom:0px; width:100%; background: none repeat scroll 0 0 #F3F3F3; cursor: pointer;}#mod-menu-autojoin-status-box .text { font-family: BebasNeueRegular,Arial,sans-serif !important; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu-autojoin-status-box .mod-status { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu h1, #mod-menu h2, #mod-menu h3, #mod-menu h4 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB; display: block; text-align:center; background:rgba(0, 142, 163, 0.7); padding: 3px; /*padding-left:3px; color: #8A8A8A; height: 17px; line-height: 16px; background: #F4F4F4; border-top: 1px solid #F0F0F0; border-bottom: 1px solid #F0F0F0; font-size: 11px; font-weight: bold; text-transform: uppercase;*/}/* MODS */.serverguide-filter-gamemode { height: auto !important;}';
+styleInject.innerHTML = '#mod-menu { position:fixed; left:0px; top:0px; z-index:9999999;  background: #DFDFDF; width: 270px; height: auto; border: 1px solid #AAA;}#mod-menu .content-wrapper { padding-bottom:40px;}#mod-menu .content { padding:5px; font-family: Arial,sans-serif; color:#121212; font-size:14px;}#mod-menu .version { font-family: BebasNeueRegular,Arial,sans-serif; color: #343434; padding:3px; position:relative; top:10px; right:5px;}.mod-status { color: #3A3A3A; display:inline;}#mod-auto-join-button { font-family: "BebasNeueRegular",sans-serif !important; font-weight: normal; font-size:20px !important;}#mod-menu .comcenter-settings { position:absolute; bottom:0px; width:100%; background: none repeat scroll 0 0 #F3F3F3; cursor: pointer;}#mod-menu-autojoin-status-box { position: fixed; left: 293px; bottom: 1px; z-index: 99999; width: 250px; background: #DFDFDF; border-bottom: #FFC600 solid 3px; padding: 2px;}#mod-menu-autojoin-status-box .text { font-family: BebasNeueRegular,Arial,sans-serif !important; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu-autojoin-status-box .mod-status { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu h1, #mod-menu h2, #mod-menu h3, #mod-menu h4 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB; display: block; text-align:center; background:rgba(0, 142, 163, 0.7); padding: 3px; /*padding-left:3px; color: #8A8A8A; height: 17px; line-height: 16px; background: #F4F4F4; border-top: 1px solid #F0F0F0; border-bottom: 1px solid #F0F0F0; font-size: 11px; font-weight: bold; text-transform: uppercase;*/}/* MODS */.serverguide-filter-gamemode { height: auto !important;}';
 document.body.appendChild(styleInject);
 
-$("body").append($('<div id="mod-menu"> <div class="comcenter-notification-title" id="mod-menu-header">BATTLELOG MOD - MENU  <div class="comcenter-contract">&nbsp;</div> </div>  <div class="content-wrapper">  <h3>STATUS</h3>  <div class="content">   Password Bypass: <div class="mod-status" id="mod-status-password-bypass">not ready</div><br>   AutoJoin Server: <div class="mod-status" id="mod-status-autojoin">not ready</div><br>   GameMode Filters: <div class="mod-status" id="mod-status-gamemode-filters">not ready</div>  </div>    <span id="mod-menu-autojoin">  <h3>SERVER BROWSER</h3>  <div class="content">   <center>    <button class="base-button-arrow-large" id="mod-auto-join-button">AUTO JOIN SELECTED SERVER</button>   </center>   <div id="mod-menu-autojoin-status-box">    <span style="position:relative;top:7px;" class="text">State: <span class="mod-status"></span></span>    <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all">   </div>  </div>  </span>    <div class="comcenter-settings">   <div class="base-left">      </div>   <div class="base-right">   <span class="version"></span>   </div>   </div>  </div></div>'));
+$("body").append($('<div id="mod-menu" style="display:none"> <div class="comcenter-notification-title" id="mod-menu-header">BATTLELOG MOD - MENU  <div class="comcenter-contract">&nbsp;</div> </div>  <div class="content-wrapper">  <h3>STATUS</h3>  <div class="content">   Password Bypass: <div class="mod-status" id="mod-status-password-bypass">not ready</div><br>   AutoJoin Server: <div class="mod-status" id="mod-status-autojoin">not ready</div><br>   GameMode Filters: <div class="mod-status" id="mod-status-gamemode-filters">not ready</div>  </div>    <span id="mod-menu-autojoin">  <!--<h3>SERVER BROWSER</h3>  <div class="content">   <center>    <button class="base-button-arrow-large" id="mod-auto-join-button">AUTO JOIN SELECTED SERVER</button>   </center>   <div id="mod-menu-autojoin-status-box">    <span style="position:relative;top:7px;" class="text">State: <span class="mod-status"></span></span>    <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all">   </div>  </div>-->  </span>    <div class="comcenter-settings">   <div class="base-left">      </div>   <div class="base-right">   <span class="version"></span>   </div>   </div>  </div></div><div id="mod-menu-autojoin-status-box"> <span style="position:relative;top:7px;" class="text">AutoJoin State: <span class="mod-status"></span></span> <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all"></div>'));
 
 $("#mod-menu .content-wrapper, #mod-menu-autojoin").hide();
 $("#mod-menu-header, #mod-menu .comcenter-settings").click(function() {
@@ -176,6 +176,7 @@ mods.showAllGameModeFilters = {
 			
 			this.state = "ready";
 			this.setMenuState();
+			base.showReceipt("Battlelog Mods - GameMode Filters ready.", receiptTypes.OK, 5000);
 			mods.debug("showAllGameModeFilters applied");
 		}
 	},
@@ -195,23 +196,25 @@ mods.autoJoin = {
 	errorMessagesForRetry: ["Could not join server since it's full", "Can't join, this server is changing map, please try again soon.", "Could not join server since it couldn't be found."],
 	
 	join: function() {
-		mods.autoJoin.setStatus("trying...");
-		joinflow.joinServerByUrl(mods.autoJoin.server, null, function(serverFound) {
-			if (serverFound) {
-				mods.debug("server found by url");
-			}
-		});
+		if (mods.autoJoin.state == 1) {
+			mods.autoJoin.setStatus("trying...");
+			joinflow.joinServerByUrl(mods.autoJoin.server, null, function(serverFound) {
+				if (serverFound) {
+					mods.debug("server found by url");
+				}
+			});
+		}
 	},
 	
 	showStatusBox: function() {
-		$("#mod-auto-join-button").hide();
+		//$("#mod-auto-join-button").hide();
 		$("#mod-menu-autojoin-status-box").show();
 		this.setStatus("waiting...");
 	},
 	
 	hideStatusBox: function() {
 		$("#mod-menu-autojoin-status-box").hide();
-		$("#mod-auto-join-button").show();
+		//$("#mod-auto-join-button").show();
 	},
 	
 	setStatus: function(text) {
@@ -226,12 +229,45 @@ mods.autoJoin = {
 	
 	apply: function() {
 		if (this.modState == "not ready") {
+			serverguide.serverinfo.surface_30_26.render = function(o, b, kwargs) {
+				var c = [];
+				b = b || block_serverguide_serverinfo;
+				kwargs = kwargs || {};
+				Surface.Renderer.addUsedComponent("serverguide");
+				Surface.Renderer.addUsedTemplate("serverguide.serverinfo");
+				c.push('<surf:container id="');
+				c.push("serverguide-join-button");
+				c.push('">');
+				if ((((typeof (Surface) != "undefined" && Surface !== null && typeof (Surface.globalContext) != "undefined" && Surface.globalContext !== null && typeof (Surface.globalContext.userContext) != "undefined" && Surface.globalContext.userContext !== null && typeof (Surface.globalContext.userContext.isInParty) != "undefined" && Surface.globalContext.userContext.isInParty !== null) ? Surface.globalContext.userContext.isInParty : 0) > 0)) {
+					c.push(' <input type="submit" class="base-button-arrow-almost-gigantic-dropdown base-button-general-dropdown" name="submit" value="Join server" />\n <div class="base-button-dropdown base-general-dropdown-area">\n <div class="base-button-dropdown-inner">\n <ul>\n');
+					if (((typeof (o) != "undefined" && o !== null && typeof (o.session) != "undefined" && o.session !== null && typeof (o.session.isLoggedIn) != "undefined" && o.session.isLoggedIn !== null) ? o.session.isLoggedIn : false)) {
+						c.push(' <li>\n <a class="base-no-ajax join-server-submit-link">\n <span class="join-alone"></span>Join Alone\n </a>\n </li>\n <li>\n <a href="');
+						c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/gamemanager/createGroupJoinToServer/{guid}/", Surface.urlContext, {"guid": o.serverinfo.guid})));
+						c.push('" class="base-no-ajax base-button-dropdown-joingroup"><span class="join-party"></span>Join with Party</a>\n </li>\n');
+					}
+					c.push(' </ul>\n </div>\n <div class="base-button-dropdown-shadow"></div>\n </div>\n');
+				} else {
+					c.push(' <input type="submit" class="base-button-arrow-almost-gigantic" name="submit" value="Join server" />\n');
+				}
+				
+				//mod
+				c.push('<center>\n');
+				c.push('<button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SELECTED SERVER</button>\n');
+				c.push('</center>\n');
+				//endMod
+				
+				c.push("</surf:container>");
+				Surface.Renderer.addSurfaceState("serverguide.serverinfo", "surface_30_26", "serverguide-join-button", o, b);
+				return c.join("");
+			}
+		
 			mods.eventHandler.addCallback("launch_state", function(eventType, eventObject) {
 				//mods.debug("launch_state event = "+JSON.stringify(eventObject.launcherState));
 				if (mods.autoJoin.state == 1) {
 					if (eventObject.launcherState.name == "launch_error" && mods.autoJoin.errorMessagesForRetry.indexOf(eventObject.launcherState.errorMessage) > -1) {
+						clearTimeout(mods.autoJoin.joinTimeout);
 						mods.autoJoin.joinTimeout = setTimeout(mods.autoJoin.join, 1500);
-						mods.debug("autojoin attempting connection again (" + eventObject.launcherState.errorMessage + ")");
+						mods.debug("autojoin attempting connection again: reason{object}", eventObject.launcherState);
 						mods.autoJoin.setStatus("waiting...");
 					}
 					if ((eventObject.launcherState.gameState && eventObject.launcherState.gameState == "State_ConnectToGameId") || (eventObject.launcherState.name == "launch_cancelling")) {
@@ -257,10 +293,13 @@ mods.autoJoin = {
 				gamemanager.hide();
 			});
 			
+			$(".serverguide-bodycells.active:visible div:first").click();
+			
 			this.modState = "ready";
 			this.setMenuState();
 			this.hideStatusBox();
 			$("#mod-menu-autojoin").show();
+			base.showReceipt("Battlelog Mods - Auto Join ready.", receiptTypes.OK, 5000);
 			mods.debug("autoJoin applied");
 		}
 	},
@@ -272,8 +311,15 @@ mods.autoJoin = {
 
 
 //debug functions
-mods.debug = function(msg) {
-	console.log("mods.debug() - " + msg);
+mods.debug = function() {
+	for (var arg in arguments) {
+		var argument = arguments[arg];
+		if (typeof argument == "object") { 
+			console.log(argument);
+		} else {
+			console.log("mods.debug() - " + argument);
+		}
+	}
 }
 
 S.debug = function(msg)
