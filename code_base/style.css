@@ -81,3 +81,9 @@
 	font-weight: bold;
 	text-transform: uppercase;*/
 }
+
+
+/* MODS */
+.serverguide-filter-gamemode {
+	height: auto !important;
+}

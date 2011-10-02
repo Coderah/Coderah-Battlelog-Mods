@@ -46,7 +46,7 @@ mods.eventHandler = {
 		if (object.launcherState) {
 			this.runCallbacks("launch_state", object);
 		}
-	},
+	}
 }
 
 //password bypass
@@ -83,6 +83,91 @@ mods.passwordBypass = {
 	
 	setMenuState: function() {
 		$("#mod-status-password-bypass").html(this.state);
+	}
+};
+
+//showAllGameModeFilters
+mods.showAllGameModeFilters = {
+	state: "not ready",
+	newGameModes: [
+		{
+			icon: "/public/serverguide/bfbc2/conquest.png",
+			key: "conquest",
+			label: "Conquest Small"
+		},
+		{
+			icon: "/public/serverguide/bfbc2/tdm.png",
+			key: "teamdeathmatch",
+			label: "Team DM"
+		},
+		{
+			icon: "/public/serverguide/bfbc2/sqrush.png",
+			key: "sqrush",
+			label: "Squad Rush"
+		},
+		{
+		icon: "/public/serverguide/bfbc2/sqdm.png",
+			key: "sqdm",
+			label: "Squad DM"
+		}
+	],
+
+	apply: function() {
+		if (this.state == "not ready") {
+			serverguide.filtergamemode.render = function(o, b, kwargs) {
+				
+				//mod
+				for (var nGameMode in mods.showAllGameModeFilters.newGameModes) {
+					o.gamemodes.push(mods.showAllGameModeFilters.newGameModes[nGameMode]);
+				}
+				//endMod
+				
+				var c = [];
+				b = b || block_serverguide_filtergamemode;
+				kwargs = kwargs || {};
+				Surface.Renderer.addUsedComponent('serverguide');
+				Surface.Renderer.addUsedTemplate('serverguide.filtergamemode');
+				var l_for_serverguide_filtergamemode_6_10_list;
+				c.push("\n<div class=\"serverguide-filter serverguide-filter-gamemode\">\n <div class=\"serverguide-filter-name\"><h1>");
+				c.push(Surface.valOut("Mode"));
+				c.push("</h1></div>\n <div class=\"serverguide-filter-selectables\">\n");
+				l_for_serverguide_filtergamemode_6_10_list = o.gamemodes;
+				if ((S.Modifier.count(l_for_serverguide_filtergamemode_6_10_list) > 0)) {
+					for (var l_for_serverguide_filtergamemode_6_10_key in l_for_serverguide_filtergamemode_6_10_list) {
+						if (!Surface.isValidLoopItem(l_for_serverguide_filtergamemode_6_10_list[l_for_serverguide_filtergamemode_6_10_key])) {
+							continue;
+						}
+						var l_modeinfo = l_for_serverguide_filtergamemode_6_10_list[l_for_serverguide_filtergamemode_6_10_key];
+						c.push(" <div class=\"serverguide-selectable ");
+						if (S.Modifier.contains(o.filter.gamemodes, l_modeinfo.key)) {
+							c.push("serverguide-include");
+						}
+						else {
+							c.push("serverguide-exclude");
+						}
+						c.push("\" filter=\"gamemodes\" value=\"");
+						c.push(Surface.valOut(l_modeinfo.key));
+						c.push("\" >\n <div class=\"ticbox\"></div>\n <span>");
+						c.push(Surface.valOut(l_modeinfo.label));
+						c.push("</span>\n </div>\n");
+					}
+				}
+				c.push("\n </div>\n <input type=\"hidden\" name=\"gamemodes\" value=\"");
+				c.push(Surface.valOut(S.Modifier.join(o.filter.gamemodes, "|")));
+				c.push("\" />\n</div>");
+				return c.join('');
+			}
+			
+			$(".serverguide-apply-filter-button:visible").click(); //refresh so the new game modes show up right away
+			
+			this.state = "ready";
+			this.setMenuState();
+			mods.debug("showAllGameModeFilters applied");
+		}
+	},
+	
+	setMenuState: function() {
+		$("#mod-status-gamemode-filters").html(this.state);
 	}
 };
 
@@ -201,3 +286,4 @@ S.debug = function(msg)
 //apply mods
 mods.passwordBypass.apply();
 mods.autoJoin.apply();
+mods.showAllGameModeFilters.apply();
