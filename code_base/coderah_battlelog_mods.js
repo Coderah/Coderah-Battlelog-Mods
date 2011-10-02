@@ -158,11 +158,7 @@ mods.showAllGameModeFilters = {
 				return c.join('');
 			}
 			
-			if (window.navigator.userAgent.indexOf("Chrome") > -1) {
-				$(".serverguide-apply-filter-button:visible").click();
-			} else {
-				setTimeout(function() { $(".serverguide-apply-filter-button:visible").click(); }, 2000);
-			}
+			setTimeout(function() { $(".serverguide-apply-filter-button:visible").click(); }, 2000);
 			
 			this.state = "ready";
 			this.setMenuState();
