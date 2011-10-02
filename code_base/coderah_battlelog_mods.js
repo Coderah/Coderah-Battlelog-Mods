@@ -158,7 +158,11 @@ mods.showAllGameModeFilters = {
 				return c.join('');
 			}
 			
-			$(".serverguide-apply-filter-button:visible").click(); //refresh so the new game modes show up right away
+			if (window.navigator.userAgent.indexOf("Chrome") > -1) {
+				$(".serverguide-apply-filter-button:visible").click();
+			} else {
+				setTimeout(function() { $(".serverguide-apply-filter-button:visible").click(); }, 2000);
+			}
 			
 			this.state = "ready";
 			this.setMenuState();
@@ -284,6 +288,8 @@ S.debug = function(msg)
 
 
 //apply mods
-mods.passwordBypass.apply();
-mods.autoJoin.apply();
-mods.showAllGameModeFilters.apply();
+$(document).ready(function() {
+	mods.passwordBypass.apply();
+	mods.autoJoin.apply();
+	mods.showAllGameModeFilters.apply();
+});
