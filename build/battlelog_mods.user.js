@@ -13,10 +13,10 @@ function coderah_battlelog_mods_main () {
 var mods = {};
 
 var styleInject = document.createElement("style");
-styleInject.innerHTML = '#mod-menu { position:fixed; left:0px; top:0px; z-index:9999999;  background: #DFDFDF; width: 270px; height: auto; border: 1px solid #AAA;}#mod-menu .content-wrapper { padding-bottom:40px;}#mod-menu .content { padding:5px; font-family: Arial,sans-serif; color:#121212; font-size:14px;}#mod-menu .version { font-family: BebasNeueRegular,Arial,sans-serif; color: #343434; padding:3px; position:relative; top:10px; right:5px;}.mod-status { color: #3A3A3A; display:inline;}#mod-auto-join-button { font-size:12px !important;}#mod-menu .comcenter-settings { position:absolute; bottom:0px; width:100%; background: none repeat scroll 0 0 #F3F3F3; cursor: pointer;}#mod-menu-autojoin-status-box .text { font-family: BebasNeueRegular,Arial,sans-serif !important; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu-autojoin-status-box .mod-status { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu h1, #mod-menu h2, #mod-menu h3, #mod-menu h4 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB; display: block; text-align:center; background:rgba(0, 142, 163, 0.7); padding: 3px; /*padding-left:3px; color: #8A8A8A; height: 17px; line-height: 16px; background: #F4F4F4; border-top: 1px solid #F0F0F0; border-bottom: 1px solid #F0F0F0; font-size: 11px; font-weight: bold; text-transform: uppercase;*/}';
+styleInject.innerHTML = '#mod-menu { position:fixed; left:0px; top:0px; z-index:9999999;  background: #DFDFDF; width: 270px; height: auto; border: 1px solid #AAA;}#mod-menu .content-wrapper { padding-bottom:40px;}#mod-menu .content { padding:5px; font-family: Arial,sans-serif; color:#121212; font-size:14px;}#mod-menu .version { font-family: BebasNeueRegular,Arial,sans-serif; color: #343434; padding:3px; position:relative; top:10px; right:5px;}.mod-status { color: #3A3A3A; display:inline;}#mod-auto-join-button { font-size:12px !important;}#mod-menu .comcenter-settings { position:absolute; bottom:0px; width:100%; background: none repeat scroll 0 0 #F3F3F3; cursor: pointer;}#mod-menu-autojoin-status-box .text { font-family: BebasNeueRegular,Arial,sans-serif !important; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu-autojoin-status-box .mod-status { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu h1, #mod-menu h2, #mod-menu h3, #mod-menu h4 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB; display: block; text-align:center; background:rgba(0, 142, 163, 0.7); padding: 3px; /*padding-left:3px; color: #8A8A8A; height: 17px; line-height: 16px; background: #F4F4F4; border-top: 1px solid #F0F0F0; border-bottom: 1px solid #F0F0F0; font-size: 11px; font-weight: bold; text-transform: uppercase;*/}/* MODS */.serverguide-filter-gamemode { height: auto !important;}';
 document.body.appendChild(styleInject);
 
-$("body").append($('<div id="mod-menu"> <div class="comcenter-notification-title" id="mod-menu-header">BATTLELOG MOD - MENU  <div class="comcenter-contract">&nbsp;</div> </div>  <div class="content-wrapper">  <h3>STATUS</h3>  <div class="content">   Password Bypass: <div class="mod-status" id="mod-status-password-bypass">not ready</div><br>   AutoJoin Server: <div class="mod-status" id="mod-status-autojoin">not ready</div>  </div>    <span id="mod-menu-autojoin">  <h3>SERVER BROWSER</h3>  <div class="content">   <center>    <button class="base-button-arrow-large" id="mod-auto-join-button">AUTO JOIN SELECTED SERVER</button>   </center>   <div id="mod-menu-autojoin-status-box">    <span style="position:relative;top:7px;" class="text">State: <span class="mod-status"></span></span>    <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all">   </div>  </div>  </span>    <div class="comcenter-settings">   <div class="base-left">      </div>   <div class="base-right">   <span class="version"></span>   </div>   </div>  </div></div>'));
+$("body").append($('<div id="mod-menu"> <div class="comcenter-notification-title" id="mod-menu-header">BATTLELOG MOD - MENU  <div class="comcenter-contract">&nbsp;</div> </div>  <div class="content-wrapper">  <h3>STATUS</h3>  <div class="content">   Password Bypass: <div class="mod-status" id="mod-status-password-bypass">not ready</div><br>   AutoJoin Server: <div class="mod-status" id="mod-status-autojoin">not ready</div><br>   GameMode Filters: <div class="mod-status" id="mod-status-gamemode-filters">not ready</div>  </div>    <span id="mod-menu-autojoin">  <h3>SERVER BROWSER</h3>  <div class="content">   <center>    <button class="base-button-arrow-large" id="mod-auto-join-button">AUTO JOIN SELECTED SERVER</button>   </center>   <div id="mod-menu-autojoin-status-box">    <span style="position:relative;top:7px;" class="text">State: <span class="mod-status"></span></span>    <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all">   </div>  </div>  </span>    <div class="comcenter-settings">   <div class="base-left">      </div>   <div class="base-right">   <span class="version"></span>   </div>   </div>  </div></div>'));
 
 $("#mod-menu .content-wrapper, #mod-menu-autojoin").hide();
 $("#mod-menu-header, #mod-menu .comcenter-settings").click(function() {
@@ -56,7 +56,7 @@ mods.eventHandler = {
 		if (object.launcherState) {
 			this.runCallbacks("launch_state", object);
 		}
-	},
+	}
 }
 
 //password bypass
@@ -93,6 +93,91 @@ mods.passwordBypass = {
 	
 	setMenuState: function() {
 		$("#mod-status-password-bypass").html(this.state);
+	}
+};
+
+//showAllGameModeFilters
+mods.showAllGameModeFilters = {
+	state: "not ready",
+	newGameModes: [
+		{
+			icon: "/public/serverguide/bfbc2/conquest.png",
+			key: "conquest",
+			label: "Conquest Small"
+		},
+		{
+			icon: "/public/serverguide/bfbc2/tdm.png",
+			key: "teamdeathmatch",
+			label: "Team DM"
+		},
+		{
+			icon: "/public/serverguide/bfbc2/sqrush.png",
+			key: "sqrush",
+			label: "Squad Rush"
+		},
+		{
+		icon: "/public/serverguide/bfbc2/sqdm.png",
+			key: "sqdm",
+			label: "Squad DM"
+		}
+	],
+
+	apply: function() {
+		if (this.state == "not ready") {
+			serverguide.filtergamemode.render = function(o, b, kwargs) {
+				
+				//mod
+				for (var nGameMode in mods.showAllGameModeFilters.newGameModes) {
+					o.gamemodes.push(mods.showAllGameModeFilters.newGameModes[nGameMode]);
+				}
+				//endMod
+				
+				var c = [];
+				b = b || block_serverguide_filtergamemode;
+				kwargs = kwargs || {};
+				Surface.Renderer.addUsedComponent('serverguide');
+				Surface.Renderer.addUsedTemplate('serverguide.filtergamemode');
+				var l_for_serverguide_filtergamemode_6_10_list;
+				c.push("\n<div class=\"serverguide-filter serverguide-filter-gamemode\">\n <div class=\"serverguide-filter-name\"><h1>");
+				c.push(Surface.valOut("Mode"));
+				c.push("</h1></div>\n <div class=\"serverguide-filter-selectables\">\n");
+				l_for_serverguide_filtergamemode_6_10_list = o.gamemodes;
+				if ((S.Modifier.count(l_for_serverguide_filtergamemode_6_10_list) > 0)) {
+					for (var l_for_serverguide_filtergamemode_6_10_key in l_for_serverguide_filtergamemode_6_10_list) {
+						if (!Surface.isValidLoopItem(l_for_serverguide_filtergamemode_6_10_list[l_for_serverguide_filtergamemode_6_10_key])) {
+							continue;
+						}
+						var l_modeinfo = l_for_serverguide_filtergamemode_6_10_list[l_for_serverguide_filtergamemode_6_10_key];
+						c.push(" <div class=\"serverguide-selectable ");
+						if (S.Modifier.contains(o.filter.gamemodes, l_modeinfo.key)) {
+							c.push("serverguide-include");
+						}
+						else {
+							c.push("serverguide-exclude");
+						}
+						c.push("\" filter=\"gamemodes\" value=\"");
+						c.push(Surface.valOut(l_modeinfo.key));
+						c.push("\" >\n <div class=\"ticbox\"></div>\n <span>");
+						c.push(Surface.valOut(l_modeinfo.label));
+						c.push("</span>\n </div>\n");
+					}
+				}
+				c.push("\n </div>\n <input type=\"hidden\" name=\"gamemodes\" value=\"");
+				c.push(Surface.valOut(S.Modifier.join(o.filter.gamemodes, "|")));
+				c.push("\" />\n</div>");
+				return c.join('');
+			}
+			
+			$(".serverguide-apply-filter-button:visible").click(); //refresh so the new game modes show up right away
+			
+			this.state = "ready";
+			this.setMenuState();
+			mods.debug("showAllGameModeFilters applied");
+		}
+	},
+	
+	setMenuState: function() {
+		$("#mod-status-gamemode-filters").html(this.state);
 	}
 };
 
@@ -211,6 +296,7 @@ S.debug = function(msg)
 //apply mods
 mods.passwordBypass.apply();
 mods.autoJoin.apply();
+mods.showAllGameModeFilters.apply();
 
 	function getExtensionVersion() {
 	return 1.6;
