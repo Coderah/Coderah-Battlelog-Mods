@@ -3,7 +3,7 @@
 // @author          Alex Howard
 // @namespace       http://www.coderah.com/?page_id=389
 // @description     Multiple modifications for Battlelog (bf3 beta)
-// @version	        1.7
+// @version	        1.6
 // @include         http://battlelog.battlefield.com/*
 // ==/UserScript==
 
@@ -351,12 +351,12 @@ $(document).ready(function() {
 });
 
 	function getExtensionVersion() {
-	return 1.7;
+	return 1.6;
 }
 
 $("#mod-menu .version").html(getExtensionVersion());
 
-function createUpdateNotification() {
+function createUpdateNotification(newVersion) {
 	var updateReceipt = $('<div class="common-receipt type-checkbox" style="cursor: pointer;">' +
 		'<div class="common-receipt-message">' +
 		'Battlelog Mods -  update available, click here to update.' +
@@ -366,15 +366,17 @@ function createUpdateNotification() {
 		
 	updateReceipt.click(function() {
 		base.showReceipt("Battlelog Mods - refresh to finalize update.", receiptTypes.OK, 5000);
-		$("body").append('<iframe src="http://coderah.com/bf3/battlelog_mods.user.js"></iframe>');
+		$("body").append('<iframe src="http://coderah.com/bf3/battlelog_mods.user.js?' + newVersion + '"></iframe>');
 		$(this).remove();
 	});
 	$("#base-receipts").append(updateReceipt);
+	
+	mods.debug('<iframe src="http://coderah.com/bf3/battlelog_mods.user.js?' + newVersion + '"></iframe>');
 }
 
 $.get("http://coderah.com/bf3/battlelog_mods_version.php", function(data) { 
 	if (data.version > getExtensionVersion()) {
-		createUpdateNotification();
+		createUpdateNotification(data.version);
 	}
 });
 }
