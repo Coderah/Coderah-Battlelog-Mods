@@ -1,6 +1,6 @@
 var verboseDebug = false;
 
-var mods = {};
+var mods = {changelogLoaded: false};
 
 var styleInject = document.createElement("style");
 styleInject.innerHTML = <?style.css?>;

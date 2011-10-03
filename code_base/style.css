@@ -95,6 +95,53 @@
 	text-transform: uppercase;*/
 }
 
+#mod-menu-update-changelog {
+	max-height: 500px;
+	width:400px;
+	background: rgba(0,0,0,0.8);
+	position: fixed;
+	left: -416px;
+	top:130px;
+	margin:16px;
+	
+}
+
+#mod-menu-update-changelog h2 {
+	font-family: BebasNeueRegular,Arial,sans-serif;
+	font-weight: normal;
+	text-decoration: none;
+	color: #DBDBDB;
+}
+
+#mod-menu-update-changelog .closeButton {
+	background: url(http://battlelog-cdn.battlefield.com/public/base/shared/row_icon_chat.png?v=185);
+	background-position: 0 -26px;
+	padding-right: 13px;
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	background-color: #DBDBDB;
+	padding-bottom: 13px;
+	cursor:pointer;
+}
+
+#mod-menu-update-changelog .inner {
+	overflow: auto;
+	margin:7px;
+	color: #DCDCDC;
+	font-weight: normal;
+	font-size: 13px;
+	font-family: BebasNeueRegular,Arial,sans-serif;
+	padding:5px;
+	line-height:18px;
+}
+
+#mod-menu-update-changelog .inner p {
+	color: #BCBCBC;
+	line-height: 18px;
+	margin-left: 15px;
+}
+
 
 /* MODS */
 .serverguide-filter-gamemode {
