@@ -13,7 +13,7 @@ function coderah_battlelog_mods_main () {
 var mods = {changelogLoaded: false};
 
 var styleInject = document.createElement("style");
-styleInject.innerHTML = '#mod-menu { position:fixed; left:0px; top:0px; z-index:9999999;  background: #DFDFDF; width: 270px; height: auto; border: 1px solid #AAA;}#mod-menu .content-wrapper { padding-bottom:40px;}#mod-menu .content { padding:5px; font-family: Arial,sans-serif; color:#121212; font-size:14px;}#mod-menu .version { font-family: BebasNeueRegular,Arial,sans-serif; color: #343434; padding:3px; position:relative; top:10px; right:5px;}.mod-status { color: #3A3A3A; display:inline;}#mod-auto-join-button { font-family: "BebasNeueRegular",sans-serif !important; font-weight: normal; font-size:20px !important;}#mod-menu .comcenter-settings { position:absolute; bottom:0px; width:100%; background: none repeat scroll 0 0 #F3F3F3; cursor: pointer;}#mod-menu-autojoin-status-box { position: fixed; left: 293px; bottom: 1px; z-index: 99999; width: 250px; background: #DFDFDF; border-bottom: #FFC600 solid 3px; padding: 2px;}#mod-menu-autojoin-status-box .text { font-family: BebasNeueRegular,Arial,sans-serif !important; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu-autojoin-status-box .mod-status { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu h1, #mod-menu h2, #mod-menu h3, #mod-menu h4 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB; display: block; text-align:center; background:rgba(0, 142, 163, 0.7); padding: 3px; /*padding-left:3px; color: #8A8A8A; height: 17px; line-height: 16px; background: #F4F4F4; border-top: 1px solid #F0F0F0; border-bottom: 1px solid #F0F0F0; font-size: 11px; font-weight: bold; text-transform: uppercase;*/}#mod-menu-update-changelog { max-height: 500px; width:400px; background: rgba(0,0,0,0.8); position: fixed; left: -416px; top:130px; margin:16px; }#mod-menu-update-changelog h2 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB;}#mod-menu-update-changelog .closeButton { background: url(http://battlelog-cdn.battlefield.com/public/base/shared/row_icon_chat.png?v=185); background-position: 0 -26px; padding-right: 13px; position: absolute; top: 3px; right: 3px; background-color: #DBDBDB; padding-bottom: 13px; cursor:pointer;}#mod-menu-update-changelog .inner { overflow: auto; margin:7px; color: #DCDCDC; font-weight: normal; font-size: 13px; font-family: BebasNeueRegular,Arial,sans-serif; padding:5px; line-height:18px;}#mod-menu-update-changelog .inner p { color: #BCBCBC; line-height: 18px; margin-left: 15px;}/* MODS */.serverguide-filter-gamemode { height: auto !important;}.mod-auto-hooah { position: absolute; right: 5px; top: -25px; color: #308DBF; cursor:pointer; font-size: 11px; font-wieght: normal; text-decoration:underline; font-family: Arial,sans-serif;]';
+styleInject.innerHTML = '#mod-menu { position:fixed; left:0px; top:0px; z-index:9999999;  background: #DFDFDF; width: 270px; height: auto; border: 1px solid #AAA;}#mod-menu .content-wrapper { padding-bottom:40px;}#mod-menu .content { padding:5px; font-family: Arial,sans-serif; color:#121212; font-size:14px;}#mod-menu .version { font-family: BebasNeueRegular,Arial,sans-serif; color: #343434; padding:3px; position:relative; top:10px; right:5px;}.mod-status { color: #3A3A3A; display:inline;}#mod-auto-join-button { font-family: "BebasNeueRegular",sans-serif !important; font-weight: normal; font-size:26px !important;}#mod-menu .comcenter-settings { position:absolute; bottom:0px; width:100%; background: none repeat scroll 0 0 #F3F3F3; cursor: pointer;}#mod-menu-autojoin-status-box { position: fixed; left: 293px; bottom: 1px; z-index: 99999; width: 250px; background: #DFDFDF; border-bottom: #FFC600 solid 3px; padding: 2px;}#mod-menu-autojoin-status-box .text { font-family: BebasNeueRegular,Arial,sans-serif !important; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu-autojoin-status-box .mod-status { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu h1, #mod-menu h2, #mod-menu h3, #mod-menu h4 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB; display: block; text-align:center; background:rgba(0, 142, 163, 0.7); padding: 3px; /*padding-left:3px; color: #8A8A8A; height: 17px; line-height: 16px; background: #F4F4F4; border-top: 1px solid #F0F0F0; border-bottom: 1px solid #F0F0F0; font-size: 11px; font-weight: bold; text-transform: uppercase;*/}#mod-menu-update-changelog { max-height: 500px; width:400px; background: rgba(0,0,0,0.8); position: fixed; left: -416px; top:130px; margin:16px; }#mod-menu-update-changelog h2 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB;}#mod-menu-update-changelog .closeButton { background: url(http://battlelog-cdn.battlefield.com/public/base/shared/row_icon_chat.png?v=185); background-position: 0 -26px; padding-right: 13px; position: absolute; top: 3px; right: 3px; background-color: #DBDBDB; padding-bottom: 13px; cursor:pointer;}#mod-menu-update-changelog .inner { overflow: auto; margin:7px; color: #DCDCDC; font-weight: normal; font-size: 13px; font-family: BebasNeueRegular,Arial,sans-serif; padding:5px; line-height:18px;}#mod-menu-update-changelog .inner p { color: #BCBCBC; line-height: 18px; margin-left: 15px;}/* MODS */.serverguide-filter-gamemode { height: auto !important;}.mod-auto-hooah { position: absolute; right: 5px; top: -25px; color: #308DBF; cursor:pointer; font-size: 11px; font-wieght: normal; text-decoration:underline; font-family: Arial,sans-serif;]';
 document.body.appendChild(styleInject);
 
 $("body").append($('<div id="mod-menu" style="display:none"> <div class="comcenter-notification-title" id="mod-menu-header">BATTLELOG MOD - MENU  <div class="comcenter-contract">&nbsp;</div> </div>  <div class="content-wrapper">  <h3>STATUS</h3>  <div class="content">   Password Bypass: <div class="mod-status" id="mod-status-password-bypass">not ready</div><br>   AutoJoin Server: <div class="mod-status" id="mod-status-autojoin">not ready</div><br>   GameMode Filters: <div class="mod-status" id="mod-status-gamemode-filters">not ready</div>   Auto Hooah: <div class="mod-status" id="mod-status-auto-hooah">not ready</div>  </div>    <span id="mod-menu-autojoin">  <!--<h3>SERVER BROWSER</h3>  <div class="content">   <center>    <button class="base-button-arrow-large" id="mod-auto-join-button">AUTO JOIN SELECTED SERVER</button>   </center>   <div id="mod-menu-autojoin-status-box">    <span style="position:relative;top:7px;" class="text">State: <span class="mod-status"></span></span>    <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all">   </div>  </div>-->  </span>    <div class="comcenter-settings">   <div class="base-left">      </div>   <div class="base-right">   <span class="version"></span>   </div>   </div>  </div></div><div id="mod-menu-autojoin-status-box"> <span style="position:relative;top:7px;" class="text">AutoJoin State: <span class="mod-status"></span></span> <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all"></div><div id="mod-menu-update-changelog"> <h2>Battlelog Mods - Changelog</h2> <span class="closeButton"></span> <div class="inner">   </div></div>'));
@@ -168,12 +168,42 @@ mods.showAllGameModeFilters = {
 				return c.join('');
 			}
 			
-			setTimeout(function() { $(".serverguide-apply-filter-button:visible").click(); }, 2000);
+			setTimeout(function() { 
+				$(".serverguide-apply-filter-button:visible").click(); 
+				mods.showAllGameModeFilters.state = "ready";
+				mods.showAllGameModeFilters.setMenuState();
+				base.showReceipt("Battlelog Mods - GameMode Filters ready.", receiptTypes.OK, 5000);
+				mods.debug("showAllGameModeFilters applied");
+			}, 2000);
 			
-			this.state = "ready";
-			this.setMenuState();
-			base.showReceipt("Battlelog Mods - GameMode Filters ready.", receiptTypes.OK, 5000);
-			mods.debug("showAllGameModeFilters applied");
+			/*if ($(".serverguide-filter-gamemode .serverguide-filter-selectables")) {
+				var clickFunction = $(".serverguide-filter-gamemode .serverguide-filter-selectables div:first").data("events").mousedown[0].handler;
+				var savedFilterGameModes = $.parseJSON($.jStorage.get("serverguide-filter-localstorage", null)).gamemodes;
+				mods.debug(savedFilterGameModes);
+				for (var nGameMode in this.newGameModes) {
+					var newGameMode = this.newGameModes[nGameMode];
+					
+					var c = [];
+					
+					c.push('<div class="serverguide-selectable ');
+					if (savedFilterGameModes.indexOf(newGameMode.key) > -1) {
+						c.push('serverguide-include');
+					} else {
+						c.push('serverguide-exclude');
+					}
+					c.push('" filter="gamemodes" value="' + newGameMode.key + '">');
+					c.push('<div class="ticbox"></div>');
+					c.push('<span>' + newGameMode.label + '</span>');
+					c.push('</div>');
+					
+					$(".serverguide-filter-gamemode .serverguide-filter-selectables").append($(c.join('')).click(clickFunction));
+				}
+				
+				mods.showAllGameModeFilters.state = "ready";
+				mods.showAllGameModeFilters.setMenuState();
+				base.showReceipt("Battlelog Mods - GameMode Filters ready.", receiptTypes.OK, 5000);
+				mods.debug("showAllGameModeFilters applied");
+			}*/
 		}
 	},
 	
@@ -248,7 +278,7 @@ mods.autoJoin = {
 				
 				//mod
 				c.push('<center>\n');
-				c.push('<button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SELECTED SERVER</button>\n');
+				c.push('<button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SERVER</button>\n');
 				c.push('</center>\n');
 				//endMod
 				
@@ -289,7 +319,8 @@ mods.autoJoin = {
 				gamemanager.hide();
 			});
 			
-			$(".serverguide-bodycells.active:visible div:first").click();
+			//$(".serverguide-bodycells.active:visible div:first").click();
+			$("#serverguide-join-button").append($('<center><button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SERVER</button></center>'));
 			
 			this.modState = "ready";
 			this.setMenuState();
@@ -460,7 +491,7 @@ function createUpdateNotification(info) {
 }
 
 $.get("http://coderah.com/bf3/battlelog_mods_version.php?type=greasemonkey", function(data) { 
-	if (data.url) { mods.debug("update check returned url: " + data.url);}
+	if (data.url) { mods.debug("update check returned url: " + data.url); }
 	if (data.version > getExtensionVersion()) {
 		createUpdateNotification(data);
 	}

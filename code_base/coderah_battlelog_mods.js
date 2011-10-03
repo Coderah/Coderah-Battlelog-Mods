@@ -158,12 +158,42 @@ mods.showAllGameModeFilters = {
 				return c.join('');
 			}
 			
-			setTimeout(function() { $(".serverguide-apply-filter-button:visible").click(); }, 2000);
+			setTimeout(function() { 
+				$(".serverguide-apply-filter-button:visible").click(); 
+				mods.showAllGameModeFilters.state = "ready";
+				mods.showAllGameModeFilters.setMenuState();
+				base.showReceipt("Battlelog Mods - GameMode Filters ready.", receiptTypes.OK, 5000);
+				mods.debug("showAllGameModeFilters applied");
+			}, 2000);
 			
-			this.state = "ready";
-			this.setMenuState();
-			base.showReceipt("Battlelog Mods - GameMode Filters ready.", receiptTypes.OK, 5000);
-			mods.debug("showAllGameModeFilters applied");
+			/*if ($(".serverguide-filter-gamemode .serverguide-filter-selectables")) {
+				var clickFunction = $(".serverguide-filter-gamemode .serverguide-filter-selectables div:first").data("events").mousedown[0].handler;
+				var savedFilterGameModes = $.parseJSON($.jStorage.get("serverguide-filter-localstorage", null)).gamemodes;
+				mods.debug(savedFilterGameModes);
+				for (var nGameMode in this.newGameModes) {
+					var newGameMode = this.newGameModes[nGameMode];
+					
+					var c = [];
+					
+					c.push('<div class="serverguide-selectable ');
+					if (savedFilterGameModes.indexOf(newGameMode.key) > -1) {
+						c.push('serverguide-include');
+					} else {
+						c.push('serverguide-exclude');
+					}
+					c.push('" filter="gamemodes" value="' + newGameMode.key + '">');
+					c.push('<div class="ticbox"></div>');
+					c.push('<span>' + newGameMode.label + '</span>');
+					c.push('</div>');
+					
+					$(".serverguide-filter-gamemode .serverguide-filter-selectables").append($(c.join('')).click(clickFunction));
+				}
+				
+				mods.showAllGameModeFilters.state = "ready";
+				mods.showAllGameModeFilters.setMenuState();
+				base.showReceipt("Battlelog Mods - GameMode Filters ready.", receiptTypes.OK, 5000);
+				mods.debug("showAllGameModeFilters applied");
+			}*/
 		}
 	},
 	
@@ -238,7 +268,7 @@ mods.autoJoin = {
 				
 				//mod
 				c.push('<center>\n');
-				c.push('<button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SELECTED SERVER</button>\n');
+				c.push('<button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SERVER</button>\n');
 				c.push('</center>\n');
 				//endMod
 				
@@ -279,7 +309,8 @@ mods.autoJoin = {
 				gamemanager.hide();
 			});
 			
-			$(".serverguide-bodycells.active:visible div:first").click();
+			//$(".serverguide-bodycells.active:visible div:first").click();
+			$("#serverguide-join-button").append($('<center><button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SERVER</button></center>'));
 			
 			this.modState = "ready";
 			this.setMenuState();
