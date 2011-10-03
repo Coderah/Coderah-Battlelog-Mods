@@ -147,3 +147,15 @@
 .serverguide-filter-gamemode {
 	height: auto !important;
 }
+
+.mod-auto-hooah {
+	position: absolute;
+	right: 5px;
+	top: -25px;
+	color: #308DBF;
+	cursor:pointer;
+	font-size: 11px;
+	font-wieght: normal;
+	text-decoration:underline;
+	font-family: Arial,sans-serif;
+]
