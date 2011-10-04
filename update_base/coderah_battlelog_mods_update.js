@@ -18,7 +18,6 @@ mods.createUpdateNotification = function(info) {
 	}
 		
 	mods.changelog.load(newVersion);
-	mods.changelog.hide();
 		
 	updateReceipt.click(function() {
 		base.showReceipt("Battlelog Mods - refresh to finalize update.", receiptTypes.OK, 5000);
@@ -50,6 +49,7 @@ mods.changelog = {
 			$("#mod-menu-update-changelog .inner").html(data);
 			mods.changelogLoaded = true;
 			mods.debug("loaded changelog for " + version);
+			mods.changelog.hide();
 			if (showOnLoad) { mods.changelog.show(); }
 		});
 	}
