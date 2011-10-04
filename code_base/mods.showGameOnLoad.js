@@ -14,7 +14,7 @@ mods.showGameOnLoad = {
 						}
 					}
 					if (eventObject.launcherState.name == "launch_ready") {
-						if (mods.showGameOnLoad.alreadyHitLoadingMessage) { debug("game is loaded reset showGameOnLoad"); }
+						if (mods.showGameOnLoad.alreadyHitLoadingMessage) { mods.debug("game is loaded reset showGameOnLoad"); }
 						mods.showGameOnLoad.alreadyHitLoadingMessage = false;
 					}
 				}

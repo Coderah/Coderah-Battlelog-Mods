@@ -227,6 +227,12 @@
   background:none;
 }
 
+.mod-update-receipt {
+	position:fixed;
+	left:10px;
+	top:70px;
+}
+
 /* MODS */
 .serverguide-filter-gamemode {
 	height: auto !important;

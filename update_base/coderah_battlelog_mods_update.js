@@ -6,8 +6,9 @@ $("#mod-menu .version").html(mods.getExtensionVersion());
 
 mods.createUpdateNotification = function(info) {
 	var newVersion = info.version;
-	var updateReceipt = $('<div class="common-receipt type-checkbox" style="cursor: pointer;">' +
-		'<div class="common-receipt-message">' +
+	var updateReceipt = $('<div class="common-receipt type-checkbox mod-update-receipt" style="cursor: pointer;width:auto;">' +
+		'<div class="common-receipt-checkbox"></div>' +
+		'<div class="common-receipt-message" style="float:left;">' +
 		'Battlelog Mods -  update available, click here to update. (' + newVersion + ')' +
 		'</div>' +
 		'<div class="base-clear"></div>' +
@@ -31,7 +32,7 @@ mods.createUpdateNotification = function(info) {
 			mods.changelog.show();
 		}
 	});
-	$("#base-receipts").append(updateReceipt);
+	$("#base-receipts").parent().prepend(updateReceipt);
 }
 
 mods.changelog = {
@@ -49,7 +50,7 @@ mods.changelog = {
 			$("#mod-menu-update-changelog .inner").html(data);
 			mods.changelogLoaded = true;
 			mods.debug("loaded changelog for " + version);
-			mods.changelog.hide();
+			$("#mod-menu-update-changelog").css({"left": "-" + $("#mod-menu-update-changelog").outerWidth() + "px"});
 			if (showOnLoad) { mods.changelog.show(); }
 		});
 	}
