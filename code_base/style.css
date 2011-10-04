@@ -1,5 +1,5 @@
 #mod-menu {
-	position:fixed;
+	position:absolute;
 	left:0px;
 	top:0px;
 	z-index:9999999;
@@ -156,6 +156,10 @@
 	cursor:pointer;
 	font-size: 11px;
 	font-wieght: normal;
-	text-decoration:underline;
+	text-decoration:none;
 	font-family: Arial,sans-serif;
-]
+}
+
+.mod-auto-hooah:hover {
+	text-decoration: underline;
+}
