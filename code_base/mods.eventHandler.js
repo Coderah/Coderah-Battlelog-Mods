@@ -8,9 +8,9 @@ mods.eventHandler = {
 	
 	addCallback: function(eventType, callback) {
 		
-		if (typeof this.callbacks[eventType] == "array") {
+		if (this.callbacks[eventType]) {
 			this.callbacks[eventType].push(callback);
-			mods.debug("added callback for eventType(" + eventType + ")");
+			mods.debug("added callback for eventType(" + eventType + ") (along-side)");
 		} else {
 			this.callbacks[eventType] = [callback];
 			mods.debug("added callback for eventType(" + eventType + ")");
