@@ -32,4 +32,4 @@ mods.eventHandler = {
 			this.runCallbacks("launch_state", object);
 		}
 	}
-}
+};

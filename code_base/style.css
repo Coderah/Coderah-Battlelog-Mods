@@ -135,11 +135,11 @@
 	background: rgba(0,0,0,0.8);
 	position: fixed;
 	left: -416px;
-	top:130px;
-	margin:16px;
+	top:140px;
 	-webkit-box-shadow: 0px 0px 13px rgba(0,0,0,0.8);
 	-moz-box-shadow: 0px 0px 13px rgba(0,0,0,0.8);
 	box-shadow: 0px 0px 13px rgba(0,0,0,0.8);
+	z-index: 99999999;
 }
 
 #mod-menu-update-changelog h2 {
@@ -178,6 +178,12 @@
 	margin-left: 15px;
 }
 
+.mod-base-section-dropdown {
+	position: relative;
+	height: 37px;
+	top: 19px;
+}
+
 .mod-activedropdown .base-dropdown-left
 {
   background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 0 no-repeat;
@@ -193,7 +199,7 @@
   background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) -9px 0 no-repeat;
 }
 
-#base-sub-navbar li.base-section-dropdown.mod-activedropdown .base-dropdown-middle a,#base-sub-navbar #base-section-nav-bf3 li.base-section-dropdown.active.mod-activedropdown .base-dropdown-middle a
+#base-sub-navbar li.mod-base-section-dropdown.mod-activedropdown .base-dropdown-middle a,#base-sub-navbar #base-section-nav-bf3 li.mod-base-section-dropdown.active.mod-activedropdown .base-dropdown-middle a
 {
   color:#353535;
   background:none;

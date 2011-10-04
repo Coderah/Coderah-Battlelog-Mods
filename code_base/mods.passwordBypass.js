@@ -5,8 +5,7 @@ mods.passwordBypass = {
 		if (this.state == "not ready") {
 			launcher.verifyPassword = function(game, gameServerGuid, plaintextPassword, callback) { mods.debug("password bypassed"); callback(true); }
 
-			joinflow.showPasswordPromptPopup = function(server, callback)
-			{
+			joinflow.showPasswordPromptPopup = function(server, callback) {
 				var pass = "fakepassword";
 
 				launcher.verifyPassword(server.game, server.guid, pass, function(passwordOk) {

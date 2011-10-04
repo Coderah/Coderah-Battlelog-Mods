@@ -1,4 +1,4 @@
-mods.menuItem = ['<li rel="mods" class="base-section-dropdown" id="mod-menu-item">',
+mods.menuItem = ['<li rel="mods" class="mod-base-section-dropdown" id="mod-menu-item">',
 '<div class="base-dropdown-left"></div><div class="base-dropdown-middle">',
 '<a class="wfont">Mods</a>',
 '</div><div class="base-dropdown-right"></div>',
@@ -12,9 +12,7 @@ $("#mod-menu-item").live("click", function() {
 	
 	if (!$(this).is(".mod-activedropdown")) {
 		$(this).addClass("mod-activedropdown");
-		$("#mod-menu")
-			.css({"left": menuItemPosition.left + "px", "top": (menuItemPosition.top + $(this).height() - 1) + "px"})
-			.show();
+		$("#mod-menu").css({"left": menuItemPosition.left + "px", "top": (menuItemPosition.top + $(this).height() - 1) + "px"}).show();
 	} else {
 		$(this).removeClass("mod-activedropdown");
 		$("#mod-menu").hide();
@@ -75,66 +73,6 @@ base.menu.surface_6_10.render = function(o, b, kwargs) {
         l_activeSubMenu = false;
     }
     c.push('\n <div id="base-sub-navbar">\n');
-    if ((l_realm.section == Surface.globalContext.staticContext.games.BFBC2)) {
-        c.push(' <ul class="base-section-menu" id="base-section-nav-bfbc2">\n');
-        o.s = {"_section": "bfbc2"};
-        c.push('\n <li><a href="');
-        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/", Surface.urlContext, o.s)));
-        c.push('" class="base-header-logo base-header-logo-bfbc2"></a></li>\n <li ');
-        if ((l_activeMenu == "home")) {
-            c.push('class="active"');
-        }
-        c.push('>\n <a data="home" href="');
-        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/", Surface.urlContext, o.s)));
-        c.push('">');
-        c.push(Surface.valOut("Home"));
-        c.push("</a>\n </li>\n <li ");
-        if ((l_activeMenu == "serverguide")) {
-            c.push('class="active"');
-        }
-        c.push('>\n <a data="serverguide" href="');
-        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/servers/{getrandom}/", Surface.urlContext, o.s)));
-        c.push('">');
-        c.push(Surface.valOut("Server Browser"));
-        c.push("</a>\n </li>\n <li ");
-        if ((l_activeMenu == "leaderboard")) {
-            c.push('class="active"');
-        }
-        c.push('>\n <a data="leaderboard" href="');
-        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/leaderboard/{group}/{category}/{platform}/{friends}/", Surface.urlContext, o.s)));
-        c.push('">');
-        c.push(Surface.valOut("Leaderboard"));
-        c.push("</a>\n </li>\n <li ");
-        if ((l_activeMenu == "devblog")) {
-            c.push('class="active"');
-        }
-        c.push('>\n <a data="devblog" href="');
-        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/devblog/{offset}/", Surface.urlContext, o.s)));
-        c.push('" >');
-        c.push(Surface.valOut("News"));
-        c.push("</a>\n </li>\n <li ");
-        if ((l_activeMenu == "forum")) {
-            c.push('class="active"');
-        }
-        c.push('>\n <a data="forum" href="');
-        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/forum/", Surface.urlContext, o.s)));
-        c.push('">');
-        c.push(Surface.valOut("Forums"));
-        c.push("</a>\n </li>\n");
-        if ((((typeof (l_session) != "undefined" && l_session !== null && typeof (l_session.isLoggedIn) != "undefined" && l_session.isLoggedIn !== null) ? l_session.isLoggedIn : false) && false)) {
-            c.push(" <li ");
-            if ((l_activeMenu == "admin")) {
-                c.push('class="active"');
-            }
-            c.push('>\n <a class="wfont" href="');
-            c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/admin/", Surface.urlContext)));
-            c.push('">');
-            c.push(Surface.valOut("Admin"));
-            c.push("</a>\n </li>\n");
-        }
-        c.push(" </ul>\n ");
-    }
-    c.push("\n");
     if ((l_realm.section == Surface.globalContext.staticContext.games.BF3)) {
         c.push(' <input id="url-getDropdownMenu" type="hidden" value="');
         c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/getDropdownMenu/{type}/", Surface.urlContext, {"type": "#TYPE#"})));
@@ -233,7 +171,11 @@ base.menu.surface_6_10.render = function(o, b, kwargs) {
         c.push("</a>\n </li>\n ");
 		
 		//mod
-		c.push(mods.menuItem);
+		if ($("#mod-menu").is(":visible")) {
+			c.push(mods.menuItem.replace('class="mod-base-section-dropdown"', 'class="mod-base-section-dropdown mod-activedropdown"'));
+		} else {
+			c.push(mods.menuItem);
+		}
 		//endMod
 		
 		c.push("</ul>\n ");
