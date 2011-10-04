@@ -17,11 +17,7 @@ mods.createUpdateNotification = function(info) {
 		mods.updateUrl = data.url;
 	}
 		
-	$.get("http://coderah.com/bf3/battlelog_mods_changelog.php?version=" + newVersion, function(data) { 
-		$("#mod-menu-update-changelog .inner").html(data);
-		mods.changelogLoaded = true;
-		mods.debug("loaded changelog for " + newVersion);
-	});
+	mods.changelog.load(newVersion);
 		
 	updateReceipt.click(function() {
 		base.showReceipt("Battlelog Mods - refresh to finalize update.", receiptTypes.OK, 5000);
@@ -32,14 +28,34 @@ mods.createUpdateNotification = function(info) {
 		}
 		$(this).remove();
 		if (mods.changelogLoaded) {
-			$("#mod-menu-update-changelog").animate({"left": "0px"});
+			mods.changelog.show();
 		}
 	});
 	$("#base-receipts").append(updateReceipt);
 }
 
+mods.changelog = {
+	show: function() {
+		$("#mod-menu-update-changelog").animate({"left": "0px"});
+	},
+	
+	hide: function() {
+		$("#mod-menu-update-changelog").animate({"left": "-" + $("#mod-menu-update-changelog").outerWidth() + "px"});
+	},
+	
+	load: function(version, showOnLoad) {
+		if (typeof showOnLoad == "undefined") { showOnLoad = false; }
+		$.get("http://coderah.com/bf3/battlelog_mods_changelog.php?version=" + version, function(data) { 
+			$("#mod-menu-update-changelog .inner").html(data);
+			mods.changelogLoaded = true;
+			mods.debug("loaded changelog for " + version);
+			if (showOnLoad) { mods.changelog.show(); }
+		});
+	}
+}
+
 $("#mod-menu-update-changelog .closeButton").click(function() {
-	$("#mod-menu-update-changelog").animate({"left": "-416px"});
+	mods.changelog.hide();
 });
 
 $.get("http://coderah.com/bf3/battlelog_mods_version.php?type=<?buildType?>", function(data) { 

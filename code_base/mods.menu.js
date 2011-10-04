@@ -21,14 +21,9 @@ $("#mod-menu-item").live("click", function() {
 
 $("#mod-menu .changelog-link").click(function() {
 	if (mods.changelogLoaded) {
-		$("#mod-menu-update-changelog").animate({"left": "0px"});
+		mods.changelog.show();
 	} else {
-		$.get("http://coderah.com/bf3/battlelog_mods_changelog.php?version=" + mods.getExtensionVersion(), function(data) { 
-			$("#mod-menu-update-changelog .inner").html(data);
-			mods.changelogLoaded = true;
-			mods.debug("loaded changelog for " + mods.getExtensionVersion());
-			$("#mod-menu-update-changelog").animate({"left": "0px"});
-		});
+		mods.changelog.load(mods.getExtensionVersion(), true);
 		
 	}
 });
