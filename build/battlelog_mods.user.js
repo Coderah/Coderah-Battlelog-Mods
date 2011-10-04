@@ -29,7 +29,7 @@ mods.menuItem = ['<li rel="mods" class="base-section-dropdown" id="mod-menu-item
 
 $("ul#base-section-nav-bf3").append($(mods.menuItem));
 
-$("#mod-menu-item").click(function() {
+$("#mod-menu-item").live("click", function() {
 	var menuItemPosition = $(this).offset();
 	
 	if (!$(this).is(".mod-activedropdown")) {
