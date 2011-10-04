@@ -3,7 +3,7 @@
 // @author          Alex Howard
 // @namespace       http://www.coderah.com/?page_id=389
 // @description     Multiple modifications for Battlelog (bf3 beta)
-// @version	        1.8
+// @version	        1.9
 // @include         http://battlelog.battlefield.com/*
 // ==/UserScript==
 
@@ -696,7 +696,7 @@ mods.saveSettings = function() {
 }
 
 	mods.getExtensionVersion = function() {
-	return 1.8;
+	return 1.9;
 }
 
 $("#mod-menu .version").html(mods.getExtensionVersion());
