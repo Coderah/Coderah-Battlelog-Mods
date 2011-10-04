@@ -3,11 +3,13 @@
 	left:0px;
 	top:0px;
 	z-index:9999999;
-	
 	background: #DFDFDF;
 	width: 270px;
 	height: auto;
-	border: 1px solid #AAA;
+	border-top: 4px solid #F1F1F1;
+	-webkit-box-shadow: 0px 5px 11px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0px 5px 11px rgba(0,0,0,0.4);
+	box-shadow: 0px 5px 11px rgba(0,0,0,0.4);
 }
 
 #mod-menu .content-wrapper {
@@ -24,10 +26,24 @@
 #mod-menu .version {
 	font-family: BebasNeueRegular,Arial,sans-serif;
 	color: #343434;
-	padding:3px;
-	position:relative;
-	top:10px;
-	right:5px;
+	padding: 3px;
+	margin-top: 5px;
+	float: right;
+}
+
+#mod-menu .changelog-link {
+	margin-top: 10px;
+	float: right;
+	color: #308DBF;
+	cursor: pointer;
+	font-size: 11px;
+	font-wieght: normal;
+	text-decoration: none;
+	font-family: Arial,sans-serif;
+}
+
+#mod-menu .changelog-link:hover {
+	text-decoration:underline;
 }
 
 .mod-status {
@@ -46,7 +62,6 @@
 	bottom:0px;
 	width:100%;
 	background: none repeat scroll 0 0 #F3F3F3;
-	cursor: pointer;
 }
 
 #mod-menu-autojoin-status-box {
@@ -58,6 +73,25 @@
 	background: #DFDFDF;
 	border-bottom: #FFC600 solid 3px;
 	padding: 2px;
+}
+
+.mod-ticbox {
+	width: 10px;
+	height: 10px;
+	background: url(http://battlelog-cdn.battlefield.com/public/serverguide/icon_checkbox.png?v=209) no-repeat;
+	background-position: 0 -20px;
+	display:inline-block;
+	cursor:pointer;
+}
+.mod-ticbox:hover {
+	background-position: 0 -30px;
+}
+
+.mod-ticbox.checked {
+	background-position: 0 0;
+}
+.mod-ticbox.checked:hover {
+	background-position: 0 -10px;
 }
 
 #mod-menu-autojoin-status-box .text {
@@ -103,7 +137,9 @@
 	left: -416px;
 	top:130px;
 	margin:16px;
-	
+	-webkit-box-shadow: 0px 0px 13px rgba(0,0,0,0.8);
+	-moz-box-shadow: 0px 0px 13px rgba(0,0,0,0.8);
+	box-shadow: 0px 0px 13px rgba(0,0,0,0.8);
 }
 
 #mod-menu-update-changelog h2 {
@@ -142,6 +178,26 @@
 	margin-left: 15px;
 }
 
+.mod-activedropdown .base-dropdown-left
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 0 no-repeat;
+}
+
+.mod-activedropdown .base-dropdown-middle
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 -36px repeat-x;
+}
+
+.mod-activedropdown .base-dropdown-right
+{
+  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) -9px 0 no-repeat;
+}
+
+#base-sub-navbar li.base-section-dropdown.mod-activedropdown .base-dropdown-middle a,#base-sub-navbar #base-section-nav-bf3 li.base-section-dropdown.active.mod-activedropdown .base-dropdown-middle a
+{
+  color:#353535;
+  background:none;
+}
 
 /* MODS */
 .serverguide-filter-gamemode {

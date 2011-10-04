@@ -13,15 +13,258 @@ function coderah_battlelog_mods_main () {
 var mods = {changelogLoaded: false};
 
 var styleInject = document.createElement("style");
-styleInject.innerHTML = '#mod-menu { position:absolute; left:0px; top:0px; z-index:9999999;  background: #DFDFDF; width: 270px; height: auto; border: 1px solid #AAA;}#mod-menu .content-wrapper { padding-bottom:40px;}#mod-menu .content { padding:5px; font-family: Arial,sans-serif; color:#121212; font-size:14px;}#mod-menu .version { font-family: BebasNeueRegular,Arial,sans-serif; color: #343434; padding:3px; position:relative; top:10px; right:5px;}.mod-status { color: #3A3A3A; display:inline;}#mod-auto-join-button { font-family: "BebasNeueRegular",sans-serif !important; font-weight: normal; font-size:26px !important;}#mod-menu .comcenter-settings { position:absolute; bottom:0px; width:100%; background: none repeat scroll 0 0 #F3F3F3; cursor: pointer;}#mod-menu-autojoin-status-box { position: fixed; left: 293px; bottom: 1px; z-index: 99999; width: 250px; background: #DFDFDF; border-bottom: #FFC600 solid 3px; padding: 2px;}#mod-menu-autojoin-status-box .text { font-family: BebasNeueRegular,Arial,sans-serif !important; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu-autojoin-status-box .mod-status { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu h1, #mod-menu h2, #mod-menu h3, #mod-menu h4 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB; display: block; text-align:center; background:rgba(0, 142, 163, 0.7); padding: 3px; /*padding-left:3px; color: #8A8A8A; height: 17px; line-height: 16px; background: #F4F4F4; border-top: 1px solid #F0F0F0; border-bottom: 1px solid #F0F0F0; font-size: 11px; font-weight: bold; text-transform: uppercase;*/}#mod-menu-update-changelog { max-height: 500px; width:400px; background: rgba(0,0,0,0.8); position: fixed; left: -416px; top:130px; margin:16px; }#mod-menu-update-changelog h2 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB;}#mod-menu-update-changelog .closeButton { background: url(http://battlelog-cdn.battlefield.com/public/base/shared/row_icon_chat.png?v=185); background-position: 0 -26px; padding-right: 13px; position: absolute; top: 3px; right: 3px; background-color: #DBDBDB; padding-bottom: 13px; cursor:pointer;}#mod-menu-update-changelog .inner { overflow: auto; margin:7px; color: #DCDCDC; font-weight: normal; font-size: 13px; font-family: BebasNeueRegular,Arial,sans-serif; padding:5px; line-height:18px;}#mod-menu-update-changelog .inner p { color: #BCBCBC; line-height: 18px; margin-left: 15px;}/* MODS */.serverguide-filter-gamemode { height: auto !important;}.mod-auto-hooah { position: absolute; right: 5px; top: -25px; color: #308DBF; cursor:pointer; font-size: 11px; font-wieght: normal; text-decoration:none; font-family: Arial,sans-serif;}.mod-auto-hooah:hover { text-decoration: underline;}';
+styleInject.innerHTML = '#mod-menu { position:absolute; left:0px; top:0px; z-index:9999999; background: #DFDFDF; width: 270px; height: auto; border-top: 4px solid #F1F1F1; -webkit-box-shadow: 0px 5px 11px rgba(0,0,0,0.4); -moz-box-shadow: 0px 5px 11px rgba(0,0,0,0.4); box-shadow: 0px 5px 11px rgba(0,0,0,0.4);}#mod-menu .content-wrapper { padding-bottom:40px;}#mod-menu .content { padding:5px; font-family: Arial,sans-serif; color:#121212; font-size:14px;}#mod-menu .version { font-family: BebasNeueRegular,Arial,sans-serif; color: #343434; padding: 3px; margin-top: 5px; float: right;}#mod-menu .changelog-link { margin-top: 10px; float: right; color: #308DBF; cursor: pointer; font-size: 11px; font-wieght: normal; text-decoration: none; font-family: Arial,sans-serif;}#mod-menu .changelog-link:hover { text-decoration:underline;}.mod-status { color: #3A3A3A; display:inline;}#mod-auto-join-button { font-family: "BebasNeueRegular",sans-serif !important; font-weight: normal; font-size:26px !important;}#mod-menu .comcenter-settings { position:absolute; bottom:0px; width:100%; background: none repeat scroll 0 0 #F3F3F3;}#mod-menu-autojoin-status-box { position: fixed; left: 293px; bottom: 1px; z-index: 99999; width: 250px; background: #DFDFDF; border-bottom: #FFC600 solid 3px; padding: 2px;}.mod-ticbox { width: 10px; height: 10px; background: url(http://battlelog-cdn.battlefield.com/public/serverguide/icon_checkbox.png?v=209) no-repeat; background-position: 0 -20px; display:inline-block; cursor:pointer;}.mod-ticbox:hover { background-position: 0 -30px;}.mod-ticbox.checked { background-position: 0 0;}.mod-ticbox.checked:hover { background-position: 0 -10px;}#mod-menu-autojoin-status-box .text { font-family: BebasNeueRegular,Arial,sans-serif !important; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu-autojoin-status-box .mod-status { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu h1, #mod-menu h2, #mod-menu h3, #mod-menu h4 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB; display: block; text-align:center; background:rgba(0, 142, 163, 0.7); padding: 3px; /*padding-left:3px; color: #8A8A8A; height: 17px; line-height: 16px; background: #F4F4F4; border-top: 1px solid #F0F0F0; border-bottom: 1px solid #F0F0F0; font-size: 11px; font-weight: bold; text-transform: uppercase;*/}#mod-menu-update-changelog { max-height: 500px; width:400px; background: rgba(0,0,0,0.8); position: fixed; left: -416px; top:130px; margin:16px; -webkit-box-shadow: 0px 0px 13px rgba(0,0,0,0.8); -moz-box-shadow: 0px 0px 13px rgba(0,0,0,0.8); box-shadow: 0px 0px 13px rgba(0,0,0,0.8);}#mod-menu-update-changelog h2 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB;}#mod-menu-update-changelog .closeButton { background: url(http://battlelog-cdn.battlefield.com/public/base/shared/row_icon_chat.png?v=185); background-position: 0 -26px; padding-right: 13px; position: absolute; top: 3px; right: 3px; background-color: #DBDBDB; padding-bottom: 13px; cursor:pointer;}#mod-menu-update-changelog .inner { overflow: auto; margin:7px; color: #DCDCDC; font-weight: normal; font-size: 13px; font-family: BebasNeueRegular,Arial,sans-serif; padding:5px; line-height:18px;}#mod-menu-update-changelog .inner p { color: #BCBCBC; line-height: 18px; margin-left: 15px;}.mod-activedropdown .base-dropdown-left{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 0 no-repeat;}.mod-activedropdown .base-dropdown-middle{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 -36px repeat-x;}.mod-activedropdown .base-dropdown-right{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) -9px 0 no-repeat;}#base-sub-navbar li.base-section-dropdown.mod-activedropdown .base-dropdown-middle a,#base-sub-navbar #base-section-nav-bf3 li.base-section-dropdown.active.mod-activedropdown .base-dropdown-middle a{  color:#353535;  background:none;}/* MODS */.serverguide-filter-gamemode { height: auto !important;}.mod-auto-hooah { position: absolute; right: 5px; top: -25px; color: #308DBF; cursor:pointer; font-size: 11px; font-wieght: normal; text-decoration:none; font-family: Arial,sans-serif;}.mod-auto-hooah:hover { text-decoration: underline;}';
 document.body.appendChild(styleInject);
 
-$("body").append($('<div id="mod-menu" style="display:none"> <div class="comcenter-notification-title" id="mod-menu-header">BATTLELOG MOD - MENU  <div class="comcenter-contract">&nbsp;</div> </div>  <div class="content-wrapper">  <h3>STATUS</h3>  <div class="content">   Password Bypass: <div class="mod-status" id="mod-status-password-bypass">not ready</div><br>   AutoJoin Server: <div class="mod-status" id="mod-status-autojoin">not ready</div><br>   GameMode Filters: <div class="mod-status" id="mod-status-gamemode-filters">not ready</div>   Auto Hooah: <div class="mod-status" id="mod-status-auto-hooah">not ready</div>  </div>    <span id="mod-menu-autojoin">  <!--<h3>SERVER BROWSER</h3>  <div class="content">   <center>    <button class="base-button-arrow-large" id="mod-auto-join-button">AUTO JOIN SELECTED SERVER</button>   </center>   <div id="mod-menu-autojoin-status-box">    <span style="position:relative;top:7px;" class="text">State: <span class="mod-status"></span></span>    <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all">   </div>  </div>-->  </span>    <div class="comcenter-settings">   <div class="base-left">      </div>   <div class="base-right">   <span class="version"></span>   </div>   </div>  </div></div><div id="mod-menu-autojoin-status-box"> <span style="position:relative;top:7px;" class="text">AutoJoin State: <span class="mod-status"></span></span> <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all"></div><div id="mod-menu-update-changelog"> <h2>Battlelog Mods - Changelog</h2> <span class="closeButton"></span> <div class="inner">   </div></div>'));
+$("body").append($('<div id="mod-menu" style="display:none"> <div class="content-wrapper">  <h3>STATUS</h3>  <div class="content">   Password Bypass: <div class="mod-status" id="mod-status-password-bypass">not ready</div><br>   AutoJoin Server: <div class="mod-status" id="mod-status-autojoin">not ready</div><br>   GameMode Filters: <div class="mod-status" id="mod-status-gamemode-filters">not ready</div><br>   Auto Hooah: <div class="mod-status" id="mod-status-auto-hooah">not ready</div>  </div>    <div class="comcenter-settings">   <div class="base-left">      </div>   <div class="base-right">   <span class="version"></span>   <span class="changelog-link">changelog</span>   </div>   </div>  </div></div><div id="mod-menu-autojoin-status-box"> <span style="position:relative;top:7px;" class="text">AutoJoin State: <span class="mod-status"></span></span> <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all"></div><div id="mod-menu-update-changelog"> <h2>Battlelog Mods - Changelog</h2> <span class="closeButton"></span> <div class="inner">   </div></div>'));
 
-$("#mod-menu .content-wrapper, #mod-menu-autojoin").hide();
-$("#mod-menu-header, #mod-menu .comcenter-settings").click(function() {
-	$("#mod-menu .content-wrapper").toggle();
+//$("#mod-menu .content-wrapper, #mod-menu-autojoin").hide();
+
+mods.menuItem = ['<li rel="mods" class="base-section-dropdown" id="mod-menu-item">',
+'<div class="base-dropdown-left"></div><div class="base-dropdown-middle">',
+'<a class="wfont">Mods</a>',
+'</div><div class="base-dropdown-right"></div>',
+'<div class="base-dropdown-spacer"></div>',
+'</li>'].join('');
+
+$("ul#base-section-nav-bf3").append($(mods.menuItem));
+
+$("#mod-menu-item").click(function() {
+	var menuItemPosition = $(this).offset();
+	
+	if (!$(this).is(".mod-activedropdown")) {
+		$(this).addClass("mod-activedropdown");
+		$("#mod-menu")
+			.css({"left": menuItemPosition.left + "px", "top": (menuItemPosition.top + $(this).height() - 1) + "px"})
+			.show();
+	} else {
+		$(this).removeClass("mod-activedropdown");
+		$("#mod-menu").hide();
+	}
 });
+
+$("#mod-menu .changelog-link").click(function() {
+	if (mods.changelogLoaded) {
+		$("#mod-menu-update-changelog").animate({"left": "0px"});
+	} else {
+		$.get("http://coderah.com/bf3/battlelog_mods_changelog.php?version=" + mods.getExtensionVersion(), function(data) { 
+			$("#mod-menu-update-changelog .inner").html(data);
+			mods.changelogLoaded = true;
+			mods.debug("loaded changelog for " + mods.getExtensionVersion());
+			$("#mod-menu-update-changelog").animate({"left": "0px"});
+		});
+		
+	}
+});
+
+$(".mod-ticbox").click(function() {
+	if ($(this).is(".checked")) {
+		$(this).removeClass("checked");
+		mods.setSetting($(this).attr("data"), false);
+	} else {
+		$(this).addClass("checked");
+		mods.setSetting($(this).attr("data"), true);
+	}
+});
+
+//standard render mod
+base.menu.surface_6_10.render = function(o, b, kwargs) {
+    var c = [];
+    b = b || block_base_menu;
+    kwargs = kwargs || {};
+    Surface.Renderer.addUsedComponent("base");
+    Surface.Renderer.addUsedTemplate("base.menu");
+    c.push('<surf:container id="');
+    c.push("base-header-menu");
+    c.push('">');
+    var l_currentUrl;
+    var l_urlParts;
+    var l_partCount;
+    var l_activeMenu;
+    var l_session;
+    var l_realm;
+    var l_activeSubMenu;
+    l_activeMenu = S.Modifier.get(Surface.globalContext, "activeMenu");
+    l_currentUrl = S.Modifier.get(Surface.globalContext, "currentUrl");
+    l_session = S.Modifier.get(Surface.globalContext, "session");
+    l_realm = S.Modifier.get(Surface.globalContext, "realm");
+    c.push("\n");
+    l_urlParts = S.Modifier.explode(l_currentUrl, "|", true);
+    l_partCount = S.Modifier.count(l_urlParts);
+    if ((l_partCount > 2)) {
+        l_activeSubMenu = S.Modifier.get(l_urlParts, 2);
+    } else {
+        l_activeSubMenu = false;
+    }
+    c.push('\n <div id="base-sub-navbar">\n');
+    if ((l_realm.section == Surface.globalContext.staticContext.games.BFBC2)) {
+        c.push(' <ul class="base-section-menu" id="base-section-nav-bfbc2">\n');
+        o.s = {"_section": "bfbc2"};
+        c.push('\n <li><a href="');
+        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/", Surface.urlContext, o.s)));
+        c.push('" class="base-header-logo base-header-logo-bfbc2"></a></li>\n <li ');
+        if ((l_activeMenu == "home")) {
+            c.push('class="active"');
+        }
+        c.push('>\n <a data="home" href="');
+        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/", Surface.urlContext, o.s)));
+        c.push('">');
+        c.push(Surface.valOut("Home"));
+        c.push("</a>\n </li>\n <li ");
+        if ((l_activeMenu == "serverguide")) {
+            c.push('class="active"');
+        }
+        c.push('>\n <a data="serverguide" href="');
+        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/servers/{getrandom}/", Surface.urlContext, o.s)));
+        c.push('">');
+        c.push(Surface.valOut("Server Browser"));
+        c.push("</a>\n </li>\n <li ");
+        if ((l_activeMenu == "leaderboard")) {
+            c.push('class="active"');
+        }
+        c.push('>\n <a data="leaderboard" href="');
+        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/leaderboard/{group}/{category}/{platform}/{friends}/", Surface.urlContext, o.s)));
+        c.push('">');
+        c.push(Surface.valOut("Leaderboard"));
+        c.push("</a>\n </li>\n <li ");
+        if ((l_activeMenu == "devblog")) {
+            c.push('class="active"');
+        }
+        c.push('>\n <a data="devblog" href="');
+        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/devblog/{offset}/", Surface.urlContext, o.s)));
+        c.push('" >');
+        c.push(Surface.valOut("News"));
+        c.push("</a>\n </li>\n <li ");
+        if ((l_activeMenu == "forum")) {
+            c.push('class="active"');
+        }
+        c.push('>\n <a data="forum" href="');
+        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/forum/", Surface.urlContext, o.s)));
+        c.push('">');
+        c.push(Surface.valOut("Forums"));
+        c.push("</a>\n </li>\n");
+        if ((((typeof (l_session) != "undefined" && l_session !== null && typeof (l_session.isLoggedIn) != "undefined" && l_session.isLoggedIn !== null) ? l_session.isLoggedIn : false) && false)) {
+            c.push(" <li ");
+            if ((l_activeMenu == "admin")) {
+                c.push('class="active"');
+            }
+            c.push('>\n <a class="wfont" href="');
+            c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/admin/", Surface.urlContext)));
+            c.push('">');
+            c.push(Surface.valOut("Admin"));
+            c.push("</a>\n </li>\n");
+        }
+        c.push(" </ul>\n ");
+    }
+    c.push("\n");
+    if ((l_realm.section == Surface.globalContext.staticContext.games.BF3)) {
+        c.push(' <input id="url-getDropdownMenu" type="hidden" value="');
+        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/getDropdownMenu/{type}/", Surface.urlContext, {"type": "#TYPE#"})));
+        c.push('"/>\n <ul class="base-section-menu" id="base-section-nav-bf3">\n');
+        o.s = {"_section": "bf3"};
+        c.push('\n <li><a href="');
+        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/", Surface.urlContext, o.s)));
+        c.push('" class="base-header-logo base-header-logo-bf3"></a></li>\n <li class="base-section-menu-before-dropdown-link');
+        if ((l_activeMenu == "home")) {
+            c.push(" active");
+        }
+        c.push('">\n <a data="home" href="');
+        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/", Surface.urlContext, o.s)));
+        c.push('">');
+        c.push(Surface.valOut("Home"));
+        c.push('</a>\n </li>\n <li rel="mp" class="base-section-dropdown ');
+        if (((l_activeMenu == "serverguide") || ((l_activeMenu == "leaderboard") && !(l_activeSubMenu)))) {
+            c.push("active");
+        }
+        c.push('">\n <div class="base-dropdown-left"></div><div class="base-dropdown-middle">\n <a class="wfont" data="serverguide" href="');
+        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/servers/{getrandom}/", Surface.urlContext)));
+        c.push('">');
+        c.push(Surface.valOut("Multiplayer"));
+        c.push('</a>\n </div><div class="base-dropdown-right"></div>\n');
+        if (Surface.globalContext.staticContext.isOpenBeta) {
+            c.push(' <div class="base-dropdown-spacer"></div>\n');
+        }
+        c.push(" ");
+        c.push(Surface.importTemplate(("base" + ("." + "menudropdown")), {"type": "mp"}, null, kwargs));
+        c.push("\n </li>\n");
+        if (Surface.globalContext.staticContext.isOpenBeta) {
+            c.push(' <li rel="coop">\n <span class="inactive wfont">');
+            c.push(Surface.valOut("CO-OP"));
+            c.push('</span>\n </li>\n <li rel="campaign" class="base-section-menu-before-dropdown-link">\n <span class="inactive wfont">');
+            c.push(Surface.valOut("Campaign"));
+            c.push("</span>\n </li>\n");
+        } else {
+            c.push(' <li rel="coop" class="base-section-dropdown ');
+            if (((l_activeMenu == "coop") || ((l_activeMenu == "leaderboard") && (l_activeSubMenu == "coop")))) {
+                c.push("active");
+            }
+            c.push('">\n <div class="base-dropdown-left"></div><div class="base-dropdown-middle">\n <a class="wfont" data="coop" href="');
+            c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/coop/{coopId}/", Surface.urlContext)));
+            c.push('">');
+            c.push(Surface.valOut("CO-OP"));
+            c.push('</a>\n </div><div class="base-dropdown-right"></div>\n ');
+            c.push(Surface.importTemplate(("base" + ("." + "menudropdown")), {"type": "coop"}, null, kwargs));
+            c.push('\n </li>\n <li rel="campaign" class="base-section-dropdown ');
+            if ((l_activeMenu == "campaign")) {
+                c.push("active");
+            }
+            c.push('">\n <div class="base-dropdown-left"></div><div class="base-dropdown-middle">\n <a class="wfont" data="campaign" href="');
+            c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/campaign/", Surface.urlContext)));
+            c.push('">');
+            c.push(Surface.valOut("Campaign"));
+            c.push('</a>\n </div><div class="base-dropdown-right"></div>\n ');
+            c.push(Surface.importTemplate(("base" + ("." + "menudropdown")), {"type": "campaign"}, null, kwargs));
+            c.push("\n </li>\n");
+        }
+        c.push('\n <li rel="platoon" class="base-section-dropdown ');
+        if ((l_activeMenu == "platoon")) {
+            c.push("active");
+        }
+        c.push('">\n <div class="base-dropdown-left"></div><div class="base-dropdown-middle">\n');
+        if (((typeof (l_session) != "undefined" && l_session !== null && typeof (l_session.isLoggedIn) != "undefined" && l_session.isLoggedIn !== null) ? l_session.isLoggedIn : false)) {
+            c.push(' <a class="wfont" data="platoon" href="');
+            c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/platoon/{id}/{menu}/{refresh}/", Surface.urlContext)));
+            c.push('">');
+            c.push(Surface.valOut("Platoons"));
+            c.push("</a>\n");
+        } else {
+            c.push(' <a class="wfont" data="platoon" href="');
+            c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/leaderboard/platoons/{platformString}/", Surface.urlContext)));
+            c.push('">');
+            c.push(Surface.valOut("Platoons"));
+            c.push("</a>\n");
+        }
+        c.push(' </div><div class="base-dropdown-right"></div>\n <div class="base-dropdown-spacer"></div>\n ');
+        c.push(Surface.importTemplate(("base" + ("." + "menudropdown")), {"type": "platoon","platoons": ((typeof (Surface) != "undefined" && Surface !== null && typeof (Surface.globalContext) != "undefined" && Surface.globalContext !== null && typeof (Surface.globalContext.userContext) != "undefined" && Surface.globalContext.userContext !== null && typeof (Surface.globalContext.userContext.platoons) != "undefined" && Surface.globalContext.userContext.platoons !== null) ? Surface.globalContext.userContext.platoons : []),"invitedPlatoons": ((typeof (Surface) != "undefined" && Surface !== null && typeof (Surface.globalContext) != "undefined" && Surface.globalContext !== null && typeof (Surface.globalContext.userContext) != "undefined" && Surface.globalContext.userContext !== null && typeof (Surface.globalContext.userContext.invitedPlatoons) != "undefined" && Surface.globalContext.userContext.invitedPlatoons !== null) ? Surface.globalContext.userContext.invitedPlatoons : [])}, null, kwargs));
+        c.push("\n </li>\n <li ");
+        if ((l_activeMenu == "devblog")) {
+            c.push('class="active"');
+        }
+        c.push('>\n <a data="devblog" href="');
+        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/devblog/{offset}/", Surface.urlContext, o.s)));
+        c.push('">');
+        c.push(Surface.valOut("News"));
+        c.push("</a>\n </li>\n <li ");
+        if ((l_activeMenu == "forum")) {
+            c.push('class="active"');
+        }
+        c.push('>\n <a data="forum" href="');
+        c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/forum/", Surface.urlContext, o.s)));
+        c.push('">');
+        c.push(Surface.valOut("Forums"));
+        c.push("</a>\n </li>\n ");
+		
+		//mod
+		c.push(mods.menuItem);
+		//endMod
+		
+		c.push("</ul>\n ");
+    }
+    c.push('\n <div class="base-clear"></div>\n </div>\n ');
+    c.push("</surf:container>");
+    Surface.Renderer.addSurfaceState("base.menu", "surface_6_10", "base-header-menu", o, b);
+    return c.join("");
+};
 
 mods.eventHandler = {
 	lastEvent: undefined,
@@ -428,23 +671,60 @@ S.debug = function(msg)
 	}
 }
 
+mods.settings = { //set defaults
+	
+}
 
+mods.setSetting = function(setting, val, saveSettings) {
+	if (typeof saveSettings == "undefined") { saveSettings = true; }
+
+	mods.settings[setting] = val;
+	if (saveSettings) { mods.saveSettings(); }
+}
+
+mods.loadSettings = function() {
+	if (localStorage.modSettings) {
+		var localStorageModSettings = JSON.parse(localStorage.modSettings);
+		for (var modSetting in localStorageModSettings) {
+			mods.settings[modSetting] = localStorageModSettings[modSetting];
+			mods.debug("loaded " + modSetting + "=" + mods.settings[modSetting]);
+		}
+	} else {
+		mods.debug("unable to load settings; used defaults");
+	}
+}
+
+mods.saveSettings = function() {
+	if (!localStorage.modSettings) { 
+		localStorage.modSettings = JSON.stringify(mods.settings);
+		mods.debug("save settings object didn't exist created; saved settings");
+	} else {
+		var localStorageModSettings = JSON.parse(localStorage.modSettings);
+		for (var modSetting in mods.settings) {
+			localStorageModSettings[modSetting] = mods.settings[modSetting];
+			mods.debug("saved " + modSetting + "=" + localStorageModSettings[modSetting]);
+		}
+		
+		localStorage.modSettings = JSON.stringify(localStorageModSettings);
+	}
+}
 
 //apply mods
 $(document).ready(function() {
+	mods.loadSettings();
 	mods.passwordBypass.apply();
 	mods.autoJoin.apply();
 	mods.showAllGameModeFilters.apply();
 	mods.autoHooah.apply();
 });
 
-	function getExtensionVersion() {
+	mods.getExtensionVersion = function() {
 	return 1.8;
 }
 
-$("#mod-menu .version").html(getExtensionVersion());
+$("#mod-menu .version").html(mods.getExtensionVersion());
 
-function createUpdateNotification(info) {
+mods.createUpdateNotification = function(info) {
 	var newVersion = info.version;
 	var updateReceipt = $('<div class="common-receipt type-checkbox" style="cursor: pointer;">' +
 		'<div class="common-receipt-message">' +
@@ -462,10 +742,6 @@ function createUpdateNotification(info) {
 		mods.changelogLoaded = true;
 		mods.debug("loaded changelog for " + newVersion);
 	});
-	
-	$("#mod-menu-update-changelog .closeButton").click(function() {
-		$("#mod-menu-update-changelog").animate({"left": "-416px"});
-	});
 		
 	updateReceipt.click(function() {
 		base.showReceipt("Battlelog Mods - refresh to finalize update.", receiptTypes.OK, 5000);
@@ -482,10 +758,14 @@ function createUpdateNotification(info) {
 	$("#base-receipts").append(updateReceipt);
 }
 
+$("#mod-menu-update-changelog .closeButton").click(function() {
+	$("#mod-menu-update-changelog").animate({"left": "-416px"});
+});
+
 $.get("http://coderah.com/bf3/battlelog_mods_version.php?type=greasemonkey", function(data) { 
 	if (data.url) { mods.debug("update check returned url: " + data.url); }
-	if (data.version > getExtensionVersion()) {
-		createUpdateNotification(data);
+	if (data.version > mods.getExtensionVersion()) {
+		mods.createUpdateNotification(data);
 	}
 });
 }

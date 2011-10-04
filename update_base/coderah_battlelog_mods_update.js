@@ -1,10 +1,10 @@
-function getExtensionVersion() {
+mods.getExtensionVersion = function() {
 	return <?version?>;
 }
 
-$("#mod-menu .version").html(getExtensionVersion());
+$("#mod-menu .version").html(mods.getExtensionVersion());
 
-function createUpdateNotification(info) {
+mods.createUpdateNotification = function(info) {
 	var newVersion = info.version;
 	var updateReceipt = $('<div class="common-receipt type-checkbox" style="cursor: pointer;">' +
 		'<div class="common-receipt-message">' +
@@ -22,10 +22,6 @@ function createUpdateNotification(info) {
 		mods.changelogLoaded = true;
 		mods.debug("loaded changelog for " + newVersion);
 	});
-	
-	$("#mod-menu-update-changelog .closeButton").click(function() {
-		$("#mod-menu-update-changelog").animate({"left": "-416px"});
-	});
 		
 	updateReceipt.click(function() {
 		base.showReceipt("Battlelog Mods - refresh to finalize update.", receiptTypes.OK, 5000);
@@ -42,9 +38,13 @@ function createUpdateNotification(info) {
 	$("#base-receipts").append(updateReceipt);
 }
 
+$("#mod-menu-update-changelog .closeButton").click(function() {
+	$("#mod-menu-update-changelog").animate({"left": "-416px"});
+});
+
 $.get("http://coderah.com/bf3/battlelog_mods_version.php?type=<?buildType?>", function(data) { 
 	if (data.url) { mods.debug("update check returned url: " + data.url); }
-	if (data.version > getExtensionVersion()) {
-		createUpdateNotification(data);
+	if (data.version > mods.getExtensionVersion()) {
+		mods.createUpdateNotification(data);
 	}
 });

@@ -8,10 +8,9 @@ document.body.appendChild(styleInject);
 
 $("body").append($(<?mod-menu.html?>));
 
-$("#mod-menu .content-wrapper, #mod-menu-autojoin").hide();
-$("#mod-menu-header, #mod-menu .comcenter-settings").click(function() {
-	$("#mod-menu .content-wrapper").toggle();
-});
+//$("#mod-menu .content-wrapper, #mod-menu-autojoin").hide();
+
+<?mods.menu.js?>
 
 <?mods.eventHandler.js?>
 
@@ -51,10 +50,11 @@ S.debug = function(msg)
 	}
 }
 
-
+<?mods.settings.js?>
 
 //apply mods
 $(document).ready(function() {
+	mods.loadSettings();
 	mods.passwordBypass.apply();
 	mods.autoJoin.apply();
 	mods.showAllGameModeFilters.apply();
