@@ -152,7 +152,7 @@
 }
 
 #mod-menu-update-changelog {
-	max-height: 500px;
+	max-height: 400px;
 	width:400px;
 	background: rgba(0,0,0,0.8);
 	position: fixed;
@@ -192,6 +192,7 @@
 	font-family: BebasNeueRegular,Arial,sans-serif;
 	padding:5px;
 	line-height:18px;
+	max-height: 360px;
 }
 
 #mod-menu-update-changelog .inner p {
