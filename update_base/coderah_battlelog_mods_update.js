@@ -13,11 +13,12 @@ mods.createUpdateNotification = function(info) {
 		'<div class="base-clear"></div>' +
 		'</div>');
 		
-	if (data.url) {
-		mods.updateUrl = data.url;
+	if (info.url) {
+		mods.updateUrl = info.url;
 	}
 		
 	mods.changelog.load(newVersion);
+	mods.changelog.hide();
 		
 	updateReceipt.click(function() {
 		base.showReceipt("Battlelog Mods - refresh to finalize update.", receiptTypes.OK, 5000);
