@@ -75,6 +75,28 @@
 	padding: 2px;
 }
 
+.mod-ticbox-holder {
+
+}
+
+.mod-ticbox-label {
+	color: #353535;
+	text-shadow: none;
+	font-weight: normal;
+	font-size: 12px;
+	font-family: Arial,sans-serif;
+	cursor:pointer;
+}
+
+.mod-ticbox-holder:hover .mod-ticbox-label {
+	font-weight: bold;
+}
+
+.mod-ticbox-holder.checked .mod-ticbox-label {
+	font-weight:bold;
+	color: #000;
+}
+
 .mod-ticbox {
 	width: 10px;
 	height: 10px;
@@ -83,14 +105,14 @@
 	display:inline-block;
 	cursor:pointer;
 }
-.mod-ticbox:hover {
+.mod-ticbox-holder:hover .mod-ticbox {
 	background-position: 0 -30px;
 }
 
-.mod-ticbox.checked {
+.mod-ticbox-holder.checked .mod-ticbox {
 	background-position: 0 0;
 }
-.mod-ticbox.checked:hover {
+.mod-ticbox-holder.checked:hover .mod-ticbox {
 	background-position: 0 -10px;
 }
 

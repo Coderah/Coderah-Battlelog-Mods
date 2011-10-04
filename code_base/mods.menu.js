@@ -33,7 +33,7 @@ $("#mod-menu .changelog-link").click(function() {
 	}
 });
 
-$(".mod-ticbox").click(function() {
+$(".mod-ticbox-holder").click(function() {
 	if ($(this).is(".checked")) {
 		$(this).removeClass("checked");
 		mods.setSetting($(this).attr("data"), false);
@@ -42,6 +42,10 @@ $(".mod-ticbox").click(function() {
 		mods.setSetting($(this).attr("data"), true);
 	}
 });
+
+mods.updateUI = function() {
+	if (mods.settings.showGameOnLoad) { $('.mod-ticbox-holder[data=showGameOnLoad]').addClass("checked"); }
+}
 
 //standard render mod
 base.menu.surface_6_10.render = function(o, b, kwargs) {

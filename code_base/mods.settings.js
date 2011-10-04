@@ -1,5 +1,5 @@
 mods.settings = { //set defaults
-	
+	"showGameOnLoad": false
 }
 
 mods.setSetting = function(setting, val, saveSettings) {
