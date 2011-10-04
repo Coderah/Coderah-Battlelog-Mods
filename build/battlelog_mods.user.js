@@ -59,7 +59,6 @@ mods.eventHandler = {
 	}
 }
 
-//password bypass
 mods.passwordBypass = {
 	state: "not ready",
 
@@ -95,8 +94,6 @@ mods.passwordBypass = {
 		$("#mod-status-password-bypass").html(this.state);
 	}
 };
-
-//showAllGameModeFilters
 mods.showAllGameModeFilters = {
 	state: "not ready",
 	newGameModes: [
@@ -211,8 +208,6 @@ mods.showAllGameModeFilters = {
 		$("#mod-status-gamemode-filters").html(this.state);
 	}
 };
-
-//autojoin
 mods.autoJoin = {
 	modState: "not ready",
 	state: 0,
@@ -335,8 +330,6 @@ mods.autoJoin = {
 		$("#mod-status-autojoin").html(this.modState);
 	}
 }
-
-//Auto Hooah
 mods.autoHooah = {
 	state: "not ready",
 
@@ -403,7 +396,6 @@ mods.autoHooah = {
 		$("#mod-status-auto-hooah").html(this.state);
 	}
 };
-
 
 //debug functions
 mods.debug = function() {
