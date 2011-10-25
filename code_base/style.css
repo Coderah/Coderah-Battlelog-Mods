@@ -12,6 +12,10 @@
 	box-shadow: 0px 5px 11px rgba(0,0,0,0.4);
 }
 
+#mod-menu-item {
+	left: -10px;
+}
+
 #mod-menu .content-wrapper {
 	padding-bottom:40px;
 }

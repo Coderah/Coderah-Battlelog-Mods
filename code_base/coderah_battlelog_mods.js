@@ -1,9 +1,9 @@
-var verboseDebug = false;
+ var verboseDebug = false;
 
 var mods = {changelogLoaded: false};
 
 if ($("body").is("#base-bf3-body")) {
-
+	
 	var styleInject = document.createElement("style");
 	styleInject.innerHTML = <?style.css?>;
 	document.body.appendChild(styleInject);
@@ -14,11 +14,8 @@ if ($("body").is("#base-bf3-body")) {
 
 	<?mods.eventHandler.js?>
 
-	<?mods.passwordBypass.js?>
-	<?mods.showAllGameModeFilters.js?>
 	<?mods.autoJoin.js?>
 	<?mods.autoHooah.js?>
-	<?mods.showGameOnLoad.js?>
 
 	//debug functions
 	mods.debug = function() {
@@ -57,11 +54,8 @@ if ($("body").is("#base-bf3-body")) {
 	$(document).ready(function() {
 		mods.loadSettings();
 		mods.updateUI();
-		mods.passwordBypass.apply();
 		mods.autoJoin.apply();
-		mods.showAllGameModeFilters.apply();
 		mods.autoHooah.apply();
-		mods.showGameOnLoad.apply();
 	});
 
 }
