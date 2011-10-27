@@ -2,8 +2,8 @@
 // @name            Coderah Battlelog Mods
 // @author          Alex Howard
 // @namespace       http://www.coderah.com/?page_id=389
-// @description     Multiple modifications for Battlelog (bf3 beta)
-// @version	        1.9
+// @description     Multiple modifications for Battlelog (BF3)
+// @version	        2.0
 // @include         http://battlelog.battlefield.com/*
 // ==/UserScript==
 
@@ -563,7 +563,7 @@ mods.saveSettings = function() {
 }
 
 	mods.getExtensionVersion = function() {
-	return 1.9;
+	return "2.0";
 }
 
 $("#mod-menu .version").html(mods.getExtensionVersion());
@@ -626,7 +626,7 @@ $("#mod-menu-update-changelog .closeButton").click(function() {
 
 $.get("http://coderah.com/bf3/battlelog_mods_version.php?type=greasemonkey", function(data) { 
 	if (data.url) { mods.debug("update check returned url: " + data.url); }
-	if (data.version > mods.getExtensionVersion()) {
+	if (data.version > parseFloat(mods.getExtensionVersion())) {
 		mods.createUpdateNotification(data);
 	}
 });
