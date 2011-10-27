@@ -1,17 +1,32 @@
 mods.autoJoin = {
 	modState: "not ready",
+	checkCount: 0,
 	state: 0,
-	server: null,
-	joinTimeout: null,
+	server: {},
+	checkTimeout: null,
+	msWait: 2000,
 	
 	errorMessagesForRetry: ["Could not join server since it's full", "Can't join, this server is changing map, please try again soon.", "Could not join server since it couldn't be found."],
 	
 	join: function() {
 		if (mods.autoJoin.state == 1) {
-			mods.autoJoin.setStatus("trying...");
-			joinflow.joinServerByUrl(mods.autoJoin.server, null, function(serverFound) {
-				if (serverFound) {
-					mods.debug("server found by url");
+			mods.autoJoin.setStatus("connecting...");
+			joinflow.joinServerByUrl(mods.autoJoin.server.joinUrl, null, function(serverFound) {});
+		}
+	},
+	
+	checkServer: function() {
+		if (mods.autoJoin.state == 1) {
+			mods.autoJoin.checkCount += 1;
+			
+			mods.serverInfo.getStatus(mods.autoJoin.server.playerCountUrl, function(response) {
+				mods.autoJoin.setStatus("checking ( " + mods.autoJoin.checkCount + " ) (players: " + response.players + " )...");
+				if (response.players < mods.autoJoin.server.maxPlayers) {
+					mods.debug("attempting join based on playerCount (" + response.players  + " < "+ mods.autoJoin.maxPlayers + ")");
+					mods.autoJoin.join();
+				} else {
+					clearTimeout(mods.autoJoin.checkTimeout);
+					mods.autoJoin.checkTimeout = setTimeout(mods.autoJoin.checkServer, mods.autoJoin.msWait);
 				}
 			});
 		}
@@ -34,7 +49,7 @@ mods.autoJoin = {
 	
 	cancel: function() {
 		this.state = 0;
-		clearTimeout(this.joinTimeout);
+		clearTimeout(this.checkTimeout);
 		mods.autoJoin.hideStatusBox();
 	},
 	
@@ -86,8 +101,8 @@ mods.autoJoin = {
 				//mods.debug("launch_state event = "+JSON.stringify(eventObject.launcherState));
 				if (mods.autoJoin.state == 1) {
 					if (eventObject.launcherState.name == "launch_error" && mods.autoJoin.errorMessagesForRetry.indexOf(eventObject.launcherState.errorMessage) > -1) {
-						clearTimeout(mods.autoJoin.joinTimeout);
-						mods.autoJoin.joinTimeout = setTimeout(mods.autoJoin.join, 1500);
+						clearTimeout(mods.autoJoin.checkTimeout);
+						mods.autoJoin.checkTimeout = setTimeout(mods.autoJoin.checkServer, mods.autoJoin.msWait);
 						mods.debug("autojoin attempting connection again: reason{object}", eventObject.launcherState);
 						mods.autoJoin.setStatus("waiting...");
 					}
@@ -98,14 +113,21 @@ mods.autoJoin = {
 				}
 			});
 			
-			$("#mod-auto-join-button").live("click", function() {
-				mods.autoJoin.server = $("#serverguide-show-joinserver-form").attr("action");
-				if (typeof mods.autoJoin.server != "undefined") {
+			$("#mod-auto-join-button").live("click", function(e) {
+				mods.autoJoin.checkCount = 0;
+				mods.autoJoin.server = mods.selectedServer.getUrls();
+				mods.autoJoin.server.maxPlayers = mods.selectedServer.getInfo().maxPlayers;
+				
+				if (typeof mods.autoJoin.server.joinUrl != "undefined") {
 					mods.autoJoin.showStatusBox();
 					mods.autoJoin.state = 1;
-					mods.debug("attempting to autojoin (" + mods.autoJoin.server + ")");
-					mods.autoJoin.join();
+					mods.debug("attempting to autojoin {object}");
+					mods.debug(mods.autoJoin.server);
+					mods.autoJoin.checkServer();
 				}
+				
+				e.preventDefault();
+				return false;
 			});
 			
 			$("#mod-auto-join-cancel").live("click", function() {
