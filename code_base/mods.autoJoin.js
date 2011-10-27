@@ -9,10 +9,8 @@ mods.autoJoin = {
 	errorMessagesForRetry: ["Could not join server since it's full", "Can't join, this server is changing map, please try again soon.", "Could not join server since it couldn't be found."],
 	
 	join: function() {
-		if (mods.autoJoin.state == 1) {
-			mods.autoJoin.setStatus("connecting...");
-			joinflow.joinServerByUrl(mods.autoJoin.server.joinUrl, null, function(serverFound) {});
-		}
+		mods.autoJoin.setStatus("connecting...");
+		joinflow.joinServerByUrl(mods.autoJoin.server.joinUrl, null, function(serverFound) {});
 	},
 	
 	checkServer: function() {
@@ -22,7 +20,7 @@ mods.autoJoin = {
 			mods.serverInfo.getStatus(mods.autoJoin.server.playerCountUrl, function(response) {
 				mods.autoJoin.setStatus("checking ( " + mods.autoJoin.checkCount + " ) (players: " + response.players + " )...");
 				if (response.players < mods.autoJoin.server.maxPlayers) {
-					mods.debug("attempting join based on playerCount (" + response.players  + " < "+ mods.autoJoin.maxPlayers + ")");
+					mods.debug("attempting join based on playerCount (" + response.players  + " < "+ mods.autoJoin.server.maxPlayers + ")");
 					mods.autoJoin.join();
 				} else {
 					clearTimeout(mods.autoJoin.checkTimeout);
