@@ -13,6 +13,7 @@ if ($("body").is("#base-bf3-body")) {
 	<?mods.menu.js?>
 
 	<?mods.eventHandler.js?>
+	<?mods.serverMethods.js?>
 
 	<?mods.autoJoin.js?>
 	<?mods.autoHooah.js?>
