@@ -2,7 +2,7 @@
 // @name            Coderah Battlelog Mods
 // @author          Alex Howard
 // @namespace       http://www.coderah.com/?page_id=389
-// @description     Multiple modifications for Battlelog (bf3 beta)
+// @description     Multiple modifications for Battlelog (BF3)
 // @version	        <?version?>
 // @include         http://battlelog.battlefield.com/*
 // ==/UserScript==
