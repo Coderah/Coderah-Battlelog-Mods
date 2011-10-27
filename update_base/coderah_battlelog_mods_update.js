@@ -1,5 +1,5 @@
 mods.getExtensionVersion = function() {
-	return <?version?>;
+	return "<?version?>";
 }
 
 $("#mod-menu .version").html(mods.getExtensionVersion());
@@ -62,7 +62,7 @@ $("#mod-menu-update-changelog .closeButton").click(function() {
 
 $.get("http://coderah.com/bf3/battlelog_mods_version.php?type=<?buildType?>", function(data) { 
 	if (data.url) { mods.debug("update check returned url: " + data.url); }
-	if (data.version > mods.getExtensionVersion()) {
+	if (data.version > parseFloat(mods.getExtensionVersion())) {
 		mods.createUpdateNotification(data);
 	}
 });
