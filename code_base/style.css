@@ -61,6 +61,11 @@
 	font-size:26px !important;
 }
 
+#mod-auto-join-simple-button {
+	float:left;
+	margin-left: 5px;
+}
+
 #mod-menu .comcenter-settings {
 	position:absolute;
 	bottom:0px;
