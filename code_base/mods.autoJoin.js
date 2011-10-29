@@ -133,6 +133,41 @@ mods.autoJoin = {
 				Surface.Renderer.addSurfaceState("serverguide.show", "surface_44_21", "serverguide-show-serverjoin", o, b);
 				return c.join("");
 			};
+			
+			serverguide.joinfriendform.surface_41_13.render = function(o, b, kwargs) { //adds button for friend-join on render
+				var c = [];
+				b = b || block_serverguide_joinfriendform;
+				kwargs = kwargs || {};
+				Surface.Renderer.addUsedComponent("serverguide");
+				Surface.Renderer.addUsedTemplate("serverguide.joinfriendform");
+				c.push('<surf:container id="');
+				c.push("profile-joinbutton");
+				c.push('">');
+				
+				//mod
+				c.push('<button class="base-button-arrow-large" id="mod-auto-join-simple-button" style="float:right;">Auto Join Server</button>\n');
+				//endMod
+				
+				if ((((typeof (Surface) != "undefined" && Surface !== null && typeof (Surface.globalContext) != "undefined" && Surface.globalContext !== null && typeof (Surface.globalContext.userContext) != "undefined" && Surface.globalContext.userContext !== null && typeof (Surface.globalContext.userContext.isInParty) != "undefined" && Surface.globalContext.userContext.isInParty !== null) ? Surface.globalContext.userContext.isInParty : 0) > 0)) {
+					c.push(' <input type="button" class="base-button-arrow-large-drop base-button-general-dropdown" name="reset" value="');
+					c.push(Surface.valOut(o.buttonValue));
+					c.push('" />\n <div class="base-clear"></div>\n <div class="base-general-dropdown-area">\n <div class="base-button-dropdown-inner">\n <ul>\n <li>\n <a class="base-no-ajax join-friend-submit-link">\n ');
+					c.push(Surface.valOut("Join alone"));
+					c.push('\n </a>\n </li>\n <li>\n <a href="');
+					c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/gamemanager/createGroupJoinToServer/{guid}/", Surface.urlContext, {"guid": S.Modifier.get(o.presence, "serverGuid")})));
+					c.push('" class="base-no-ajax base-button-dropdown-joingroup">\n ');
+					c.push(Surface.valOut("Join with Party"));
+					c.push('\n </a>\n </li>\n </ul>\n </div>\n <div class="base-button-dropdown-shadow"></div>\n </div>\n');
+				} else {
+					c.push(' <input type="submit" class="base-button-arrow-large" name="submit" value="');
+					c.push(Surface.valOut(o.buttonValue));
+					c.push('" />\n');
+				}
+				
+				c.push("</surf:container>");
+				Surface.Renderer.addSurfaceState("serverguide.joinfriendform", "surface_41_13", "profile-joinbutton", o, b);
+				return c.join("");
+			};
 		
 			mods.eventHandler.addCallback("launch_state", function(eventType, eventObject) {
 				//mods.debug("launch_state event = "+JSON.stringify(eventObject.launcherState));
@@ -153,21 +188,18 @@ mods.autoJoin = {
 			$("#mod-auto-join-button, #mod-auto-join-simple-button").live("click", function(e) {
 				mods.autoJoin.checkCount = 0;
 				mods.autoJoin.server = mods.selectedServer.getUrls();
-				serverRowInfo = null;
-				try { serverRowInfo = mods.selectedServer.getInfo(); } catch (e) {}
-				if (serverRowInfo) {
-					mods.autoJoin.server.maxPlayers = serverRowInfo.maxPlayers;
-				} else {
-					mods.autoJoin.server.maxPlayers = $("#server-info-players").html().split(" / ")[0];
-				}
 				
-				if (typeof mods.autoJoin.server.joinUrl != "undefined") {
-					mods.autoJoin.showStatusBox();
-					mods.autoJoin.state = 1;
-					mods.debug("attempting to autojoin {object}");
-					mods.debug(mods.autoJoin.server);
-					mods.autoJoin.checkServer();
-				}
+				mods.serverInfo.getDetailed(mods.autoJoin.server.joinUrl, function(data) {
+					mods.autoJoin.server.maxPlayers = data.maxPlayers;
+				
+					if (typeof mods.autoJoin.server.joinUrl != "undefined") {
+						mods.autoJoin.showStatusBox();
+						mods.autoJoin.state = 1;
+						mods.debug("attempting to autojoin {object}");
+						mods.debug(mods.autoJoin.server);
+						mods.autoJoin.checkServer();
+					}
+				});
 				
 				e.preventDefault();
 				return false;
@@ -182,7 +214,9 @@ mods.autoJoin = {
 			//$(".serverguide-bodycells.active:visible div:first").click();
 			$("#serverguide-join-button").append($('<center><button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SERVER</button></center>'));
 			
-			if ($("#serverguide-show-serverjoin") && $("#serverguide-show-serverjoin")[0].nodeName == "SURF:CONTAINER") { //add full view button if we loaded the page into one
+			$("#profile-joinbutton").prepend('<button class="base-button-arrow-large" id="mod-auto-join-simple-button" style="float:right;">Auto Join Server</button>');
+			
+			if ($("#serverguide-show-serverjoin")[0] && $("#serverguide-show-serverjoin")[0].nodeName == "SURF:CONTAINER") { //add full view button if we loaded the page into one
 				$("#serverguide-show-serverjoin")
 					.css("top", "22px")
 					.append('<button class="base-button-arrow-small" id="mod-auto-join-simple-button">Auto Join Server</button>');
