@@ -57,6 +57,21 @@ if ($("body").is("#base-bf3-body")) {
 		mods.updateUI();
 		mods.autoJoin.apply();
 		mods.autoHooah.apply();
+		
+		var userInPlatoon = false;
+		if (S.globalContext.userContext.platoons && S.globalContext.userContext.platoons.length>0) { //check user platoon
+			for (var i in S.globalContext.userContext.platoons) {
+				if (S.globalContext.userContext.platoons[i].name == "Coderah Battlelog Mods") {
+					mods.debug("user is in battlelog mods platoon");
+					userInPlatoon = true;
+				}
+			}
+		}
+		
+		if (!userInPlatoon) {
+			$('<center><a href="http://battlelog.battlefield.com/bf3/platoon/2832655240999277587/"><button class="base-button-arrow-large" id="mod-platoon-button">Join our Platoon!</button></a></center>')
+				.insertBefore("#mod-menu .comcenter-settings");
+		}
 	});
 
 }
