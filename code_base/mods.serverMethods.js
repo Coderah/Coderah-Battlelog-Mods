@@ -1,6 +1,6 @@
 mods.selectedServer = {
 	getInfo: function() {
-		selectedIDx = $(".serverguide-bodycells.active").attr("idx");
+		selectedIDx = serverguide.serverHighlightIndex;//$(".serverguide-bodycells.active").attr("idx");
 		return $S("serverguide-server-" + selectedIDx).getState().server;
 	},
 	
@@ -8,7 +8,7 @@ mods.selectedServer = {
 		retObject = {};
 	
 		retObject.joinUrl = $("#serverguide-show-joinserver-form").attr("action");
-		retObject.playerCountUrl = $("#serverguide-numplayers-url").val().replace("%GUID%", mods.selectedServer.getInfo().guid);
+		retObject.playerCountUrl = $("#serverguide-numplayers-url").val().replace("%GUID%", $("#serverguide-show-joinserver-form").attr("guid"));
 		
 		return retObject;
 	}
