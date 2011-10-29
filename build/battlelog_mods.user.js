@@ -3,7 +3,7 @@
 // @author          Alex Howard
 // @namespace       http://www.coderah.com/?page_id=389
 // @description     Multiple modifications for Battlelog (BF3)
-// @version	        2.0
+// @version	        2.1
 // @include         http://battlelog.battlefield.com/*
 // ==/UserScript==
 
@@ -15,7 +15,7 @@ var mods = {changelogLoaded: false};
 if ($("body").is("#base-bf3-body")) {
 	
 	var styleInject = document.createElement("style");
-	styleInject.innerHTML = '#mod-menu { position:absolute; left:0px; top:0px; z-index:9999999; background: #DFDFDF; width: 270px; height: auto; border-top: 4px solid #F1F1F1; -webkit-box-shadow: 0px 5px 11px rgba(0,0,0,0.4); -moz-box-shadow: 0px 5px 11px rgba(0,0,0,0.4); box-shadow: 0px 5px 11px rgba(0,0,0,0.4);}#mod-menu-item { left: -10px;}#mod-menu .content-wrapper { padding-bottom:40px;}#mod-menu .content { padding:5px; font-family: Arial,sans-serif; color:#121212; font-size:14px;}#mod-menu .version { font-family: BebasNeueRegular,Arial,sans-serif; color: #343434; padding: 3px; margin-top: 5px; float: right;}#mod-menu .changelog-link { margin-top: 10px; float: right; color: #308DBF; cursor: pointer; font-size: 11px; font-wieght: normal; text-decoration: none; font-family: Arial,sans-serif;}#mod-menu .changelog-link:hover { text-decoration:underline;}.mod-status { color: #3A3A3A; display:inline;}#mod-auto-join-button { font-family: "BebasNeueRegular",sans-serif !important; font-weight: normal; font-size:26px !important;}#mod-menu .comcenter-settings { position:absolute; bottom:0px; width:100%; background: none repeat scroll 0 0 #F3F3F3;}#mod-menu-autojoin-status-box { position: fixed; left: 293px; bottom: 1px; z-index: 99999; width: 350px; background: #DFDFDF; border-bottom: #FFC600 solid 3px; padding: 2px;}.mod-ticbox-holder {}.mod-ticbox-label { color: #353535; text-shadow: none; font-weight: normal; font-size: 12px; font-family: Arial,sans-serif; cursor:pointer;}.mod-ticbox-holder:hover .mod-ticbox-label { font-weight: bold;}.mod-ticbox-holder.checked .mod-ticbox-label { font-weight:bold; color: #000;}.mod-ticbox { width: 10px; height: 10px; background: url(http://battlelog-cdn.battlefield.com/public/serverguide/icon_checkbox.png?v=209) no-repeat; background-position: 0 -20px; display:inline-block; cursor:pointer;}.mod-ticbox-holder:hover .mod-ticbox { background-position: 0 -30px;}.mod-ticbox-holder.checked .mod-ticbox { background-position: 0 0;}.mod-ticbox-holder.checked:hover .mod-ticbox { background-position: 0 -10px;}#mod-menu-autojoin-status-box .text { font-family: BebasNeueRegular,Arial,sans-serif !important; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu-autojoin-status-box .mod-status { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu h1, #mod-menu h2, #mod-menu h3, #mod-menu h4 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB; display: block; text-align:center; background:rgba(0, 142, 163, 0.7); padding: 3px; /*padding-left:3px; color: #8A8A8A; height: 17px; line-height: 16px; background: #F4F4F4; border-top: 1px solid #F0F0F0; border-bottom: 1px solid #F0F0F0; font-size: 11px; font-weight: bold; text-transform: uppercase;*/}#mod-menu-update-changelog { max-height: 400px; background: rgba(0,0,0,0.8); position: fixed; left: -416px; top:140px; -webkit-box-shadow: 0px 0px 13px rgba(0,0,0,0.8); -moz-box-shadow: 0px 0px 13px rgba(0,0,0,0.8); box-shadow: 0px 0px 13px rgba(0,0,0,0.8); z-index: 99999999;}#mod-menu-update-changelog h2 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB;}#mod-menu-update-changelog .closeButton { background: url(http://battlelog-cdn.battlefield.com/public/base/shared/row_icon_chat.png?v=185); background-position: 0 -26px; padding-right: 13px; position: absolute; top: 3px; right: 3px; background-color: #DBDBDB; padding-bottom: 13px; cursor:pointer;}#mod-menu-update-changelog .inner { overflow: auto; margin:7px; color: #DCDCDC; font-weight: normal; font-size: 13px; font-family: BebasNeueRegular,Arial,sans-serif; padding:5px; line-height:18px; max-height: 360px;}#mod-menu-update-changelog .inner p { color: #BCBCBC; line-height: 18px; margin-left: 15px;}.mod-base-section-dropdown { position: relative; height: 37px; top: 19px;}.mod-activedropdown .base-dropdown-left{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 0 no-repeat;}.mod-activedropdown .base-dropdown-middle{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 -36px repeat-x;}.mod-activedropdown .base-dropdown-right{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) -9px 0 no-repeat;}#base-sub-navbar li.mod-base-section-dropdown.mod-activedropdown .base-dropdown-middle a,#base-sub-navbar #base-section-nav-bf3 li.mod-base-section-dropdown.active.mod-activedropdown .base-dropdown-middle a{  color:#353535;  background:none;}.mod-update-receipt { position:fixed; left:10px; top:70px;}/* MODS */.serverguide-filter-gamemode { height: auto !important;}.mod-auto-hooah { position: absolute; right: 5px; top: -25px; color: #308DBF; cursor:pointer; font-size: 11px; font-wieght: normal; text-decoration:none; font-family: Arial,sans-serif;}.mod-auto-hooah:hover { text-decoration: underline;}';
+	styleInject.innerHTML = '#mod-menu { position:absolute; left:0px; top:0px; z-index:9999999; background: #DFDFDF; width: 270px; height: auto; border-top: 4px solid #F1F1F1; -webkit-box-shadow: 0px 5px 11px rgba(0,0,0,0.4); -moz-box-shadow: 0px 5px 11px rgba(0,0,0,0.4); box-shadow: 0px 5px 11px rgba(0,0,0,0.4);}#mod-menu-item { left: -10px;}#mod-menu .content-wrapper { padding-bottom:40px;}#mod-menu .content { padding:5px; font-family: Arial,sans-serif; color:#121212; font-size:14px;}#mod-menu .version { font-family: BebasNeueRegular,Arial,sans-serif; color: #343434; padding: 3px; margin-top: 5px; float: right;}#mod-menu .changelog-link { margin-top: 10px; float: right; color: #308DBF; cursor: pointer; font-size: 11px; font-wieght: normal; text-decoration: none; font-family: Arial,sans-serif;}#mod-menu .changelog-link:hover { text-decoration:underline;}.mod-status { color: #3A3A3A; display:inline;}#mod-auto-join-button { font-family: "BebasNeueRegular",sans-serif !important; font-weight: normal; font-size:26px !important;}#mod-auto-join-simple-button { float:left; margin-left: 5px;}#mod-menu .comcenter-settings { position:absolute; bottom:0px; width:100%; background: none repeat scroll 0 0 #F3F3F3;}#mod-menu-autojoin-status-box { position: fixed; left: 293px; bottom: 1px; z-index: 99999; width: 350px; background: #DFDFDF; border-bottom: #FFC600 solid 3px; padding: 2px;}.mod-ticbox-holder {}.mod-ticbox-label { color: #353535; text-shadow: none; font-weight: normal; font-size: 12px; font-family: Arial,sans-serif; cursor:pointer;}.mod-ticbox-holder:hover .mod-ticbox-label { font-weight: bold;}.mod-ticbox-holder.checked .mod-ticbox-label { font-weight:bold; color: #000;}.mod-ticbox { width: 10px; height: 10px; background: url(http://battlelog-cdn.battlefield.com/public/serverguide/icon_checkbox.png?v=209) no-repeat; background-position: 0 -20px; display:inline-block; cursor:pointer;}.mod-ticbox-holder:hover .mod-ticbox { background-position: 0 -30px;}.mod-ticbox-holder.checked .mod-ticbox { background-position: 0 0;}.mod-ticbox-holder.checked:hover .mod-ticbox { background-position: 0 -10px;}#mod-menu-autojoin-status-box .text { font-family: BebasNeueRegular,Arial,sans-serif !important; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu-autojoin-status-box .mod-status { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu h1, #mod-menu h2, #mod-menu h3, #mod-menu h4 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB; display: block; text-align:center; background:rgba(0, 142, 163, 0.7); padding: 3px; /*padding-left:3px; color: #8A8A8A; height: 17px; line-height: 16px; background: #F4F4F4; border-top: 1px solid #F0F0F0; border-bottom: 1px solid #F0F0F0; font-size: 11px; font-weight: bold; text-transform: uppercase;*/}#mod-menu-update-changelog { max-height: 400px; background: rgba(0,0,0,0.8); position: fixed; left: -416px; top:140px; -webkit-box-shadow: 0px 0px 13px rgba(0,0,0,0.8); -moz-box-shadow: 0px 0px 13px rgba(0,0,0,0.8); box-shadow: 0px 0px 13px rgba(0,0,0,0.8); z-index: 99999999;}#mod-menu-update-changelog h2 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB;}#mod-menu-update-changelog .closeButton { background: url(http://battlelog-cdn.battlefield.com/public/base/shared/row_icon_chat.png?v=185); background-position: 0 -26px; padding-right: 13px; position: absolute; top: 3px; right: 3px; background-color: #DBDBDB; padding-bottom: 13px; cursor:pointer;}#mod-menu-update-changelog .inner { overflow: auto; margin:7px; color: #DCDCDC; font-weight: normal; font-size: 13px; font-family: BebasNeueRegular,Arial,sans-serif; padding:5px; line-height:18px; max-height: 360px;}#mod-menu-update-changelog .inner p { color: #BCBCBC; line-height: 18px; margin-left: 15px;}.mod-base-section-dropdown { position: relative; height: 37px; top: 19px;}.mod-activedropdown .base-dropdown-left{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 0 no-repeat;}.mod-activedropdown .base-dropdown-middle{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 -36px repeat-x;}.mod-activedropdown .base-dropdown-right{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) -9px 0 no-repeat;}#base-sub-navbar li.mod-base-section-dropdown.mod-activedropdown .base-dropdown-middle a,#base-sub-navbar #base-section-nav-bf3 li.mod-base-section-dropdown.active.mod-activedropdown .base-dropdown-middle a{  color:#353535;  background:none;}.mod-update-receipt { position:fixed; left:10px; top:70px;}/* MODS */.serverguide-filter-gamemode { height: auto !important;}.mod-auto-hooah { position: absolute; right: 5px; top: -25px; color: #308DBF; cursor:pointer; font-size: 11px; font-wieght: normal; text-decoration:none; font-family: Arial,sans-serif;}.mod-auto-hooah:hover { text-decoration: underline;}';
 	document.body.appendChild(styleInject);
 
 	$("body").append($('<div id="mod-menu" style="display:none"> <div class="content-wrapper">  <!--<h3>SETTINGS</h3>  <div class="content">   <div class="mod-ticbox-holder" data="showGameOnLoad">    <div class="mod-ticbox"></div>    <span class="mod-ticbox-label">Show game window when map is loading</span>   </div>  </div>-->   <h3>STATUS</h3>  <div class="content">   AutoJoin Server: <div class="mod-status" id="mod-status-autojoin">not ready</div><br>   Auto Hooah: <div class="mod-status" id="mod-status-auto-hooah">not ready</div><br>  </div>    <div class="comcenter-settings">   <div class="base-left">      </div>   <div class="base-right">   <span class="version"></span>   <span class="changelog-link">changelog</span>   </div>   </div>  </div></div><div id="mod-menu-autojoin-status-box"> <span style="position:relative;top:7px;" class="text">AutoJoin State: <span class="mod-status"></span></span> <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all"></div><div id="mod-menu-update-changelog"> <h2>Battlelog Mods - Changelog</h2> <span class="closeButton"></span> <div class="inner">   </div></div>'));
@@ -244,15 +244,23 @@ base.menu.surface_6_10.render = function(o, b, kwargs) {
 };
 	mods.selectedServer = {
 	getInfo: function() {
-		selectedIDx = $(".serverguide-bodycells.active").attr("idx");
+		selectedIDx = serverguide.serverHighlightIndex;//$(".serverguide-bodycells.active").attr("idx");
 		return $S("serverguide-server-" + selectedIDx).getState().server;
 	},
 	
 	getUrls: function() {
 		retObject = {};
 	
-		retObject.joinUrl = $("#serverguide-show-joinserver-form").attr("action");
-		retObject.playerCountUrl = $("#serverguide-numplayers-url").val().replace("%GUID%", mods.selectedServer.getInfo().guid);
+		formObject = $("#serverguide-show-joinserver-form, .profile-view-status-joinbutton form.join-friend")
+		
+		if (formObject.find("input[name=guid]")[0]) {
+			serverGUID = formObject.find("input[name=guid]").val();
+		} else {
+			serverGUID = formObject.attr("guid");
+		}
+	
+		retObject.joinUrl = formObject.attr("action");
+		retObject.playerCountUrl = "/bf3/servers/getNumPlayersOnServer/%GUID%/".replace("%GUID%", serverGUID);
 		
 		return retObject;
 	}
@@ -261,7 +269,15 @@ base.menu.surface_6_10.render = function(o, b, kwargs) {
 mods.serverInfo = {
 	getStatus: function(url, callback) { //requires playerCountUrl
 		$.get(url, callback);
-	} // callback gets object (first parameter) EX: {"mapMode":64,"players":47,"queued":0,"map":"MP_013"}
+	}, // callback gets object (first parameter) EX: {"mapMode":64,"players":47,"queued":0,"map":"MP_013"}
+	
+	getDetailed: function(url, callback) {
+		$.ajax({
+		  url: url,
+		  success: function(data) { callback(data.context.server); },
+		  beforeSend: function(xhr) { xhr.setRequestHeader("X-AjaxNavigation", "1"); }
+		});
+	} //callback gets detailed server object, url is a valid "/bf3/servers/show/" link
 };
 
 	mods.autoJoin = {
@@ -319,7 +335,7 @@ mods.serverInfo = {
 	
 	apply: function() {
 		if (this.modState == "not ready") {
-			serverguide.serverinfo.surface_29_26.render = function (o, b, kwargs) {
+			serverguide.serverinfo.surface_29_26.render = function (o, b, kwargs) { //add server guide auto join button on render
 				var c = [];
 				b = b || block_serverguide_serverinfo;
 				kwargs = kwargs || {};
@@ -360,6 +376,80 @@ mods.serverInfo = {
 				Surface.Renderer.addSurfaceState("serverguide.serverinfo", "surface_29_26", "serverguide-join-button", o, b);
 				return c.join("");
 			};
+			
+			serverguide.show.surface_44_21.render = function(o, b, kwargs) { //adds full server view button on render
+				var c = [];
+				b = b || block_serverguide_show;
+				kwargs = kwargs || {};
+				Surface.Renderer.addUsedComponent("serverguide");
+				Surface.Renderer.addUsedTemplate("serverguide.show");
+				
+				c.push('<surf:container id="');
+				c.push("serverguide-show-serverjoin");
+				c.push('" style="top:22px;">'); //modded
+				if ((((typeof (Surface) != "undefined" && Surface !== null && typeof (Surface.globalContext) != "undefined" && Surface.globalContext !== null && typeof (Surface.globalContext.userContext) != "undefined" && Surface.globalContext.userContext !== null && typeof (Surface.globalContext.userContext.isInParty) != "undefined" && Surface.globalContext.userContext.isInParty !== null) ? Surface.globalContext.userContext.isInParty : 0) > 0)) {
+					c.push(' <input type="button" class="base-button-arrow-large-drop base-button-general-dropdown" style="float:left;" name="submit" value="');
+					c.push(Surface.valOut("Join server"));
+					c.push('" />\n <div class="base-general-dropdown-area" style="top:29px;width:160px">\n <div class="base-button-dropdown-inner">\n <ul>\n'); //modded
+					if (((typeof (o) != "undefined" && o !== null && typeof (o.session) != "undefined" && o.session !== null && typeof (o.session.isLoggedIn) != "undefined" && o.session.isLoggedIn !== null) ? o.session.isLoggedIn : false)) {
+						c.push(' <li>\n <a class="base-no-ajax join-server-submit-link"><span class="join-alone"></span>');
+						c.push(Surface.valOut("Join alone"));
+						c.push('</a>\n </li>\n <li>\n <a href="');
+						c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/gamemanager/createGroupJoinToServer/{guid}/", Surface.urlContext, {"guid": o.server.guid})));
+						c.push('" class="base-no-ajax base-button-dropdown-joingroup"><span class="join-party"></span>');
+						c.push(Surface.valOut("Join with Party"));
+						c.push("</a>\n </li>\n");
+					}
+					c.push(' </ul>\n </div>\n <div class="base-button-dropdown-shadow"></div>\n </div>\n');
+				} else {
+					c.push(' <input type="submit" class="base-button-arrow-large" style="float:left;" name="submit" value="');
+					c.push(Surface.valOut("Join server"));
+					c.push('" />\n');
+				}
+				
+				//mod
+				c.push('<button class="base-button-arrow-large" id="mod-auto-join-simple-button">Auto Join Server</button>\n');
+				//endMod
+				
+				c.push("</surf:container>");
+				Surface.Renderer.addSurfaceState("serverguide.show", "surface_44_21", "serverguide-show-serverjoin", o, b);
+				return c.join("");
+			};
+			
+			serverguide.joinfriendform.surface_41_13.render = function(o, b, kwargs) { //adds button for friend-join on render
+				var c = [];
+				b = b || block_serverguide_joinfriendform;
+				kwargs = kwargs || {};
+				Surface.Renderer.addUsedComponent("serverguide");
+				Surface.Renderer.addUsedTemplate("serverguide.joinfriendform");
+				c.push('<surf:container id="');
+				c.push("profile-joinbutton");
+				c.push('">');
+				
+				//mod
+				c.push('<button class="base-button-arrow-large" id="mod-auto-join-simple-button" style="float:right;">Auto Join Server</button>\n');
+				//endMod
+				
+				if ((((typeof (Surface) != "undefined" && Surface !== null && typeof (Surface.globalContext) != "undefined" && Surface.globalContext !== null && typeof (Surface.globalContext.userContext) != "undefined" && Surface.globalContext.userContext !== null && typeof (Surface.globalContext.userContext.isInParty) != "undefined" && Surface.globalContext.userContext.isInParty !== null) ? Surface.globalContext.userContext.isInParty : 0) > 0)) {
+					c.push(' <input type="button" class="base-button-arrow-large-drop base-button-general-dropdown" name="reset" value="');
+					c.push(Surface.valOut(o.buttonValue));
+					c.push('" />\n <div class="base-clear"></div>\n <div class="base-general-dropdown-area">\n <div class="base-button-dropdown-inner">\n <ul>\n <li>\n <a class="base-no-ajax join-friend-submit-link">\n ');
+					c.push(Surface.valOut("Join alone"));
+					c.push('\n </a>\n </li>\n <li>\n <a href="');
+					c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/gamemanager/createGroupJoinToServer/{guid}/", Surface.urlContext, {"guid": S.Modifier.get(o.presence, "serverGuid")})));
+					c.push('" class="base-no-ajax base-button-dropdown-joingroup">\n ');
+					c.push(Surface.valOut("Join with Party"));
+					c.push('\n </a>\n </li>\n </ul>\n </div>\n <div class="base-button-dropdown-shadow"></div>\n </div>\n');
+				} else {
+					c.push(' <input type="submit" class="base-button-arrow-large" name="submit" value="');
+					c.push(Surface.valOut(o.buttonValue));
+					c.push('" />\n');
+				}
+				
+				c.push("</surf:container>");
+				Surface.Renderer.addSurfaceState("serverguide.joinfriendform", "surface_41_13", "profile-joinbutton", o, b);
+				return c.join("");
+			};
 		
 			mods.eventHandler.addCallback("launch_state", function(eventType, eventObject) {
 				//mods.debug("launch_state event = "+JSON.stringify(eventObject.launcherState));
@@ -377,18 +467,21 @@ mods.serverInfo = {
 				}
 			});
 			
-			$("#mod-auto-join-button").live("click", function(e) {
+			$("#mod-auto-join-button, #mod-auto-join-simple-button").live("click", function(e) {
 				mods.autoJoin.checkCount = 0;
 				mods.autoJoin.server = mods.selectedServer.getUrls();
-				mods.autoJoin.server.maxPlayers = mods.selectedServer.getInfo().maxPlayers;
 				
-				if (typeof mods.autoJoin.server.joinUrl != "undefined") {
-					mods.autoJoin.showStatusBox();
-					mods.autoJoin.state = 1;
-					mods.debug("attempting to autojoin {object}");
-					mods.debug(mods.autoJoin.server);
-					mods.autoJoin.checkServer();
-				}
+				mods.serverInfo.getDetailed(mods.autoJoin.server.joinUrl, function(data) {
+					mods.autoJoin.server.maxPlayers = data.maxPlayers;
+				
+					if (typeof mods.autoJoin.server.joinUrl != "undefined") {
+						mods.autoJoin.showStatusBox();
+						mods.autoJoin.state = 1;
+						mods.debug("attempting to autojoin {object}");
+						mods.debug(mods.autoJoin.server);
+						mods.autoJoin.checkServer();
+					}
+				});
 				
 				e.preventDefault();
 				return false;
@@ -402,6 +495,20 @@ mods.serverInfo = {
 			
 			//$(".serverguide-bodycells.active:visible div:first").click();
 			$("#serverguide-join-button").append($('<center><button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SERVER</button></center>'));
+			
+			$("#profile-joinbutton").prepend('<button class="base-button-arrow-large" id="mod-auto-join-simple-button" style="float:right;">Auto Join Server</button>');
+			
+			if ($("#serverguide-show-serverjoin")[0] && $("#serverguide-show-serverjoin")[0].nodeName == "SURF:CONTAINER") { //add full view button if we loaded the page into one
+				$("#serverguide-show-serverjoin")
+					.css("top", "22px")
+					.append('<button class="base-button-arrow-large" id="mod-auto-join-simple-button">Auto Join Server</button>');
+				
+				$("#serverguide-show-serverjoin input.base-button-arrow-almost-gigantic").removeClass("base-button-arrow-almost-gigantic")
+					.addClass("base-button-arrow-large").css("float", "left");
+				$("#serverguide-show-serverjoin input.base-button-arrow-almost-gigantic-dropdown").removeClass("base-button-arrow-almost-gigantic-dropdown")
+					.addClass("base-button-arrow-lagr-drop").css("float", "left")
+					.next().removeClass("base-button-dropdown").css({"top": "29px", "width": "160px"});
+			}
 			
 			this.modState = "ready";
 			this.setMenuState();
@@ -558,12 +665,27 @@ mods.saveSettings = function() {
 		mods.updateUI();
 		mods.autoJoin.apply();
 		mods.autoHooah.apply();
+		
+		var userInPlatoon = false;
+		if (S.globalContext.userContext.platoons && S.globalContext.userContext.platoons.length>0) { //check user platoon
+			for (var i in S.globalContext.userContext.platoons) {
+				if (S.globalContext.userContext.platoons[i].name == "Coderah Battlelog Mods") {
+					mods.debug("user is in battlelog mods platoon");
+					userInPlatoon = true;
+				}
+			}
+		}
+		
+		if (!userInPlatoon) {
+			$('<center><a href="http://battlelog.battlefield.com/bf3/platoon/2832655240999277587/"><button class="base-button-arrow-large" id="mod-platoon-button">Join our Platoon!</button></a></center>')
+				.insertBefore("#mod-menu .comcenter-settings");
+		}
 	});
 
 }
 
 	mods.getExtensionVersion = function() {
-	return "2.0";
+	return "2.1";
 }
 
 $("#mod-menu .version").html(mods.getExtensionVersion());
