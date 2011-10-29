@@ -53,7 +53,7 @@ mods.autoJoin = {
 	
 	apply: function() {
 		if (this.modState == "not ready") {
-			serverguide.serverinfo.surface_29_26.render = function (o, b, kwargs) {
+			serverguide.serverinfo.surface_29_26.render = function (o, b, kwargs) { //add server guide auto join button on render
 				var c = [];
 				b = b || block_serverguide_serverinfo;
 				kwargs = kwargs || {};
@@ -95,7 +95,7 @@ mods.autoJoin = {
 				return c.join("");
 			};
 			
-			serverguide.show.surface_44_21.render = function(o, b, kwargs) {
+			serverguide.show.surface_44_21.render = function(o, b, kwargs) { //adds full server view button on render
 				var c = [];
 				b = b || block_serverguide_show;
 				kwargs = kwargs || {};
@@ -182,7 +182,7 @@ mods.autoJoin = {
 			//$(".serverguide-bodycells.active:visible div:first").click();
 			$("#serverguide-join-button").append($('<center><button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SERVER</button></center>'));
 			
-			if ($("#serverguide-show-serverjoin")[0].nodeName == "SURF:CONTAINER") {
+			if ($("#serverguide-show-serverjoin")[0].nodeName == "SURF:CONTAINER") { //add full view button if we loaded the page into one
 				$("#serverguide-show-serverjoin")
 					.css("top", "22px")
 					.append('<button class="base-button-arrow-small" id="mod-auto-join-simple-button">Auto Join Server</button>');
