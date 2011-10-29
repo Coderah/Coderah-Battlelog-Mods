@@ -7,8 +7,16 @@ mods.selectedServer = {
 	getUrls: function() {
 		retObject = {};
 	
-		retObject.joinUrl = $("#serverguide-show-joinserver-form").attr("action");
-		retObject.playerCountUrl = $("#serverguide-numplayers-url").val().replace("%GUID%", $("#serverguide-show-joinserver-form").attr("guid"));
+		formObject = $("#serverguide-show-joinserver-form, .profile-view-status-joinbutton form.join-friend")
+		
+		if (formObject.find("input[name=guid]")[0]) {
+			serverGUID = formObject.find("input[name=guid]").val();
+		} else {
+			serverGUID = formObject.attr("guid");
+		}
+	
+		retObject.joinUrl = formObject.attr("action");
+		retObject.playerCountUrl = "/bf3/servers/getNumPlayersOnServer/%GUID%/".replace("%GUID%", serverGUID);
 		
 		return retObject;
 	}
