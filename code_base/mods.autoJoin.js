@@ -106,7 +106,7 @@ mods.autoJoin = {
 				c.push("serverguide-show-serverjoin");
 				c.push('" style="top:22px;">'); //modded
 				if ((((typeof (Surface) != "undefined" && Surface !== null && typeof (Surface.globalContext) != "undefined" && Surface.globalContext !== null && typeof (Surface.globalContext.userContext) != "undefined" && Surface.globalContext.userContext !== null && typeof (Surface.globalContext.userContext.isInParty) != "undefined" && Surface.globalContext.userContext.isInParty !== null) ? Surface.globalContext.userContext.isInParty : 0) > 0)) {
-					c.push(' <input type="button" class="base-button-arrow-small-drop base-button-general-dropdown" style="float:left;" name="submit" value="');
+					c.push(' <input type="button" class="base-button-arrow-large-drop base-button-general-dropdown" style="float:left;" name="submit" value="');
 					c.push(Surface.valOut("Join server"));
 					c.push('" />\n <div class="base-general-dropdown-area" style="top:29px;width:160px">\n <div class="base-button-dropdown-inner">\n <ul>\n'); //modded
 					if (((typeof (o) != "undefined" && o !== null && typeof (o.session) != "undefined" && o.session !== null && typeof (o.session.isLoggedIn) != "undefined" && o.session.isLoggedIn !== null) ? o.session.isLoggedIn : false)) {
@@ -120,13 +120,13 @@ mods.autoJoin = {
 					}
 					c.push(' </ul>\n </div>\n <div class="base-button-dropdown-shadow"></div>\n </div>\n');
 				} else {
-					c.push(' <input type="submit" class="base-button-arrow-small" style="float:left;" name="submit" value="');
+					c.push(' <input type="submit" class="base-button-arrow-large" style="float:left;" name="submit" value="');
 					c.push(Surface.valOut("Join server"));
 					c.push('" />\n');
 				}
 				
 				//mod
-				c.push('<button class="base-button-arrow-small" id="mod-auto-join-simple-button">Auto Join Server</button>\n');
+				c.push('<button class="base-button-arrow-large" id="mod-auto-join-simple-button">Auto Join Server</button>\n');
 				//endMod
 				
 				c.push("</surf:container>");
@@ -219,12 +219,12 @@ mods.autoJoin = {
 			if ($("#serverguide-show-serverjoin")[0] && $("#serverguide-show-serverjoin")[0].nodeName == "SURF:CONTAINER") { //add full view button if we loaded the page into one
 				$("#serverguide-show-serverjoin")
 					.css("top", "22px")
-					.append('<button class="base-button-arrow-small" id="mod-auto-join-simple-button">Auto Join Server</button>');
+					.append('<button class="base-button-arrow-large" id="mod-auto-join-simple-button">Auto Join Server</button>');
 				
 				$("#serverguide-show-serverjoin input.base-button-arrow-almost-gigantic").removeClass("base-button-arrow-almost-gigantic")
-					.addClass("base-button-arrow-small").css("float", "left");
+					.addClass("base-button-arrow-large").css("float", "left");
 				$("#serverguide-show-serverjoin input.base-button-arrow-almost-gigantic-dropdown").removeClass("base-button-arrow-almost-gigantic-dropdown")
-					.addClass("base-button-arrow-small-drop").css("float", "left")
+					.addClass("base-button-arrow-lagr-drop").css("float", "left")
 					.next().removeClass("base-button-dropdown").css({"top": "29px", "width": "160px"});
 			}
 			
