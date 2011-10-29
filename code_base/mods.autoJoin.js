@@ -182,7 +182,7 @@ mods.autoJoin = {
 			//$(".serverguide-bodycells.active:visible div:first").click();
 			$("#serverguide-join-button").append($('<center><button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SERVER</button></center>'));
 			
-			if ($("#serverguide-show-serverjoin")[0].nodeName == "SURF:CONTAINER") { //add full view button if we loaded the page into one
+			if ($("#serverguide-show-serverjoin") && $("#serverguide-show-serverjoin")[0].nodeName == "SURF:CONTAINER") { //add full view button if we loaded the page into one
 				$("#serverguide-show-serverjoin")
 					.css("top", "22px")
 					.append('<button class="base-button-arrow-small" id="mod-auto-join-simple-button">Auto Join Server</button>');
