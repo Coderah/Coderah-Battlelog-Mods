@@ -232,7 +232,7 @@ mods.autoJoin = {
 			this.setMenuState();
 			this.hideStatusBox();
 			$("#mod-menu-autojoin").show();
-			base.showReceipt("Battlelog Mods - Auto Join ready.", receiptTypes.OK, 5000);
+			//base.showReceipt("Battlelog Mods - Auto Join ready.", receiptTypes.OK, 5000);
 			mods.debug("autoJoin applied");
 		}
 	},

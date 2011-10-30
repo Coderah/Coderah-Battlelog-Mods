@@ -55,7 +55,7 @@ mods.autoHooah = {
 			
 			this.state = "ready";
 			this.setMenuState();
-			base.showReceipt("Battlelog Mods - autoHooah ready.", receiptTypes.OK, 5000);
+			//base.showReceipt("Battlelog Mods - autoHooah ready.", receiptTypes.OK, 5000);
 			mods.debug("autoHooah applied");
 		}
 	},
