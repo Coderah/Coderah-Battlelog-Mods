@@ -14,7 +14,7 @@ if ($("body").is("#base-bf3-body")) {
 	$("body").append($(<?mod-menu.html?>));
 	
 	if (mods.updaterPresent) {
-		$("#mod-menu .version").html(mods.getExtensionVersion() + " & " + mods.codeVersion);
+		$("#mod-menu .version").html("extension: " + mods.getExtensionVersion() + " | code: " + mods.codeVersion);
 	}
 
 	<?mods.menu.js?>
