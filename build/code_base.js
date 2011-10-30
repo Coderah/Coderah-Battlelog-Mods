@@ -356,7 +356,7 @@ mods.serverInfo = {
 	checkTimeout: null,
 	msWait: 2000,
 	
-	errorMessagesForRetry: ["Could not join server since it's full", "Can't join, this server is changing map, please try again soon.", "Could not join server since it couldn't be found."],
+	errorMessagesForRetry: ["Could not join server since it's full", "Could not join server since it couldn't be found."],
 	
 	join: function() {
 		mods.autoJoin.setStatus("connecting...");
@@ -528,6 +528,13 @@ mods.serverInfo = {
 						mods.debug("autojoin attempting connection again: reason{object}", eventObject.launcherState);
 						mods.autoJoin.setStatus("waiting...");
 					}
+					
+					if (eventObject.launcherState.name == "launch_error" && eventObject.launcherState.errorMessage == "Can't join, this server is changing map, please try again soon.") {
+						clearTimeout(mods.autoJoin.checkTimeout);
+						mods.autoJoin.checkTimeout = setTimeout(mods.autoJoin.checkServer, 30000);
+						mods.debug("autojoin encountered server changing map message, waiting for 30 seconds before checking again");
+					}
+					
 					if ((eventObject.launcherState.gameState && eventObject.launcherState.gameState == "State_ConnectToGameId") || (eventObject.launcherState.name == "launch_cancelling")) {
 						mods.autoJoin.cancel();
 						mods.debug("autojoin finished");
