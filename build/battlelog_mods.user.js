@@ -8,7 +8,7 @@
 // ==/UserScript==
 
 function coderah_battlelog_mods_main () {
-	if (typeof(mods) == "undefined") { var mods = {}; }
+	if (typeof(window.mods) == "undefined") { window.mods = {}; }
 
 mods.updaterPresent = true;
 

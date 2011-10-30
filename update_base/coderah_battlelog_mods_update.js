@@ -1,4 +1,4 @@
-if (typeof(mods) == "undefined") { var mods = {}; }
+if (typeof(window.mods) == "undefined") { window.mods = {}; }
 
 mods.updaterPresent = true;
 
