@@ -79,6 +79,15 @@ if ($("body").is("#base-bf3-body")) {
 			$('<center><a href="http://battlelog.battlefield.com/bf3/platoon/2832655240999277587/"><button class="base-button-arrow-large" id="mod-platoon-button">Join our Platoon!</button></a></center>')
 				.insertBefore("#mod-menu .comcenter-settings");
 		}
+		
+		if (mods.settings.lastCodeVersion) { //if the code version loaded was different than last time display changelog
+			if (mods.settings.lastCodeVersion !== mods.codeVersion) {
+				mods.changelog.load(mods.getExtensionVersion(), true);
+				mods.setSetting("lastCodeVersion", mods.codeVersion, true);
+			}
+		} else {
+			mods.setSetting("lastCodeVersion", mods.codeVersion, true);
+		}
 	});
 
 }
