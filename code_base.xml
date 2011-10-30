@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<buildType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <type>code_base</type>
+  <updateFile>null</updateFile>
+  <sourcePath>code_base</sourcePath>
+</buildType>

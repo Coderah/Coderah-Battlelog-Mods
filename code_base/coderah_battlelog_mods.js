@@ -1,6 +1,9 @@
- var verboseDebug = false;
+var verboseDebug = false;
 
-var mods = {changelogLoaded: false};
+if (typeof(mods) == "undefined") { var mods = {}; }
+
+mods.changelogLoaded = false;
+mods.codeVersion = "<?codeVersion?>";
 
 if ($("body").is("#base-bf3-body")) {
 	
@@ -9,6 +12,10 @@ if ($("body").is("#base-bf3-body")) {
 	document.body.appendChild(styleInject);
 
 	$("body").append($(<?mod-menu.html?>));
+	
+	if (mods.updaterPresent) {
+		$("#mod-menu .version").html(mods.getExtensionVersion() + " & " + mods.codeVersion);
+	}
 
 	<?mods.menu.js?>
 

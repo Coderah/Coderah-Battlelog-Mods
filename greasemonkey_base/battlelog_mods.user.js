@@ -8,8 +8,6 @@
 // ==/UserScript==
 
 function coderah_battlelog_mods_main () {
-	<?mainCode?>
-
 	<?updateCode?>
 }
 

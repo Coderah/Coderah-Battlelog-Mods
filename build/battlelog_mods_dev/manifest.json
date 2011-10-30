@@ -1,0 +1,13 @@
+{
+  "name": "Coderah Battlelog Mods",
+  "version": "2.2",
+  "description": "Multiple modifications for Battlelog (BF3)",
+  "homepage_url": "http://www.coderah.com/?page_id=389",
+  "content_scripts": [
+    {
+      "matches": ["http://battlelog.battlefield.com/*"],
+	  "run_at": "document_end",
+      "js": ["loader.js"]
+    }
+  ]
+}
