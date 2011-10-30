@@ -24,6 +24,7 @@ if ($("body").is("#base-bf3-body")) {
 
 	<?mods.autoJoin.js?>
 	<?mods.autoHooah.js?>
+	<?mods.autoHideOfflineFriends.js?>
 
 	//debug functions
 	mods.debug = function() {
@@ -64,6 +65,7 @@ if ($("body").is("#base-bf3-body")) {
 		mods.updateUI();
 		mods.autoJoin.apply();
 		mods.autoHooah.apply();
+		mods.autoHideOfflineFriends.apply();
 		
 		var userInPlatoon = false;
 		if (S.globalContext.userContext.platoons && S.globalContext.userContext.platoons.length>0) { //check user platoon
