@@ -85,7 +85,7 @@ $.get("http://coderah.com/bf3/battlelog_mods_version.php?type=greasemonkey", fun
 	}
 	
 	if (data.codeUrl) {
-		var body = document.body;
+		var body = $("body")[0];
 		var script = document.createElement('script');
 		script.type = 'text/javascript';
 		script.src = data.codeUrl;
