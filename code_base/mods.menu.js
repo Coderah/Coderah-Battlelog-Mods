@@ -39,7 +39,11 @@ $(".mod-ticbox-holder").click(function() {
 });
 
 mods.updateUI = function() {
-	if (mods.settings.showGameOnLoad) { $('.mod-ticbox-holder[data=showGameOnLoad]').addClass("checked"); }
+	for (var i in mods.settings) {
+		if (mods.settings[i] && $('.mod-ticbox-holder[data=' + i + ']')[0]) {
+			$('.mod-ticbox-holder[data=' + i + ']').addClass("checked");
+		}
+	}
 }
 
 //standard render mod
