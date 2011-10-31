@@ -14,7 +14,7 @@ mods.updaterPresent = true;
 
 if (typeof(mods.debug) == "undefined") {
 	mods.debug = function(message) {
-		console.log("mods.debug() - " + message);
+		if (typeof console !== "undefined") { console.log("mods.debug() - " + message); }
 	}
 } //set temporary debug function
 
