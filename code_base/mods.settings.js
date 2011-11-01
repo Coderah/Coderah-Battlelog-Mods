@@ -10,10 +10,11 @@ mods.setSetting = function(setting, val, saveSettings) {
 }
 
 mods.loadSettings = function() {
-	if (localStorage.modSettings) {
-		var localStorageModSettings = JSON.parse(localStorage.modSettings);
-		for (var modSetting in localStorageModSettings) {
-			mods.settings[modSetting] = localStorageModSettings[modSetting];
+	if (localStorage.modSettings) { globalStorage.modSettings = localStorage.modSettings; }
+	if (globalStorage.modSettings) {
+		var globalStorageModSettings = JSON.parse(globalStorage.modSettings);
+		for (var modSetting in globalStorageModSettings) {
+			mods.settings[modSetting] = globalStorageModSettings[modSetting];
 			mods.debug("loaded " + modSetting + "=" + mods.settings[modSetting]);
 		}
 	} else {
@@ -22,16 +23,16 @@ mods.loadSettings = function() {
 }
 
 mods.saveSettings = function() {
-	if (!localStorage.modSettings) { 
-		localStorage.modSettings = JSON.stringify(mods.settings);
+	if (!globalStorage.modSettings) { 
+		globalStorage.modSettings = JSON.stringify(mods.settings);
 		mods.debug("save settings object didn't exist created; saved settings");
 	} else {
-		var localStorageModSettings = JSON.parse(localStorage.modSettings);
+		var globalStorageModSettings = JSON.parse(globalStorage.modSettings);
 		for (var modSetting in mods.settings) {
-			localStorageModSettings[modSetting] = mods.settings[modSetting];
-			mods.debug("saved " + modSetting + "=" + localStorageModSettings[modSetting]);
+			globalStorageModSettings[modSetting] = mods.settings[modSetting];
+			//mods.debug("saved " + modSetting + "=" + globalStorageModSettings[modSetting]);
 		}
 		
-		localStorage.modSettings = JSON.stringify(localStorageModSettings);
+		globalStorage.modSettings = JSON.stringify(globalStorageModSettings);
 	}
 }
