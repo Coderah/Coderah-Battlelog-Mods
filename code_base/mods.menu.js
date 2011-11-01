@@ -28,7 +28,7 @@ $("#mod-menu .changelog-link").click(function() {
 	}
 });
 
-$(".mod-ticbox-holder").click(function() {
+$(".mod-ticbox-holder").live("click", function() {
 	if ($(this).is(".checked")) {
 		$(this).removeClass("checked");
 		mods.setSetting($(this).attr("data"), false);
