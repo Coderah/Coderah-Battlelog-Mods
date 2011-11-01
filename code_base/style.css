@@ -95,6 +95,10 @@
 	font-size: 12px;
 	font-family: Arial,sans-serif;
 	cursor:pointer;
+	margin-left: 5px;
+	
+	position:relative;
+	top:-1px;
 }
 
 .mod-ticbox-holder:hover .mod-ticbox-label {
@@ -261,4 +265,20 @@
 
 .mod-auto-hooah:hover {
 	text-decoration: underline;
+}
+
+.serverguide-filter-map {
+	width: auto !important;
+	border-right: 1px solid #E1E1E1 !important;
+}
+
+.mod-serverguide-filter-mods {
+	max-height:310px;
+	min-height:310px;
+	overflow-y:auto;
+	width:155px !important;
+}
+
+.mod-serverguide-filter-mods .serverguide-filter-selectables {
+	margin-left:16px;
 }

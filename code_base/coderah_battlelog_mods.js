@@ -16,6 +16,8 @@ if ($("body").is("#base-bf3-body")) {
 	if (mods.updaterPresent) {
 		$("#mod-menu .version").html("extension: " + mods.getExtensionVersion() + " | code: " + mods.codeVersion);
 	}
+	
+	<?mods.modifyFunction.js?>
 
 	<?mods.menu.js?>
 
@@ -25,6 +27,7 @@ if ($("body").is("#base-bf3-body")) {
 	<?mods.autoJoin.js?>
 	<?mods.autoHooah.js?>
 	<?mods.autoHideOfflineFriends.js?>
+	<?mods.customFilters.js?>
 
 	//debug functions
 	mods.debug = function() {
@@ -62,10 +65,11 @@ if ($("body").is("#base-bf3-body")) {
 	//apply mods
 	$(document).ready(function() {
 		mods.loadSettings();
-		mods.updateUI();
 		mods.autoJoin.apply();
 		mods.autoHooah.apply();
 		mods.autoHideOfflineFriends.apply();
+		mods.customFilters.apply();
+		mods.updateUI();
 		
 		var userInPlatoon = false;
 		if (S.globalContext.userContext.platoons && S.globalContext.userContext.platoons.length>0) { //check user platoon
