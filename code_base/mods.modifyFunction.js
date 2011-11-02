@@ -8,6 +8,8 @@ mods.modifyFunction = function(funcName, func, changes) {
 	if (typeof changes == "object") {
 		var funcAsString = func.toString();
 		
+		var modifiedAt = [];
+		
 		for (var i in changes) {
 			var change = changes[i];
 			
@@ -26,8 +28,12 @@ mods.modifyFunction = function(funcName, func, changes) {
 					funcAsString = funcAsString.replace(change.modify, change.code);
 					break;
 			}
+			
+			modifiedAt.push(funcAsString.indexOf(change.modify));
 		}
 		
 		eval(funcName + " = " + funcAsString);
+		
+		return modifiedAt;
 	}
 }
