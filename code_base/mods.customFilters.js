@@ -25,34 +25,50 @@ mods.customFilters = {
 				c.push(mods.customFilters.ticHtml);
 				setTimeout(function() { 
 					mods.updateUI();
-					$(".serverguide-bodycells:first .serverguide-bodycell:first").click();
-					serverguideList.setServerListAutoBrowse();
 				}, 200);
 			}
 		}]);
 		
-		mods.modifyFunction("serverguide.serverrow.surface_3_2.render", serverguide.serverrow.surface_3_2.render, [{
+		mods.modifyFunction("serverguide.onPageShow", serverguide.onPageShow, [{
 			type: "addBefore",
-			modify: "var c=[];",
+			modify: '})();}',
 			code: function() {
+				$(".serverguide-bodycells:visible .serverguide-bodycell:first").click();
+				serverguideList.setServerListAutoBrowse();
+			}
+		}]);
+		
+		mods.modifyFunction("serverguide.serverrow.surface_3_2.render", serverguide.serverrow.surface_3_2.render, [{
+			type: "addAfter",
+			modify: 'c.push(S.Modifier.concat("serverguide-server-",o.idx));',
+			code: function() {
+				var hideServer = false;
+				
 				if (mods.settings.customFiltersHideSecure) {
-					if (o.server.hasPassword) { return ""; }
+					if (o.server.hasPassword) { hideServer = true; }
 				}
 				
-				if (mods.settings.customFiltersPlayers16 || mods.settings.customFiltersPlayers24 ||
-					mods.settings.customFiltersPlayers32 || mods.settings.customFiltersPlayers40 ||
-					mods.settings.customFiltersPlayers48 || mods.settings.customFiltersPlayers64) 
-				{
-					var shouldKeepServer = false;
-					
-					if (mods.settings.customFiltersPlayers16 && o.server.maxPlayers == 16) { shouldKeepServer = true; }
-					if (mods.settings.customFiltersPlayers24 && o.server.maxPlayers == 24) { shouldKeepServer = true; }
-					if (mods.settings.customFiltersPlayers32 && o.server.maxPlayers == 32) { shouldKeepServer = true; }
-					if (mods.settings.customFiltersPlayers40 && o.server.maxPlayers == 40) { shouldKeepServer = true; }
-					if (mods.settings.customFiltersPlayers48 && o.server.maxPlayers == 48) { shouldKeepServer = true; }
-					if (mods.settings.customFiltersPlayers64 && o.server.maxPlayers == 64) { shouldKeepServer = true; }
-					
-					if (!shouldKeepServer) { return ""; }
+				if (!hideServer) {
+					if (mods.settings.customFiltersPlayers16 || mods.settings.customFiltersPlayers24 ||
+						mods.settings.customFiltersPlayers32 || mods.settings.customFiltersPlayers40 ||
+						mods.settings.customFiltersPlayers48 || mods.settings.customFiltersPlayers64) 
+					{
+						var shouldKeepServer = false;
+						
+						if (mods.settings.customFiltersPlayers16 && o.server.maxPlayers == 16) { shouldKeepServer = true; }
+						if (mods.settings.customFiltersPlayers24 && o.server.maxPlayers == 24) { shouldKeepServer = true; }
+						if (mods.settings.customFiltersPlayers32 && o.server.maxPlayers == 32) { shouldKeepServer = true; }
+						if (mods.settings.customFiltersPlayers40 && o.server.maxPlayers == 40) { shouldKeepServer = true; }
+						if (mods.settings.customFiltersPlayers48 && o.server.maxPlayers == 48) { shouldKeepServer = true; }
+						if (mods.settings.customFiltersPlayers64 && o.server.maxPlayers == 64) { shouldKeepServer = true; }
+						
+						if (!shouldKeepServer) { hideServer = true; }
+					}
+				}
+				
+				if (hideServer) {
+					c.push('" style="display:none;');
+					mods.debug(c.join(''));
 				}
 			}
 		}]);
