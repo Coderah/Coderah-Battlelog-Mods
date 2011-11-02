@@ -15,6 +15,8 @@ mods.modifyFunction = function(funcName, func, changes) {
 			
 			if (typeof change.code == "function") { change.code = mods.func.getCodePortionOfString(change.code.toString()); } //get string from function
 			
+			modifiedAt.push(funcAsString.indexOf(change.modify));
+			
 			switch (change.type) {
 				case "addAfter":
 					funcAsString = funcAsString.replace(change.modify, change.modify + change.code);
@@ -28,8 +30,6 @@ mods.modifyFunction = function(funcName, func, changes) {
 					funcAsString = funcAsString.replace(change.modify, change.code);
 					break;
 			}
-			
-			modifiedAt.push(funcAsString.indexOf(change.modify));
 		}
 		
 		eval(funcName + " = " + funcAsString);
