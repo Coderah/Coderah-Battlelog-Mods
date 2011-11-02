@@ -3,19 +3,53 @@ var verboseDebug = false;
 if (typeof(mods) == "undefined") { var mods = {}; }
 
 mods.changelogLoaded = false;
-mods.codeVersion = "2.2";
+mods.codeVersion = "2.3";
 
 if ($("body").is("#base-bf3-body")) {
 	
 	var styleInject = document.createElement("style");
-	styleInject.innerHTML = '#mod-menu { position:absolute; left:0px; top:0px; z-index:9999999; background: #DFDFDF; width: 270px; height: auto; border-top: 4px solid #F1F1F1; -webkit-box-shadow: 0px 5px 11px rgba(0,0,0,0.4); -moz-box-shadow: 0px 5px 11px rgba(0,0,0,0.4); box-shadow: 0px 5px 11px rgba(0,0,0,0.4);}#mod-menu-item { left: -10px;}#mod-menu .content-wrapper { padding-bottom:40px;}#mod-menu .content { padding:5px; font-family: Arial,sans-serif; color:#121212; font-size:14px;}#mod-menu .version { font-family: BebasNeueRegular,Arial,sans-serif; color: #343434; padding: 3px; margin-top: 5px; float: right;}#mod-menu .changelog-link { margin-top: 10px; float: right; color: #308DBF; cursor: pointer; font-size: 11px; font-wieght: normal; text-decoration: none; font-family: Arial,sans-serif;}#mod-menu .changelog-link:hover { text-decoration:underline;}.mod-status { color: #3A3A3A; display:inline;}#mod-auto-join-button { font-family: "BebasNeueRegular",sans-serif !important; font-weight: normal; font-size:26px !important;}#mod-auto-join-simple-button { float:left; margin-left: 5px;}#mod-menu .comcenter-settings { position:absolute; bottom:0px; width:100%; background: none repeat scroll 0 0 #F3F3F3;}#mod-menu-autojoin-status-box { position: fixed; left: 293px; bottom: 1px; z-index: 99999; width: 350px; background: #DFDFDF; border-bottom: #FFC600 solid 3px; padding: 2px;}.mod-ticbox-holder {}.mod-ticbox-label { color: #353535; text-shadow: none; font-weight: normal; font-size: 12px; font-family: Arial,sans-serif; cursor:pointer;}.mod-ticbox-holder:hover .mod-ticbox-label { font-weight: bold;}.mod-ticbox-holder.checked .mod-ticbox-label { font-weight:bold; color: #000;}.mod-ticbox { width: 10px; height: 10px; background: url(http://battlelog-cdn.battlefield.com/public/serverguide/icon_checkbox.png?v=209) no-repeat; background-position: 0 -20px; display:inline-block; cursor:pointer;}.mod-ticbox-holder:hover .mod-ticbox { background-position: 0 -30px;}.mod-ticbox-holder.checked .mod-ticbox { background-position: 0 0;}.mod-ticbox-holder.checked:hover .mod-ticbox { background-position: 0 -10px;}#mod-menu-autojoin-status-box .text { font-family: BebasNeueRegular,Arial,sans-serif !important; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu-autojoin-status-box .mod-status { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu h1, #mod-menu h2, #mod-menu h3, #mod-menu h4 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB; display: block; text-align:center; background:rgba(0, 142, 163, 0.7); padding: 3px; /*padding-left:3px; color: #8A8A8A; height: 17px; line-height: 16px; background: #F4F4F4; border-top: 1px solid #F0F0F0; border-bottom: 1px solid #F0F0F0; font-size: 11px; font-weight: bold; text-transform: uppercase;*/}#mod-menu-update-changelog { max-height: 400px; background: rgba(0,0,0,0.8); position: fixed; left: -416px; top:140px; -webkit-box-shadow: 0px 0px 13px rgba(0,0,0,0.8); -moz-box-shadow: 0px 0px 13px rgba(0,0,0,0.8); box-shadow: 0px 0px 13px rgba(0,0,0,0.8); z-index: 99999999;}#mod-menu-update-changelog h2 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB;}#mod-menu-update-changelog .closeButton { background: url(http://battlelog-cdn.battlefield.com/public/base/shared/row_icon_chat.png?v=185); background-position: 0 -26px; padding-right: 13px; position: absolute; top: 3px; right: 3px; background-color: #DBDBDB; padding-bottom: 13px; cursor:pointer;}#mod-menu-update-changelog .inner { overflow: auto; margin:7px; color: #DCDCDC; font-weight: normal; font-size: 13px; font-family: BebasNeueRegular,Arial,sans-serif; padding:5px; line-height:18px; max-height: 360px;}#mod-menu-update-changelog .inner p { color: #BCBCBC; line-height: 18px; margin-left: 15px;}.mod-base-section-dropdown { position: relative; height: 37px; top: 19px;}.mod-activedropdown .base-dropdown-left{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 0 no-repeat;}.mod-activedropdown .base-dropdown-middle{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 -36px repeat-x;}.mod-activedropdown .base-dropdown-right{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) -9px 0 no-repeat;}#base-sub-navbar li.mod-base-section-dropdown.mod-activedropdown .base-dropdown-middle a,#base-sub-navbar #base-section-nav-bf3 li.mod-base-section-dropdown.active.mod-activedropdown .base-dropdown-middle a{  color:#353535;  background:none;}.mod-update-receipt { position:fixed; left:10px; top:70px;}/* MODS */.serverguide-filter-gamemode { height: auto !important;}.mod-auto-hooah { position: absolute; right: 5px; top: -25px; color: #308DBF; cursor:pointer; font-size: 11px; font-wieght: normal; text-decoration:none; font-family: Arial,sans-serif;}.mod-auto-hooah:hover { text-decoration: underline;}';
+	styleInject.innerHTML = '#mod-menu { position:absolute; left:0px; top:0px; z-index:9999999; background: #DFDFDF; width: 270px; height: auto; border-top: 4px solid #F1F1F1; -webkit-box-shadow: 0px 5px 11px rgba(0,0,0,0.4); -moz-box-shadow: 0px 5px 11px rgba(0,0,0,0.4); box-shadow: 0px 5px 11px rgba(0,0,0,0.4);}#mod-menu-item { left: -10px;}#mod-menu .content-wrapper { padding-bottom:40px;}#mod-menu .content { padding:5px; font-family: Arial,sans-serif; color:#121212; font-size:14px;}#mod-menu .version { font-family: BebasNeueRegular,Arial,sans-serif; color: #343434; padding: 3px; margin-top: 5px; float: right;}#mod-menu .changelog-link { margin-top: 10px; float: right; color: #308DBF; cursor: pointer; font-size: 11px; font-wieght: normal; text-decoration: none; font-family: Arial,sans-serif;}#mod-menu .changelog-link:hover { text-decoration:underline;}.mod-status { color: #3A3A3A; display:inline;}#mod-auto-join-button { font-family: "BebasNeueRegular",sans-serif !important; font-weight: normal; font-size:26px !important;}#mod-auto-join-simple-button { float:left; margin-left: 5px;}#mod-menu .comcenter-settings { position:absolute; bottom:0px; width:100%; background: none repeat scroll 0 0 #F3F3F3;}#mod-menu-autojoin-status-box { position: fixed; left: 293px; bottom: 1px; z-index: 99999; width: 350px; background: #DFDFDF; border-bottom: #FFC600 solid 3px; padding: 2px;}.mod-ticbox-holder {}.mod-ticbox-label { color: #353535; text-shadow: none; font-weight: normal; font-size: 12px; font-family: Arial,sans-serif; cursor:pointer; margin-left: 5px;  position:relative; top:-1px;}.mod-ticbox-holder:hover .mod-ticbox-label { font-weight: bold;}.mod-ticbox-holder.checked .mod-ticbox-label { font-weight:bold; color: #000;}.mod-ticbox { width: 10px; height: 10px; background: url(http://battlelog-cdn.battlefield.com/public/serverguide/icon_checkbox.png?v=209) no-repeat; background-position: 0 -20px; display:inline-block; cursor:pointer;}.mod-ticbox-holder:hover .mod-ticbox { background-position: 0 -30px;}.mod-ticbox-holder.checked .mod-ticbox { background-position: 0 0;}.mod-ticbox-holder.checked:hover .mod-ticbox { background-position: 0 -10px;}#mod-menu-autojoin-status-box .text { font-family: BebasNeueRegular,Arial,sans-serif !important; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu-autojoin-status-box .mod-status { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; font-size:16px;}#mod-menu h1, #mod-menu h2, #mod-menu h3, #mod-menu h4 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB; display: block; text-align:center; background:rgba(0, 142, 163, 0.7); padding: 3px; /*padding-left:3px; color: #8A8A8A; height: 17px; line-height: 16px; background: #F4F4F4; border-top: 1px solid #F0F0F0; border-bottom: 1px solid #F0F0F0; font-size: 11px; font-weight: bold; text-transform: uppercase;*/}#mod-menu-update-changelog { max-height: 400px; background: rgba(0,0,0,0.8); position: fixed; left: -416px; top:140px; -webkit-box-shadow: 0px 0px 13px rgba(0,0,0,0.8); -moz-box-shadow: 0px 0px 13px rgba(0,0,0,0.8); box-shadow: 0px 0px 13px rgba(0,0,0,0.8); z-index: 99999999;}#mod-menu-update-changelog h2 { font-family: BebasNeueRegular,Arial,sans-serif; font-weight: normal; text-decoration: none; color: #DBDBDB;}#mod-menu-update-changelog .closeButton { background: url(http://battlelog-cdn.battlefield.com/public/base/shared/row_icon_chat.png?v=185); background-position: 0 -26px; padding-right: 13px; position: absolute; top: 3px; right: 3px; background-color: #DBDBDB; padding-bottom: 13px; cursor:pointer;}#mod-menu-update-changelog .inner { overflow: auto; margin:7px; color: #DCDCDC; font-weight: normal; font-size: 13px; font-family: BebasNeueRegular,Arial,sans-serif; padding:5px; line-height:18px; max-height: 360px;}#mod-menu-update-changelog .inner p { color: #BCBCBC; line-height: 18px; margin-left: 15px;}.mod-base-section-dropdown { position: relative; height: 37px; top: 19px;}.mod-activedropdown .base-dropdown-left{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 0 no-repeat;}.mod-activedropdown .base-dropdown-middle{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) 0 -36px repeat-x;}.mod-activedropdown .base-dropdown-right{  background:url(http://battlelog-cdn.battlefield.com/public/base/shared/menu-item-bg.png?v=180) -9px 0 no-repeat;}#base-sub-navbar li.mod-base-section-dropdown.mod-activedropdown .base-dropdown-middle a,#base-sub-navbar #base-section-nav-bf3 li.mod-base-section-dropdown.active.mod-activedropdown .base-dropdown-middle a{  color:#353535;  background:none;}.mod-update-receipt { position:fixed; left:10px; top:70px;}/* MODS */.serverguide-filter-gamemode { height: auto !important;}.mod-auto-hooah { position: absolute; right: 5px; top: -25px; color: #308DBF; cursor:pointer; font-size: 11px; font-wieght: normal; text-decoration:none; font-family: Arial,sans-serif;}.mod-auto-hooah:hover { text-decoration: underline;}.serverguide-filter-map { width: auto !important; border-right: 1px solid #E1E1E1 !important;}.mod-serverguide-filter-mods { max-height:310px; min-height:310px; overflow-y:auto; width:155px !important;}.mod-serverguide-filter-mods .serverguide-filter-selectables { margin-left:16px;}';
 	document.body.appendChild(styleInject);
 
-	$("body").append($('<div id="mod-menu" style="display:none"> <div class="content-wrapper">  <h3>SETTINGS</h3>  <div class="content">   <div class="mod-ticbox-holder" data="autoHideOfflineFriends">    <div class="mod-ticbox"></div>    <span class="mod-ticbox-label">Hide offline friends list on page load</span>   </div>  </div>   <h3>STATUS</h3>  <div class="content">   AutoJoin Server: <div class="mod-status" id="mod-status-autojoin">not ready</div><br>   Auto Hooah: <div class="mod-status" id="mod-status-auto-hooah">not ready</div><br>  </div>    <div class="comcenter-settings">   <div class="base-left">      </div>   <div class="base-right">   <span class="version"></span>   <span class="changelog-link">changelog</span>   </div>   </div>  </div></div><div id="mod-menu-autojoin-status-box"> <span style="position:relative;top:7px;" class="text">AutoJoin State: <span class="mod-status"></span></span> <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all"></div><div id="mod-menu-update-changelog"> <h2>Battlelog Mods - Changelog</h2> <span class="closeButton"></span> <div class="inner">   </div></div>'));
+	$("body").append($('<div id="mod-menu" style="display:none"> <div class="content-wrapper">  <h3>SETTINGS</h3>  <div class="content">   <div class="mod-ticbox-holder" data="autoHideOfflineFriends">    <div class="mod-ticbox"></div>    <span class="mod-ticbox-label">Hide offline friends list on page load</span>   </div>   <div class="mod-ticbox-holder" data="saveSort">    <div class="mod-ticbox"></div>    <span class="mod-ticbox-label">Save server browser sorting</span>   </div>  </div>   <h3>STATUS</h3>  <div class="content">   AutoJoin Server: <div class="mod-status" id="mod-status-autojoin">not ready</div><br>   Auto Hooah: <div class="mod-status" id="mod-status-auto-hooah">not ready</div><br>  </div>    <div class="comcenter-settings">   <div class="base-left">      </div>   <div class="base-right">   <span class="version"></span>   <span class="changelog-link">changelog</span>   </div>   </div>  </div></div><div id="mod-menu-autojoin-status-box"> <span style="position:relative;top:7px;" class="text">AutoJoin State: <span class="mod-status"></span></span> <button class="base-button-arrow-small-grey" style="float:right;" id="mod-auto-join-cancel">Cancel</button> <br clear="all"></div><div id="mod-menu-update-changelog"> <h2>Battlelog Mods - Changelog</h2> <span class="closeButton"></span> <div class="inner">   </div></div>'));
 	
 	if (mods.updaterPresent) {
 		$("#mod-menu .version").html("extension: " + mods.getExtensionVersion() + " | code: " + mods.codeVersion);
 	}
+	
+	if (typeof mods.func == "undefined") { mods.func = {}; }
+
+mods.func.getCodePortionOfString = function(string) {
+	return string.substring(string.indexOf('{')+1, string.lastIndexOf('}'));
+}
+
+mods.modifyFunction = function(funcName, func, changes) {
+	if (typeof changes == "object") {
+		var funcAsString = func.toString();
+		
+		for (var i in changes) {
+			var change = changes[i];
+			
+			if (typeof change.code == "function") { change.code = mods.func.getCodePortionOfString(change.code.toString()); } //get string from function
+			
+			switch (change.type) {
+				case "addAfter":
+					funcAsString = funcAsString.replace(change.modify, change.modify + change.code);
+					break;
+					
+				case "addBefore":
+					funcAsString = funcAsString.replace(change.modify, change.code + change.modify);
+					break;
+					
+				case "replace":
+					funcAsString = funcAsString.replace(change.modify, change.code);
+					break;
+			}
+		}
+		
+		eval(funcName + " = " + funcAsString);
+	}
+}
 
 	mods.menuItem = ['<li rel="mods" class="mod-base-section-dropdown" id="mod-menu-item">',
 '<div class="base-dropdown-left"></div><div class="base-dropdown-middle">',
@@ -47,7 +81,7 @@ $("#mod-menu .changelog-link").click(function() {
 	}
 });
 
-$(".mod-ticbox-holder").click(function() {
+$(".mod-ticbox-holder").live("click", function() {
 	if ($(this).is(".checked")) {
 		$(this).removeClass("checked");
 		mods.setSetting($(this).attr("data"), false);
@@ -673,6 +707,126 @@ mods.serverInfo = {
 		}
 	}
 }
+	mods.customFilters = {
+	ticHtml: ['<div class="serverguide-filter mod-serverguide-filter-mods">',
+		'<div class="serverguide-filter-name"><h1>Mods - Max Players</h1></div>',
+		'<div class="serverguide-filter-selectables">',
+		'<div class="mod-ticbox-holder" data="customFiltersPlayers16"><div class="mod-ticbox"></div><span class="mod-ticbox-label">16</span></div>',
+		'<div class="mod-ticbox-holder" data="customFiltersPlayers24"><div class="mod-ticbox"></div><span class="mod-ticbox-label">24</span></div>',
+		'<div class="mod-ticbox-holder" data="customFiltersPlayers32"><div class="mod-ticbox"></div><span class="mod-ticbox-label">32</span></div>',
+		'<div class="mod-ticbox-holder" data="customFiltersPlayers40"><div class="mod-ticbox"></div><span class="mod-ticbox-label">40</span></div>',
+		'<div class="mod-ticbox-holder" data="customFiltersPlayers48"><div class="mod-ticbox"></div><span class="mod-ticbox-label">48</span></div>',
+		'<div class="mod-ticbox-holder" data="customFiltersPlayers64"><div class="mod-ticbox"></div><span class="mod-ticbox-label">64</span></div>',
+		'</div>',
+		'<div class="serverguide-filter-name"><h1>Mods - Extra</h1></div>',
+		'<div class="serverguide-filter-selectables">',
+		'<div class="mod-ticbox-holder" data="customFiltersHideSecure"><div class="mod-ticbox"></div><span class="mod-ticbox-label">Hide secure servers</span></div>',
+		'</div>',
+		'</div>'],
+
+	apply:function() {
+		this.ticHtml = this.ticHtml.join('');
+	
+		mods.modifyFunction("serverguide.filtermaps.render", serverguide.filtermaps.render, [{
+			type: "addBefore",
+			modify: 'return c.join("");',
+			code: function() {
+				c.push(mods.customFilters.ticHtml);
+				setTimeout(function() { 
+					mods.updateUI();
+				}, 200);
+			}
+		}]);
+		
+		mods.modifyFunction("serverguide.onPageShow", serverguide.onPageShow, [{
+			type: "addBefore",
+			modify: '})();}',
+			code: function() {
+				$(".serverguide-bodycells:visible .serverguide-bodycell:first").click();
+				serverguideList.setServerListAutoBrowse();
+			}
+		}]);
+		
+		mods.modifyFunction("serverguide.serverrow.surface_3_2.render", serverguide.serverrow.surface_3_2.render, [{
+			type: "addAfter",
+			modify: 'c.push(S.Modifier.concat("serverguide-server-",o.idx));',
+			code: function() {
+				var hideServer = false;
+				
+				if (mods.settings.customFiltersHideSecure) {
+					if (o.server.hasPassword) { hideServer = true; }
+				}
+				
+				if (!hideServer) {
+					if (mods.settings.customFiltersPlayers16 || mods.settings.customFiltersPlayers24 ||
+						mods.settings.customFiltersPlayers32 || mods.settings.customFiltersPlayers40 ||
+						mods.settings.customFiltersPlayers48 || mods.settings.customFiltersPlayers64) 
+					{
+						var shouldKeepServer = false;
+						
+						if (mods.settings.customFiltersPlayers16 && o.server.maxPlayers == 16) { shouldKeepServer = true; }
+						if (mods.settings.customFiltersPlayers24 && o.server.maxPlayers == 24) { shouldKeepServer = true; }
+						if (mods.settings.customFiltersPlayers32 && o.server.maxPlayers == 32) { shouldKeepServer = true; }
+						if (mods.settings.customFiltersPlayers40 && o.server.maxPlayers == 40) { shouldKeepServer = true; }
+						if (mods.settings.customFiltersPlayers48 && o.server.maxPlayers == 48) { shouldKeepServer = true; }
+						if (mods.settings.customFiltersPlayers64 && o.server.maxPlayers == 64) { shouldKeepServer = true; }
+						
+						if (!shouldKeepServer) { hideServer = true; }
+					}
+				}
+				
+				if (hideServer) {
+					c.push('" style="display:none;');
+				}
+			}
+		}]);
+		
+		$("#serverguide-filters > div div:last").before(this.ticHtml);
+		$(".serverguide-apply-filter-button").click();
+		
+		mods.debug("customFilters applied");
+	}
+}
+	mods.rememberSort = {
+	dontSet: false,
+
+	apply: function() {
+		$(".serverguide-sorter").live("click", function() {
+			if (!mods.settings.saveSort || mods.rememberSort.dontSet == true) { return; }
+			var rememberSort = {};
+			
+			rememberSort.selector = "." + $(this).attr("class").replace(/ /gi, ".").replace(".serverguide-sort-down","").replace(".serverguide-sort-up","");
+			
+			if ($(this).hasClass("serverguide-sort-up")) { rememberSort.type="up"; }
+			if ($(this).hasClass("serverguide-sort-down")) { rememberSort.type="down"; }
+			
+			mods.setSetting("rememberSort", rememberSort);
+		});
+	
+		mods.modifyFunction("serverguide.onPageShow", serverguide.onPageShow, [{
+			type: "addBefore",
+			modify: '})();}',
+			code: function() {
+				if (mods.settings.saveSort && mods.settings.rememberSort) {
+					setTimeout(function() { 
+						mods.rememberSort.dontSet = true;
+						$(mods.settings.rememberSort.selector).click();
+						
+						if (mods.settings.rememberSort.type == "up" && !$(mods.settings.rememberSort.selector).hasClass("serverguide-sort-up")) {
+							$(mods.settings.rememberSort.selector).click();
+						} 
+						if (mods.settings.rememberSort.type == "down" && !$(mods.settings.rememberSort.selector).hasClass("serverguide-sort-down")) {
+							$(mods.settings.rememberSort.selector).click();
+						}
+						mods.rememberSort.dontSet = false;
+					}, 800);
+				}
+			}
+		}]);
+		
+		mods.debug("rememberSort applied");
+	}
+}
 
 	//debug functions
 	mods.debug = function() {
@@ -736,7 +890,7 @@ mods.saveSettings = function() {
 		var localStorageModSettings = JSON.parse(localStorage.modSettings);
 		for (var modSetting in mods.settings) {
 			localStorageModSettings[modSetting] = mods.settings[modSetting];
-			mods.debug("saved " + modSetting + "=" + localStorageModSettings[modSetting]);
+			//mods.debug("saved " + modSetting + "=" + localStorageModSettings[modSetting]);
 		}
 		
 		localStorage.modSettings = JSON.stringify(localStorageModSettings);
@@ -746,10 +900,12 @@ mods.saveSettings = function() {
 	//apply mods
 	$(document).ready(function() {
 		mods.loadSettings();
-		mods.updateUI();
 		mods.autoJoin.apply();
 		mods.autoHooah.apply();
 		mods.autoHideOfflineFriends.apply();
+		mods.customFilters.apply();
+		mods.rememberSort.apply();
+		mods.updateUI();
 		
 		var userInPlatoon = false;
 		if (S.globalContext.userContext.platoons && S.globalContext.userContext.platoons.length>0) { //check user platoon
