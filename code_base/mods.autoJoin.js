@@ -53,121 +53,47 @@ mods.autoJoin = {
 	
 	apply: function() {
 		if (this.modState == "not ready") {
-			serverguide.serverinfo.surface_29_26.render = function (o, b, kwargs) { //add server guide auto join button on render
-				var c = [];
-				b = b || block_serverguide_serverinfo;
-				kwargs = kwargs || {};
-				Surface.Renderer.addUsedComponent("serverguide");
-				Surface.Renderer.addUsedTemplate("serverguide.serverinfo");
-				c.push('<surf:container id="');
-				c.push("serverguide-join-button");
-				c.push('">');
-				if ((((typeof (Surface) != "undefined" && Surface !== null && typeof (Surface.globalContext) != "undefined" && Surface.globalContext !== null && typeof (Surface.globalContext.userContext) != "undefined" && Surface.globalContext.userContext !== null && typeof (Surface.globalContext.userContext.isInParty) != "undefined" && Surface.globalContext.userContext.isInParty !== null) ? Surface.globalContext.userContext.isInParty : 0) > 0)) {
-					c.push(' <input type="button" class="base-button-arrow-almost-gigantic-dropdown base-button-general-dropdown" name="submit" value="');
-					c.push(Surface.valOut("Join server"));
-					c.push('" />\n <div class="base-button-dropdown base-general-dropdown-area">\n <div class="base-button-dropdown-inner">\n <ul>\n');
-					if (((typeof (o) != "undefined" && o !== null && typeof (o.session) != "undefined" && o.session !== null && typeof (o.session.isLoggedIn) != "undefined" && o.session.isLoggedIn !== null) ? o.session.isLoggedIn : false)) {
-						c.push(' <li>\n <a class="base-no-ajax join-server-submit-link">\n <span class="join-alone"></span>');
-						c.push(Surface.valOut("Join alone"));
-						c.push('\n </a>\n </li>\n <li>\n <a href="');
-						c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/gamemanager/createGroupJoinToServer/{guid}/", Surface.urlContext, {
-							"guid": o.serverinfo.guid
-						})));
-						c.push('" class="base-no-ajax base-button-dropdown-joingroup"><span class="join-party"></span>');
-						c.push(Surface.valOut("Join with Party"));
-						c.push("</a>\n </li>\n");
-					}
-					c.push(' </ul>\n </div>\n <div class="base-button-dropdown-shadow"></div>\n </div>\n');
-				} else {
-					c.push(' <input type="submit" class="base-button-arrow-almost-gigantic" name="submit" value="');
-					c.push(Surface.valOut("Join server"));
-					c.push('" />\n');
+			mods.modifyFunction("serverguide.serverinfo.surface_29_26.render", serverguide.serverinfo.surface_29_26.render, [{
+				type: "addBefore",
+				modify: 'c.push("</surf:container>");',
+				code: function() {
+					c.push('<center>\n');
+					c.push('<button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SERVER</button>\n');
+					c.push('</center>\n');
 				}
-				
-				//mod
-				c.push('<center>\n');
-				c.push('<button class="base-button-arrow-almost-gigantic" id="mod-auto-join-button">AUTO JOIN SERVER</button>\n');
-				c.push('</center>\n');
-				//endMod
-				
-				c.push("</surf:container>");
-				Surface.Renderer.addSurfaceState("serverguide.serverinfo", "surface_29_26", "serverguide-join-button", o, b);
-				return c.join("");
-			};
+			}]); //add autoJoin button in serverbrowser render
 			
-			serverguide.show.surface_44_21.render = function(o, b, kwargs) { //adds full server view button on render
-				var c = [];
-				b = b || block_serverguide_show;
-				kwargs = kwargs || {};
-				Surface.Renderer.addUsedComponent("serverguide");
-				Surface.Renderer.addUsedTemplate("serverguide.show");
-				
-				c.push('<surf:container id="');
-				c.push("serverguide-show-serverjoin");
-				c.push('" style="top:22px;">'); //modded
-				if ((((typeof (Surface) != "undefined" && Surface !== null && typeof (Surface.globalContext) != "undefined" && Surface.globalContext !== null && typeof (Surface.globalContext.userContext) != "undefined" && Surface.globalContext.userContext !== null && typeof (Surface.globalContext.userContext.isInParty) != "undefined" && Surface.globalContext.userContext.isInParty !== null) ? Surface.globalContext.userContext.isInParty : 0) > 0)) {
-					c.push(' <input type="button" class="base-button-arrow-large-drop base-button-general-dropdown" style="float:left;" name="submit" value="');
-					c.push(Surface.valOut("Join server"));
-					c.push('" />\n <div class="base-general-dropdown-area" style="top:29px;width:160px">\n <div class="base-button-dropdown-inner">\n <ul>\n'); //modded
-					if (((typeof (o) != "undefined" && o !== null && typeof (o.session) != "undefined" && o.session !== null && typeof (o.session.isLoggedIn) != "undefined" && o.session.isLoggedIn !== null) ? o.session.isLoggedIn : false)) {
-						c.push(' <li>\n <a class="base-no-ajax join-server-submit-link"><span class="join-alone"></span>');
-						c.push(Surface.valOut("Join alone"));
-						c.push('</a>\n </li>\n <li>\n <a href="');
-						c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/gamemanager/createGroupJoinToServer/{guid}/", Surface.urlContext, {"guid": o.server.guid})));
-						c.push('" class="base-no-ajax base-button-dropdown-joingroup"><span class="join-party"></span>');
-						c.push(Surface.valOut("Join with Party"));
-						c.push("</a>\n </li>\n");
-					}
-					c.push(' </ul>\n </div>\n <div class="base-button-dropdown-shadow"></div>\n </div>\n');
-				} else {
-					c.push(' <input type="submit" class="base-button-arrow-large" style="float:left;" name="submit" value="');
-					c.push(Surface.valOut("Join server"));
-					c.push('" />\n');
+			mods.modifyFunction("serverguide.show.surface_44_21.render", serverguide.show.surface_44_21.render, [{
+				type: "addAfter",
+				modify: 'c.push("serverguide-show-serverjoin");',
+				code: function() {
+					c.push('" style="top:22px;');
 				}
-				
-				//mod
-				c.push('<button class="base-button-arrow-large" id="mod-auto-join-simple-button">Auto Join Server</button>\n');
-				//endMod
-				
-				c.push("</surf:container>");
-				Surface.Renderer.addSurfaceState("serverguide.show", "surface_44_21", "serverguide-show-serverjoin", o, b);
-				return c.join("");
-			};
+			},
+			{ type: "replace", modify: 'base-button-dropdown ', code: '' },
+			{ type: "replace", modify: 'almost-gigantic-dropdown', code: 'large-drop" style="float:left;' },
+			{ type: "replace", modify: 'almost-gigantic', code: 'large" style="float:left;' },
+			{
+				type: "addAfter",
+				modify: 'class="base-general-dropdown-area"',
+				code: ' style="top:29px;width:160px"'
+			},
+			{
+				type: "addAfter",
+				modify: 'c.push(Surface.valOut("Join server"));c.push(\'" />\\n\');}',
+				code: function() {
+					c.push('<button class="base-button-arrow-large" id="mod-auto-join-simple-button">Auto Join Server</button>\n');
+				}
+			}
+			]); //add autoJoin button to full server view render
 			
-			serverguide.joinfriendform.surface_41_13.render = function(o, b, kwargs) { //adds button for friend-join on render
-				var c = [];
-				b = b || block_serverguide_joinfriendform;
-				kwargs = kwargs || {};
-				Surface.Renderer.addUsedComponent("serverguide");
-				Surface.Renderer.addUsedTemplate("serverguide.joinfriendform");
-				c.push('<surf:container id="');
-				c.push("profile-joinbutton");
-				c.push('">');
-				
-				//mod
-				c.push('<button class="base-button-arrow-large" id="mod-auto-join-simple-button" style="float:right;">Auto Join Server</button>\n');
-				//endMod
-				
-				if ((((typeof (Surface) != "undefined" && Surface !== null && typeof (Surface.globalContext) != "undefined" && Surface.globalContext !== null && typeof (Surface.globalContext.userContext) != "undefined" && Surface.globalContext.userContext !== null && typeof (Surface.globalContext.userContext.isInParty) != "undefined" && Surface.globalContext.userContext.isInParty !== null) ? Surface.globalContext.userContext.isInParty : 0) > 0)) {
-					c.push(' <input type="button" class="base-button-arrow-large-drop base-button-general-dropdown" name="reset" value="');
-					c.push(Surface.valOut(o.buttonValue));
-					c.push('" />\n <div class="base-clear"></div>\n <div class="base-general-dropdown-area">\n <div class="base-button-dropdown-inner">\n <ul>\n <li>\n <a class="base-no-ajax join-friend-submit-link">\n ');
-					c.push(Surface.valOut("Join alone"));
-					c.push('\n </a>\n </li>\n <li>\n <a href="');
-					c.push(Surface.valOut(S.Modifier.urlformat("/{_section}/{_language}/gamemanager/createGroupJoinToServer/{guid}/", Surface.urlContext, {"guid": S.Modifier.get(o.presence, "serverGuid")})));
-					c.push('" class="base-no-ajax base-button-dropdown-joingroup">\n ');
-					c.push(Surface.valOut("Join with Party"));
-					c.push('\n </a>\n </li>\n </ul>\n </div>\n <div class="base-button-dropdown-shadow"></div>\n </div>\n');
-				} else {
-					c.push(' <input type="submit" class="base-button-arrow-large" name="submit" value="');
-					c.push(Surface.valOut(o.buttonValue));
-					c.push('" />\n');
+			mods.modifyFunction("serverguide.joinfriendform.surface_41_13.render", serverguide.joinfriendform.surface_41_13.render, [{
+				type: 'addAfter',
+				modify: 'c.push("profile-joinbutton");c.push(\'">\');',
+				code: function() {
+					c.push('<button class="base-button-arrow-large" id="mod-auto-join-simple-button" style="float:right;">Auto Join Server</button>\n');
 				}
-				
-				c.push("</surf:container>");
-				Surface.Renderer.addSurfaceState("serverguide.joinfriendform", "surface_41_13", "profile-joinbutton", o, b);
-				return c.join("");
-			};
+			}]); //add autoJoin button to profile view render
 		
 			mods.eventHandler.addCallback("launch_state", function(eventType, eventObject) {
 				//mods.debug("launch_state event = "+JSON.stringify(eventObject.launcherState));
@@ -231,7 +157,7 @@ mods.autoJoin = {
 				$("#serverguide-show-serverjoin input.base-button-arrow-almost-gigantic").removeClass("base-button-arrow-almost-gigantic")
 					.addClass("base-button-arrow-large").css("float", "left");
 				$("#serverguide-show-serverjoin input.base-button-arrow-almost-gigantic-dropdown").removeClass("base-button-arrow-almost-gigantic-dropdown")
-					.addClass("base-button-arrow-lagr-drop").css("float", "left")
+					.addClass("base-button-arrow-large-drop").css("float", "left")
 					.next().removeClass("base-button-dropdown").css({"top": "29px", "width": "160px"});
 			}
 			
