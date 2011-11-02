@@ -49,7 +49,7 @@ mods.updateUI = function() {
 //standard render mod
 mods.modifyFunction("base.menu.surface_6_10.render", base.menu.surface_6_10.render, [{
 	type: "addAfter",
-	modify: 'c.push(Surface.valOut("Forums"));c.push("</a>\\n </li>\\n </ul>\\n ");',
+	modify: '"));c.push("</a>\\n </li>\\n </ul>\\n ");',
 	code: function() {
 		if ($("#mod-menu").is(":visible")) {
 			c.push(mods.menuItem.replace('class="mod-base-section-dropdown"', 'class="mod-base-section-dropdown mod-activedropdown"'));
