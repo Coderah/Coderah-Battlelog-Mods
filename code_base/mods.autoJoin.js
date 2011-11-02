@@ -80,7 +80,7 @@ mods.autoJoin = {
 			},
 			{
 				type: "addAfter",
-				modify: 'c.push(Surface.valOut("Join server"));c.push(\'" />\\n\');}',
+				modify: '"));c.push(\'" />\\n\');}',
 				code: function() {
 					c.push('<button class="base-button-arrow-large" id="mod-auto-join-simple-button">Auto Join Server</button>\n');
 				}
