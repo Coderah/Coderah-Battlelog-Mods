@@ -59,5 +59,7 @@ mods.customFilters = {
 		
 		$("#serverguide-filters > div div:last").before(this.ticHtml);
 		$(".serverguide-apply-filter-button").click();
+		
+		mods.debug("customFilters applied");
 	}
 }
