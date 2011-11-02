@@ -68,7 +68,6 @@ mods.customFilters = {
 				
 				if (hideServer) {
 					c.push('" style="display:none;');
-					mods.debug(c.join(''));
 				}
 			}
 		}]);
