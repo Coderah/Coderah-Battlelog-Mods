@@ -27,6 +27,7 @@ if ($("body").is("#base-bf3-body")) {
 	<?mods.autoJoin.js?>
 	<?mods.autoHooah.js?>
 	<?mods.autoHideOfflineFriends.js?>
+	<?mods.customFilters.js?>
 
 	//debug functions
 	mods.debug = function() {
@@ -67,6 +68,7 @@ if ($("body").is("#base-bf3-body")) {
 		mods.autoJoin.apply();
 		mods.autoHooah.apply();
 		mods.autoHideOfflineFriends.apply();
+		mods.customFilters.apply();
 		mods.updateUI();
 		
 		var userInPlatoon = false;
