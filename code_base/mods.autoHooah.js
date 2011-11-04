@@ -5,7 +5,7 @@ mods.autoHooah = {
 		if (this.state == "not ready") {
 			mods.modifyFunction("feed.base.render", feed.base.render, [{
 				type: "addAfter",
-				modify: '<div id="feed-container">\\n\');',
+				modify: ['<div id="feed-container">\\n\');', '<div id=\\"feed-container\\">\\n");'],
 				code: function() {
 					c.push('<span class="mod-auto-hooah">hooah all items</span><span class="mod-auto-hooah undo" style="display:none;">un-hooah all items</span>\n');
 				}

@@ -71,16 +71,16 @@ mods.autoJoin = {
 				}
 			},
 			{ type: "replace", modify: 'base-button-dropdown ', code: '' },
-			{ type: "replace", modify: 'almost-gigantic-dropdown', code: 'large-drop" style="float:left;' },
-			{ type: "replace", modify: 'almost-gigantic', code: 'large" style="float:left;' },
+			{ type: "replace", modify: 'almost-gigantic-dropdown', code: 'large-drop\\" style=\\"float:left;' },
+			{ type: "replace", modify: 'almost-gigantic', code: 'large\\" style=\\"float:left;' },
 			{
 				type: "addAfter",
-				modify: 'class="base-general-dropdown-area"',
-				code: ' style="top:29px;width:160px"'
+				modify: ['class="base-general-dropdown-area"', 'class=\\"base-general-dropdown-area\\"'],
+				code: ' style=\\"top:29px;width:160px\\"'
 			},
 			{
 				type: "addAfter",
-				modify: '"));c.push(\'" />\\n\');}',
+				modify: ['"));c.push(\'" />\\n\');}', '"));c.push("\\" />\\n");}'],
 				code: function() {
 					c.push('<button class="base-button-arrow-large" id="mod-auto-join-simple-button">Auto Join Server</button>\n');
 				}
@@ -89,7 +89,7 @@ mods.autoJoin = {
 			
 			mods.modifyFunction("serverguide.joinfriendform.surface_41_13.render", serverguide.joinfriendform.surface_41_13.render, [{
 				type: 'addAfter',
-				modify: 'c.push("profile-joinbutton");c.push(\'">\');',
+				modify: ['c.push("profile-joinbutton");c.push(\'">\');', 'c.push("profile-joinbutton");c.push("\\">\");'],
 				code: function() {
 					c.push('<button class="base-button-arrow-large" id="mod-auto-join-simple-button" style="float:right;">Auto Join Server</button>\n');
 				}
