@@ -1,4 +1,14 @@
-window.verboseDebug = false;
+// ==UserScript==
+// @name            Coderah Battlelog Mods
+// @author          Alex Howard
+// @namespace       http://www.coderah.com/?page_id=389
+// @description     Multiple modifications for Battlelog (BF3)
+// @version	        2.2
+// @include         http://battlelog.battlefield.com/*
+// ==/UserScript==
+
+function coderah_battlelog_mods_main () {
+	window.verboseDebug = false;
 
 if (typeof(window.mods) == "undefined") { window.mods = {}; }
 
@@ -538,3 +548,18 @@ mods.saveSettings = function() {
 	});
 
 }
+}
+
+function contentEval(source) {
+  if ('function' == typeof source) {
+    source = '(' + source + ')();'
+  }
+
+  var script = document.createElement('script');
+  script.setAttribute("type", "application/javascript");
+  script.textContent = source;
+  document.body.appendChild(script);
+}
+
+contentEval(coderah_battlelog_mods_main);
+
