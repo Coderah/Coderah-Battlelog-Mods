@@ -1,6 +1,6 @@
-var verboseDebug = false;
+window.verboseDebug = false;
 
-if (typeof(mods) == "undefined") { var mods = {}; }
+if (typeof(window.mods) == "undefined") { window.mods = {}; }
 
 mods.changelogLoaded = false;
 mods.codeVersion = "<?codeVersion?>";
@@ -27,8 +27,6 @@ if ($("body").is("#base-bf3-body")) {
 	<?mods.autoJoin.js?>
 	<?mods.autoHooah.js?>
 	<?mods.autoHideOfflineFriends.js?>
-	<?mods.customFilters.js?>
-	<?mods.rememberSort.js?>
 
 	//debug functions
 	mods.debug = function() {
@@ -69,8 +67,6 @@ if ($("body").is("#base-bf3-body")) {
 		mods.autoJoin.apply();
 		mods.autoHooah.apply();
 		mods.autoHideOfflineFriends.apply();
-		mods.customFilters.apply();
-		mods.rememberSort.apply();
 		mods.updateUI();
 		
 		var userInPlatoon = false;
