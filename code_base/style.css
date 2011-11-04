@@ -263,6 +263,11 @@
 	font-family: Arial,sans-serif;
 }
 
+#profile-battlelog .common-box-inner .mod-auto-hooah {
+	top: 12px;
+	right: 20px;
+}
+
 .mod-auto-hooah:hover {
 	text-decoration: underline;
 }
