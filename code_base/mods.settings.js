@@ -10,8 +10,8 @@ mods.setSetting = function(setting, val, saveSettings) {
 }
 
 mods.loadSettings = function() {
-	if (localStorage.modSettings) {
-		var localStorageModSettings = JSON.parse(localStorage.modSettings);
+	if (Surface.cookieGet("modSettings") !== "") {
+		var localStorageModSettings = JSON.parse(Surface.cookieGet("modSettings"));
 		for (var modSetting in localStorageModSettings) {
 			mods.settings[modSetting] = localStorageModSettings[modSetting];
 			mods.debug("loaded " + modSetting + "=" + mods.settings[modSetting]);
@@ -22,16 +22,16 @@ mods.loadSettings = function() {
 }
 
 mods.saveSettings = function() {
-	if (!localStorage.modSettings) { 
-		localStorage.modSettings = JSON.stringify(mods.settings);
+	if (Surface.cookieGet("modSettings") == "") {
+		Surface.cookieSet("modSettings", JSON.stringify(mods.settings), 100);
 		mods.debug("save settings object didn't exist created; saved settings");
 	} else {
-		var localStorageModSettings = JSON.parse(localStorage.modSettings);
+		var localStorageModSettings = JSON.parse(Surface.cookieGet("modSettings"));
 		for (var modSetting in mods.settings) {
 			localStorageModSettings[modSetting] = mods.settings[modSetting];
 			//mods.debug("saved " + modSetting + "=" + localStorageModSettings[modSetting]);
 		}
 		
-		localStorage.modSettings = JSON.stringify(localStorageModSettings);
+		Surface.cookieSet("modSettings", JSON.stringify(localStorageModSettings), 100);
 	}
 }
