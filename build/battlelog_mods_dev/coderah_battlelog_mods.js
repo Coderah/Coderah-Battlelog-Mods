@@ -219,7 +219,7 @@ mods.serverInfo = {
 	checkTimeout: null,
 	msWait: 2000,
 	
-	errorMessagesForRetry: ["Could not join server since it's full", "Could not join server since it couldn't be found."],
+	errorMessagesForRetry: ["Could not join server since it's full", "Could not join this server: it's full."],
 	
 	join: function() {
 		mods.autoJoin.setStatus("connecting...");
