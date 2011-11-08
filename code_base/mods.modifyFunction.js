@@ -53,7 +53,7 @@ mods.modifyFunction = function(funcName, func, changes) {
 		
 		eval(funcName + " = " + funcAsString);
 		
-		console.log(funcName + ": " + modifiedAt);
+		if (typeof console !== "undefined") { console.log(funcName + ": " + modifiedAt); }
 		return modifiedAt;
 	}
 }

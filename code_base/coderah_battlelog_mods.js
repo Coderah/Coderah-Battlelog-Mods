@@ -28,9 +28,12 @@ if ($("body").is("#base-bf3-body")) {
 	<?mods.autoHooah.js?>
 	<?mods.autoHideOfflineFriends.js?>
 	<?mods.customFilters.js?>
+	<?mods.quickRefresh.js?>
 
 	//debug functions
 	mods.debug = function() {
+		if (typeof console == "undefined") { return; }
+		
 		for (var arg in arguments) {
 			var argument = arguments[arg];
 			if (typeof argument == "object") { 
@@ -45,6 +48,7 @@ if ($("body").is("#base-bf3-body")) {
 	{
 		if (typeof msg == "object") {
 			mods.eventHandler.eventTrigger(msg);
+			if (typeof console == "undefined") { return; }
 			
 			if (!(typeof JSON == "undefined")) {
 				try {
@@ -56,6 +60,7 @@ if ($("body").is("#base-bf3-body")) {
 				if (verboseDebug) { console.log("S.debug() - " + msg); }
 			}
 		} else {
+			if (typeof console == "undefined") { return; }
 			if (verboseDebug) { console.log("S.debug() - " + msg); }
 		}
 	}
@@ -69,6 +74,7 @@ if ($("body").is("#base-bf3-body")) {
 		mods.autoHooah.apply();
 		mods.autoHideOfflineFriends.apply();
 		mods.customFilters.apply();
+		mods.quickRefresh.apply();
 		mods.updateUI();
 		
 		var userInPlatoon = false;
