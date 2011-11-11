@@ -15,7 +15,7 @@ mods.customFilters = {
 			}
 		}]);
 		
-		$(".serverguide-apply-filter-button").click()
+		setTimeout(function() { $(".serverguide-apply-filter-button").click() }, 500);
 		
 		mods.debug("customFilters applied");
 	}
