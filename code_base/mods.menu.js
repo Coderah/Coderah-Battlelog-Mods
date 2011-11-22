@@ -47,7 +47,7 @@ mods.updateUI = function() {
 }
 
 //standard render mod
-mods.modifyFunction("base.menu.surface_6_10.render", base.menu.surface_6_10.render, [{
+mods.modifyFunction("base.menu.surface_8_10.render", base.menu.surface_8_10.render, [{
 	type: "addAfter",
 	modify: '"));c.push("</a>\\n </li>\\n </ul>\\n ");',
 	code: function() {

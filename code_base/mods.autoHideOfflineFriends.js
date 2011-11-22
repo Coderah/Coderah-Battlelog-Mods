@@ -6,7 +6,7 @@ mods.autoHideOfflineFriends = {
 			$("#comcenter-offline-separator.showing-offline .dropdownicon").click(); //hide offline friends
 			this.shouldBeHidden = true;
 			
-			mods.modifyFunction("comcenter.list.surface_95_22.render", comcenter.list.surface_95_22.render, [
+			mods.modifyFunction("comcenter.list.surface_34_22.render", comcenter.list.surface_34_22.render, [
 			{
 				type: "addBefore",
 				modify: "var c",

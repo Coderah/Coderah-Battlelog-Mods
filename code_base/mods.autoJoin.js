@@ -63,11 +63,11 @@ mods.autoJoin = {
 				}
 			}]); //add autoJoin button in serverbrowser render
 			
-			mods.modifyFunction("serverguide.show.surface_44_21.render", serverguide.show.surface_44_21.render, [{
+			mods.modifyFunction("serverguide.show.surface_46_21.render", serverguide.show.surface_46_21.render, [{
 				type: "addAfter",
 				modify: 'c.push("serverguide-show-serverjoin");',
 				code: function() {
-					c.push('" style="top:22px;');
+					c.push('" style="top:15px;');
 				}
 			},
 			{ type: "replace", modify: 'base-button-dropdown ', code: '' },
@@ -151,7 +151,7 @@ mods.autoJoin = {
 			
 			if ($("#serverguide-show-serverjoin")[0] && $("#serverguide-show-serverjoin")[0].nodeName == "SURF:CONTAINER") { //add full view button if we loaded the page into one
 				$("#serverguide-show-serverjoin")
-					.css("top", "22px")
+					.css("top", "15px")
 					.append('<button class="base-button-arrow-large" id="mod-auto-join-simple-button">Auto Join Server</button>');
 				
 				$("#serverguide-show-serverjoin input.base-button-arrow-almost-gigantic").removeClass("base-button-arrow-almost-gigantic")
