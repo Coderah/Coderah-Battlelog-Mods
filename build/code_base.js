@@ -3,7 +3,7 @@ window.verboseDebug = false;
 if (typeof(window.mods) == "undefined") { window.mods = {}; }
 
 mods.changelogLoaded = false;
-mods.codeVersion = "2.5";
+mods.codeVersion = "2.6";
 
 if ($("body").is("#base-bf3-body")) {
 	
@@ -126,7 +126,7 @@ mods.updateUI = function() {
 }
 
 //standard render mod
-mods.modifyFunction("base.menu.surface_6_10.render", base.menu.surface_6_10.render, [{
+mods.modifyFunction("base.menu.surface_8_10.render", base.menu.surface_8_10.render, [{
 	type: "addAfter",
 	modify: '"));c.push("</a>\\n </li>\\n </ul>\\n ");',
 	code: function() {
@@ -276,11 +276,11 @@ mods.serverInfo = {
 				}
 			}]); //add autoJoin button in serverbrowser render
 			
-			mods.modifyFunction("serverguide.show.surface_44_21.render", serverguide.show.surface_44_21.render, [{
+			mods.modifyFunction("serverguide.show.surface_46_21.render", serverguide.show.surface_46_21.render, [{
 				type: "addAfter",
 				modify: 'c.push("serverguide-show-serverjoin");',
 				code: function() {
-					c.push('" style="top:22px;');
+					c.push('" style="top:15px;');
 				}
 			},
 			{ type: "replace", modify: 'base-button-dropdown ', code: '' },
@@ -364,7 +364,7 @@ mods.serverInfo = {
 			
 			if ($("#serverguide-show-serverjoin")[0] && $("#serverguide-show-serverjoin")[0].nodeName == "SURF:CONTAINER") { //add full view button if we loaded the page into one
 				$("#serverguide-show-serverjoin")
-					.css("top", "22px")
+					.css("top", "15px")
 					.append('<button class="base-button-arrow-large" id="mod-auto-join-simple-button">Auto Join Server</button>');
 				
 				$("#serverguide-show-serverjoin input.base-button-arrow-almost-gigantic").removeClass("base-button-arrow-almost-gigantic")
@@ -456,7 +456,7 @@ mods.serverInfo = {
 			$("#comcenter-offline-separator.showing-offline .dropdownicon").click(); //hide offline friends
 			this.shouldBeHidden = true;
 			
-			mods.modifyFunction("comcenter.list.surface_95_22.render", comcenter.list.surface_95_22.render, [
+			mods.modifyFunction("comcenter.list.surface_34_22.render", comcenter.list.surface_34_22.render, [
 			{
 				type: "addBefore",
 				modify: "var c",
