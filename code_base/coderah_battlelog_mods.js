@@ -30,7 +30,6 @@ if ($("body").is("#base-bf3-body")) {
 	<?mods.autoHideOfflineFriends.js?>
 	<?mods.customFilters.js?>
 	<?mods.quickRefresh.js?>
-	<?mods.autoAcceptPartyJoin.js?>
 
 	//debug functions
 	mods.debug = function() {
@@ -77,7 +76,6 @@ if ($("body").is("#base-bf3-body")) {
 		try { mods.autoHideOfflineFriends.apply(); } catch (e) { mods.states.error("autoHideOfflineFriends"); }
 		try { mods.customFilters.apply(); } catch (e) { mods.states.error("customFilters"); }
 		try { mods.quickRefresh.apply(); } catch (e) { mods.states.error("quickRefresh"); }
-		try { mods.autoAcceptPartyJoin.apply(); } catch (e) { mods.states.error("autoAcceptPartyJoin"); }
 		mods.updateUI();
 		
 		var userInPlatoon = false;
