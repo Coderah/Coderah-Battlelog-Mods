@@ -1,8 +1,8 @@
-mods.autoHooah = {
-	state: "not ready",
+mods.states.add("autoHooah");
 
+mods.autoHooah = {
 	apply: function() {
-		if (this.state == "not ready") {
+		if (mods.states.get("autoHooah") == "not ready") {
 			mods.modifyFunction("feed.base.render", feed.base.render, [{
 				type: "addAfter",
 				modify: ['<div id="feed-container">\\n\');', '<div id=\\"feed-container\\">\\n");'],
@@ -48,14 +48,9 @@ mods.autoHooah = {
 				$(".mod-auto-hooah:not(.undo)").show();
 			});
 			
-			this.state = "ready";
-			this.setMenuState();
+			mods.states.ready("autoHooah");
 			//base.showReceipt("Battlelog Mods - autoHooah ready.", receiptTypes.OK, 5000);
 			mods.debug("autoHooah applied");
 		}
-	},
-	
-	setMenuState: function() {
-		$("#mod-status-auto-hooah").html(this.state);
 	}
 };

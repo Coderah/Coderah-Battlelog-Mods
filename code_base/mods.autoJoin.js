@@ -1,5 +1,6 @@
+mods.states.add("autoJoin");
+
 mods.autoJoin = {
-	modState: "not ready",
 	checkCount: 0,
 	state: 0,
 	server: {},
@@ -52,7 +53,7 @@ mods.autoJoin = {
 	},
 	
 	apply: function() {
-		if (this.modState == "not ready") {
+		if (mods.states.get("autoJoin") == "not ready") {
 			mods.modifyFunction("serverguide.serverinfo.surface_29_26.render", serverguide.serverinfo.surface_29_26.render, [{
 				type: "addBefore",
 				modify: 'c.push("</surf:container>");',
@@ -161,16 +162,11 @@ mods.autoJoin = {
 					.next().removeClass("base-button-dropdown").css({"top": "29px", "width": "160px"});
 			}
 			
-			this.modState = "ready";
-			this.setMenuState();
+			mods.states.ready("autoJoin");
 			this.hideStatusBox();
 			$("#mod-menu-autojoin").show();
 			//base.showReceipt("Battlelog Mods - Auto Join ready.", receiptTypes.OK, 5000);
 			mods.debug("autoJoin applied");
 		}
-	},
-	
-	setMenuState: function() {
-		$("#mod-status-autojoin").html(this.modState);
 	}
 }

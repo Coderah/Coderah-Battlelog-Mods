@@ -23,7 +23,8 @@ if ($("body").is("#base-bf3-body")) {
 
 	<?mods.eventHandler.js?>
 	<?mods.serverMethods.js?>
-
+	<?mods.states.js?>
+	
 	<?mods.autoJoin.js?>
 	<?mods.autoHooah.js?>
 	<?mods.autoHideOfflineFriends.js?>
@@ -71,12 +72,12 @@ if ($("body").is("#base-bf3-body")) {
 	//apply mods
 	$(document).ready(function() {
 		mods.loadSettings();
-		mods.autoJoin.apply();
-		mods.autoHooah.apply();
-		mods.autoHideOfflineFriends.apply();
-		mods.customFilters.apply();
-		mods.quickRefresh.apply();
-		mods.autoAcceptPartyJoin.apply();
+		try { mods.autoJoin.apply(); } catch (e) { mods.states.error("autoJoin"); }
+		try { mods.autoHooah.apply(); } catch (e) { mods.states.error("autoHooah"); }
+		try { mods.autoHideOfflineFriends.apply(); } catch (e) { mods.states.error("autoHideOfflineFriends"); }
+		try { mods.customFilters.apply(); } catch (e) { mods.states.error("customFilters"); }
+		try { mods.quickRefresh.apply(); } catch (e) { mods.states.error("quickRefresh"); }
+		try { mods.autoAcceptPartyJoin.apply(); } catch (e) { mods.states.error("autoAcceptPartyJoin"); }
 		mods.updateUI();
 		
 		var userInPlatoon = false;
