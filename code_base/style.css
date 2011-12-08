@@ -82,6 +82,7 @@
 	background: #DFDFDF;
 	border-bottom: #FFC600 solid 3px;
 	padding: 2px;
+	display: none;
 }
 
 .mod-ticbox-holder {
