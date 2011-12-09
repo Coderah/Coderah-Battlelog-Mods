@@ -25,7 +25,6 @@ if ($("body").is("#base-bf3-body")) {
 	<?mods.serverMethods.js?>
 	<?mods.states.js?>
 	
-	<?mods.autoJoin.js?>
 	<?mods.autoHooah.js?>
 	<?mods.autoHideOfflineFriends.js?>
 	<?mods.customFilters.js?>
@@ -71,7 +70,6 @@ if ($("body").is("#base-bf3-body")) {
 	//apply mods
 	$(document).ready(function() {
 		mods.loadSettings();
-		try { mods.autoJoin.apply(); } catch (e) { mods.states.error("autoJoin"); }
 		try { mods.autoHooah.apply(); } catch (e) { mods.states.error("autoHooah"); }
 		try { mods.autoHideOfflineFriends.apply(); } catch (e) { mods.states.error("autoHideOfflineFriends"); }
 		try { mods.customFilters.apply(); } catch (e) { mods.states.error("customFilters"); }
