@@ -22,7 +22,7 @@ mods.autoHooah = {
 				}
 			}]);
 			
-			mods.modifyFunction("profile.overview._use_93_22_block_content.render", profile.overview._use_93_22_block_content.render, [{
+			mods.modifyFunction("profile.overview._use_101_22_block_content.render", profile.overview._use_101_22_block_content.render, [{
 				type: "addBefore",
 				modify: ['c.push(\' <form method="POST" class="wallpost" action="\');', 'c.push(" <form method=\\"POST\\" class=\\"wallpost\\" action=\\"");'],
 				code: function() {
