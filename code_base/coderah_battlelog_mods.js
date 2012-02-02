@@ -27,7 +27,6 @@ if ($("body").is("#base-bf3-body")) {
 	
 	<?mods.autoHooah.js?>
 	<?mods.autoHideOfflineFriends.js?>
-	<?mods.customFilters.js?>
 	<?mods.quickRefresh.js?>
 
 	//debug functions
@@ -72,7 +71,6 @@ if ($("body").is("#base-bf3-body")) {
 		mods.loadSettings();
 		try { mods.autoHooah.apply(); } catch (e) { mods.states.error("autoHooah"); }
 		try { mods.autoHideOfflineFriends.apply(); } catch (e) { mods.states.error("autoHideOfflineFriends"); }
-		try { mods.customFilters.apply(); } catch (e) { mods.states.error("customFilters"); }
 		try { mods.quickRefresh.apply(); } catch (e) { mods.states.error("quickRefresh"); }
 		mods.updateUI();
 		
